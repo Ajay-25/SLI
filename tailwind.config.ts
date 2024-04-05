@@ -20,6 +20,9 @@ const config: Config = {
         sos: {
           'primary-blue': '#1C6EAA',
           'secondary-blue': '#032B4A',
+          'secondary-light-blue': '#ABC7DD',
+          'primary-gold': '#E1B93B',
+          'secondary-dark-gold': '#B18315',
         },
       },
     },
@@ -29,6 +32,10 @@ const config: Config = {
           transform: 'translateX(100%)',
         },
       },
+    },
+    fontSize: {
+      24: '2.4rem',
+      42: '4.2rem',
     },
   },
   plugins: [require('@tailwindcss/forms')],
