@@ -25,6 +25,11 @@ const config: Config = {
           'secondary-dark-gold': '#B18315',
         },
       },
+      fontSize: {
+        24: '2.4rem',
+        42: '4.2rem',
+        32: '3.2rem',
+      },
     },
     keyframes: {
       shimmer: {
@@ -32,10 +37,6 @@ const config: Config = {
           transform: 'translateX(100%)',
         },
       },
-    },
-    fontSize: {
-      24: '2.4rem',
-      42: '4.2rem',
     },
   },
   plugins: [require('@tailwindcss/forms')],

@@ -1,10 +1,13 @@
+//components
+import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+
 const HowToEnrollSection = () => {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[3.2rem] font-medium text-[#032B4A]">
+      <h2 className="text-sos-secondary-blue text-32 font-medium">
         How can I enroll in an SLI course?
       </h2>
-      <div className="flex flex-col gap-8 text-[2.4rem] font-medium text-[#1C6EAA]">
+      <div className="text-sos-primary-blue text-24 flex flex-col gap-8  font-medium">
         <p>
           The SLI currently operates on a nomination basis by regional
           coordinators.
@@ -26,7 +29,7 @@ const HowToEnrollSection = () => {
         <p>
           The SLI operates on a first come first serve basis. Should the course
           be fully reserved, your acceptance into the course will rest upon the
-          discretion of the facilitator teaching that course.{' '}
+          discretion of the facilitator teaching that course.
         </p>
       </div>
     </section>
@@ -36,10 +39,10 @@ const HowToEnrollSection = () => {
 const UnableToAttendSection = () => {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[3.2rem] font-medium text-[#032B4A]">
+      <h2 className="text-sos-secondary-blue text-32 font-medium">
         What if I am invited to a course that I am unable to attend?
       </h2>
-      <p className="flex flex-col gap-8 text-[2.4rem] font-medium text-[#1C6EAA]">
+      <p className="text-sos-primary-blue text-24 flex flex-col gap-8  font-medium">
         The SLI is constantly offering courses. As of 2024, on average, courses
         are offered twice a year. One in-person, and one virtual.
       </p>
@@ -50,11 +53,11 @@ const UnableToAttendSection = () => {
 const CourseAsGroupSection = () => {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[3.2rem] font-medium text-[#032B4A]">
+      <h2 className="text-sos-secondary-blue text-32 font-medium">
         What if a group I do seva with regularly want to take a course as a
         group.
       </h2>
-      <div className="flex flex-col gap-8 text-[2.4rem] font-medium text-[#1C6EAA]">
+      <div className="text-sos-primary-blue text-24 flex flex-col gap-8  font-medium">
         <p>
           Taking SLI courses with your respective seva teams and departments are
           an excellent way to experience these courses!
@@ -72,9 +75,9 @@ const CourseAsGroupSection = () => {
             The regional coordinator will then nominate all people in your list.
           </li>
         </ol>
-        <span className="italic text-[#032B4A]">
+        <span className="text-sos-secondary-blue italic">
           What if our seva team/department are not available for any of the
-          dates posted publicly?{' '}
+          dates posted publicly?
         </span>
         <ol className="list-inside list-decimal pl-4">
           <li>
@@ -95,10 +98,10 @@ const CourseAsGroupSection = () => {
 const LanguagesSection = () => {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[3.2rem] font-medium text-[#032B4A]">
+      <h2 className="text-sos-secondary-blue text-32 font-medium">
         What languages are the SLI courses being offered in?
       </h2>
-      <div className="flex flex-col gap-8 text-[2.4rem] font-medium text-[#1C6EAA]">
+      <div className="text-sos-primary-blue text-24 flex flex-col gap-8  font-medium">
         <p>
           As of Jan 2024, the SLI courses are being offered in English and
           Spanish.
@@ -115,10 +118,10 @@ const LanguagesSection = () => {
 const RegionSection = () => {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[3.2rem] font-medium text-[#032B4A]">
+      <h2 className="text-sos-secondary-blue text-32 font-medium">
         What regions does the SLI give courses in?
       </h2>
-      <div className="flex flex-col gap-8 text-[2.4rem] font-medium text-[#1C6EAA]">
+      <div className="text-sos-primary-blue text-24 flex flex-col gap-8  font-medium">
         <p>
           As of Jan 2024, the SLI does not operate regionally but rather by
           language. The SLI has different administrations per language. Each
@@ -137,10 +140,10 @@ const RegionSection = () => {
 export default function Page() {
   return (
     <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
-      <h1 className="text-[4.2rem] font-medium text-[#1C6EAA]">
+      <h1 className="text-sos-primary-blue text-42 font-medium">
         Frequently Asked Questions
       </h1>
-      <div className="h-[1px] bg-[#E1B93B]" />
+      <SectionSeparator />
       <HowToEnrollSection />
       <UnableToAttendSection />
       <CourseAsGroupSection />

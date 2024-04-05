@@ -2,6 +2,9 @@
 
 import { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
 
+//components
+import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+
 const Input = ({
   name,
   value,
@@ -115,10 +118,10 @@ const ContactForm = () => {
 export default function Page() {
   return (
     <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
-      <h1 className="text-sos-primary-blue text-[4.2rem] font-medium">
+      <h1 className="text-sos-primary-blue text-42 font-medium">
         Contact the SLI Admin for questions
       </h1>
-      <div className="h-[1px] bg-[#E1B93B]" />
+      <SectionSeparator />
       <ContactForm />
     </article>
   );
