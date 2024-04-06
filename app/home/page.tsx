@@ -70,12 +70,132 @@ const ServiceLeadershipContentSection = () => {
   );
 };
 
+const LeadershipInSettings = () => {
+  return (
+    <div
+      className={clsx(
+        'border-sos-primary-gold flex gap-6 border-[0.5rem] p-12 text-white',
+        styles.leadershipBackgroundBlue,
+      )}
+    >
+      <div className="self-center text-[18.2rem] leading-none">1</div>
+      <div className="text-24 self-center">
+        Providing leadership in settings where the overarching mission is to
+        care for, support and encourage positive outcomes for oneself and others
+      </div>
+    </div>
+  );
+};
+
+const LeadershipAsVolunteer = () => {
+  return (
+    <div
+      className={clsx(
+        'border-sos-primary-gold flex gap-6 border-[0.5rem] p-12 text-white',
+        styles.leadershipBackgroundBlue,
+      )}
+    >
+      <div className="self-center text-[18.2rem] leading-none">2</div>
+      <div className="text-24 self-center">
+        Providing leadership as a volunteer for the primary purpose of helping
+        others and supporting a mission. These two conditions play an important
+        role in how service leaders lead. Because the mission of Science of
+        Spirituality is focused on self realization and God realization and
+        founded on the principles of love, unity and, peace; the leadership
+        practices exercised by managers and leaders in the organization should
+        exemplify these qualities.AA
+      </div>
+    </div>
+  );
+};
+
+const LeadershipSection = () => {
+  return (
+    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.jpeg')] bg-cover bg-center">
+      <LeadershipInSettings />
+      <div className="h-6 bg-white"></div>
+      <LeadershipAsVolunteer />
+    </div>
+  );
+};
+
+const ServiceAttendContentSection = () => {
+  return (
+    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8">
+      <h2 className="text-32 text-sos-primary-blue text-center font-medium">
+        How Can I Attend?
+      </h2>
+      <SectionSeparator />
+      <div className="text-24 flex flex-col p-2">
+        <p>
+          The SLI currently offers courses in English and Spanish. If you are in
+          a region that speaks either of these languages officially, please
+          reach out to your Regional Coordinator to express interest in these
+          courses. You will be able to be nominated by your Regional Coordinator
+          to attend the next available SLI course.
+        </p>
+      </div>
+      <div></div>
+    </div>
+  );
+};
+
+const CourseNomination = () => {
+  return (
+    <div
+      className={clsx(
+        'flex gap-6 p-12 text-black',
+        styles.leadershipBackgroundYellow,
+      )}
+    >
+      <div className="self-center text-[18.2rem] leading-none">1</div>
+      <div className="text-24 self-center">
+        Ask your regional coordinator to be nominated for an upcoming SLI course
+      </div>
+    </div>
+  );
+};
+
+const RSVPEmail = () => {
+  return (
+    <div
+      className={clsx(
+        'flex gap-6 p-12 text-black',
+        styles.leadershipBackgroundYellow,
+      )}
+    >
+      <div className="self-center text-[18.2rem] leading-none">2</div>
+      <div className="text-24 flex flex-col gap-4 self-center">
+        <p>
+          If space is available, an RSVP email will be sent to you. Respond
+          accordingly and you will receive a confirmation email with either a
+          link to a virtual class, or the address to the in-person class.
+        </p>
+        <p>Your attendance will be tracked.</p>
+      </div>
+    </div>
+  );
+};
+
+const AttendSection = () => {
+  return (
+    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.jpeg')] bg-cover bg-center">
+      <CourseNomination />
+      <div className="h-6 bg-white"></div>
+      <RSVPEmail />
+    </div>
+  );
+};
+
 export default function Page() {
   return (
-    <>
+    <article className="pb-[8rem]">
       <BannerImageSection />
       <WelcomeContentSection />
       <ServiceLeadershipContentSection />
-    </>
+      <LeadershipSection />
+      <ServiceAttendContentSection />
+      <AttendSection />
+    </article>
   );
 }

@@ -2,3 +2,21 @@
   transform: translate(-50%, -50%);
   width: 60%;
 }
+
+/*   form #1C6EAA to ABC7DD*/
+.leadershipBackgroundBlue {
+  background-image: linear-gradient(
+    to right,
+    rgba(28, 110, 170, 0.9),
+    rgba(171, 199, 221, 0.9)
+  );
+}
+
+/*   form #E1B93B-100% to #E1B93B-20% ~ closest rgba(249 232 181, 0.9)*/
+.leadershipBackgroundYellow {
+  background-image: linear-gradient(
+    to right,
+    rgba(225, 185, 59, 0.9),
+    rgba(249, 232, 181, 0.9)
+  );
+}
