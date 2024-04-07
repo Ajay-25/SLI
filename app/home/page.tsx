@@ -8,18 +8,7 @@ import styles from '@/app/ui/home/home.module.css';
 
 const BannerImageSection = () => {
   return (
-    <>
-      <div className="h-[92rem] w-full bg-[url('/home/home-background.jpeg')] bg-cover bg-center"></div>
-      <div
-        className={clsx(
-          'border-sos-primary-gold absolute left-1/2 top-1/2 border-8 border-solid p-[5rem] text-center text-[5.2rem] font-medium',
-          styles.bannerText,
-        )}
-      >
-        Unlock your potential, embody spiritual wisdom, and lead with love
-        through the transformative leadership programs.
-      </div>
-    </>
+    <div className="h-[110rem] w-full bg-[url('/home/home-content.png')] bg-cover bg-center"></div>
   );
 };
 
