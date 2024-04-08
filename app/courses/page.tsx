@@ -74,8 +74,8 @@ const ItemList = () => {
         <div className="flex flex-col gap-8">
           <p>
             As leaders in a variety of roles, we know that delegation is needed,
-            but it's difficult to put it into action. The delegation course is
-            designed to help you learn more about how to effectively delegate
+            but it&apos;s difficult to put it into action. The delegation course
+            is designed to help you learn more about how to effectively delegate
             and take the next steps in delegating tasks to others. Participants
             will:
           </p>
