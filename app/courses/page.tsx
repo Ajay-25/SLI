@@ -1,6 +1,3 @@
-import clsx from 'clsx';
-import styles from '@/app/ui/home/home.module.css';
-
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
 import Image from 'next/image';
