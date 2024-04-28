@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 
   let mailOptions = {
     from: '"SLI Admin" <sli-admin@sos.org>',
-    to: data.email,
+    to: 'sli-admin@sos.org',
     subject: `contact us query : ${data.subject}`,
     text: data.question,
     html: `<div>
