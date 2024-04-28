@@ -1,6 +1,13 @@
 'use client';
 
-import { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  MouseEventHandler,
+  ReactElement,
+  useState,
+  useCallback,
+} from 'react';
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
@@ -32,35 +39,66 @@ const Input = ({
   );
 };
 
-const sendMail = async () => {
-  // let s = new SMTPClient({
-  //   host: 'smtp.office365.com',
-  //   port: 587,
-  // });
-  //
-  // try {
-  //   await s.connect();
-  //   await s.greet({ hostname: 'smtp.office365.com' }); // runs EHLO command or HELO as a fallback
-  //   await s.authPlain({
-  //     username: 'sli-admin@sos.org',
-  //     password: 'c>uA;SU6Z5(_iZI!,y]H',
-  //   }); // authenticates a user
-  //   await s.mail({ from: 'sli-admin@sos.org' }); // runs MAIL FROM command
-  //   await s.rcpt({ to: 'sli-admin@sos.org' }); // runs RCPT TO command (run this multiple times to add more recii)
-  //   await s.data('Hola mundo mail source'); // runs DATA command and streams email source
-  //   await s.quit(); // runs QUIT command
-  // } catch (e) {
-  //   console.error(e);
-  // }
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  region: string;
+  subject: string;
+  question: string;
 };
 
-const ContactForm = () => {
+const sendMail = (
+  data: FormData,
+  { onComplete }: { onComplete: () => void },
+) => {
+  try {
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log('Response received');
+      if (res.status === 200) {
+        console.log('Response succeeded!');
+        onComplete();
+      }
+    });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const SuccessMessage = ({ onSendMail }: { onSendMail: MouseEventHandler }) => {
+  return (
+    <div className="flex flex-col gap-6">
+      <div className="text-center text-32 font-medium">
+        Your message has been sent!
+      </div>
+      <button
+        type="button"
+        onClick={onSendMail}
+        className="flex-none self-start border border-sos-secondary-dark-gold px-12 py-4 text-24 font-medium text-sos-primary-gold"
+      >
+        Send Another Message
+      </button>
+    </div>
+  );
+};
+
+const InputFor = () => {};
+
+const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     region: '',
     subject: '',
     question: '',
+    email: '',
   });
 
   const handleChange = (e: ChangeEvent<{ name: string; value: string }>) => {
@@ -75,18 +113,7 @@ const ContactForm = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Add logic to handle form submission here
-
-    sendMail();
-
-    console.log(formData);
-    // Reset form fields after submission
-    // setFormData({
-    //   firstName: '',
-    //   lastName: '',
-    //   region: '',
-    //   subject: '',
-    //   question: '',
-    // });
+    sendMail(formData, { onComplete: onSubmit });
   };
 
   return (
@@ -109,6 +136,12 @@ const ContactForm = () => {
           placeholder="Last Name"
         />
       </div>
+      <Input
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
       <Input
         name="region"
         value={formData.region}
@@ -143,13 +176,22 @@ const ContactForm = () => {
 };
 
 export default function Page() {
+  const [mailSent, setMailSent] = useState(false);
+
+  const handleSubmit = useCallback(() => setMailSent(true), []);
+  const sendMail = useCallback(() => setMailSent(false), []);
+
   return (
     <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
       <h1 className="text-42 font-medium text-sos-primary-blue">
         Contact the SLI Admin for questions
       </h1>
       <SectionSeparator />
-      <ContactForm />
+      {mailSent ? (
+        <SuccessMessage onSendMail={sendMail} />
+      ) : (
+        <ContactForm onSubmit={handleSubmit} />
+      )}
     </article>
   );
 }
