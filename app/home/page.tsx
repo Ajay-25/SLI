@@ -2,22 +2,17 @@ import clsx from 'clsx';
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { Carousel } from '@/app/ui/home/carousel';
 
 //styles
 import styles from '@/app/ui/home/home.module.css';
 
-const BannerImageSection = () => {
-  return (
-    <div className="h-[110rem] w-full bg-[url('/home/home-content.png')] bg-cover bg-center"></div>
-  );
-};
-
 const WelcomeContentSection = () => {
   return (
     <div className="mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 shadow-2xl">
-      <h1 className="text-42 text-center font-medium">Welcome</h1>
+      <h1 className="text-center text-42 font-medium">Welcome</h1>
       <SectionSeparator />
-      <div className="text-24 flex flex-col gap-8 p-2 text-center">
+      <div className="flex flex-col gap-8 p-2 text-center text-24">
         <p>
           Welcome to the Service Leadership Institute, where we merge the
           profound teachings of the Spiritual Masters with practical leadership
@@ -41,11 +36,11 @@ const WelcomeContentSection = () => {
 const ServiceLeadershipContentSection = () => {
   return (
     <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8">
-      <h2 className="text-32 text-sos-primary-blue text-center font-medium">
+      <h2 className="text-center text-32 font-medium text-sos-primary-blue">
         What is the Service Leadership Institute
       </h2>
       <SectionSeparator />
-      <div className="text-24 flex flex-col p-2">
+      <div className="flex flex-col p-2 text-24">
         <p>
           Service Leadership starts with the premise that serving through
           leadership is most effective when we draw from the Qualities of our
@@ -63,12 +58,12 @@ const LeadershipInSettings = () => {
   return (
     <div
       className={clsx(
-        'border-sos-primary-gold flex gap-6 border-[0.5rem] p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-12 text-white',
         styles.leadershipBackgroundBlue,
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">1</div>
-      <div className="text-24 self-center">
+      <div className="self-center text-24">
         Providing leadership in settings where the overarching mission is to
         care for, support and encourage positive outcomes for oneself and others
       </div>
@@ -80,12 +75,12 @@ const LeadershipAsVolunteer = () => {
   return (
     <div
       className={clsx(
-        'border-sos-primary-gold flex gap-6 border-[0.5rem] p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-12 text-white',
         styles.leadershipBackgroundBlue,
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">2</div>
-      <div className="text-24 self-center">
+      <div className="self-center text-24">
         Providing leadership as a volunteer for the primary purpose of helping
         others and supporting a mission. These two conditions play an important
         role in how service leaders lead. Because the mission of Science of
@@ -111,11 +106,11 @@ const LeadershipSection = () => {
 const ServiceAttendContentSection = () => {
   return (
     <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8">
-      <h2 className="text-32 text-sos-primary-blue text-center font-medium">
+      <h2 className="text-center text-32 font-medium text-sos-primary-blue">
         How Can I Attend?
       </h2>
       <SectionSeparator />
-      <div className="text-24 flex flex-col p-2">
+      <div className="flex flex-col p-2 text-24">
         <p>
           The SLI currently offers courses in English and Spanish. If you are in
           a region that speaks either of these languages officially, please
@@ -138,7 +133,7 @@ const CourseNomination = () => {
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">1</div>
-      <div className="text-24 self-center">
+      <div className="self-center text-24">
         Ask your regional coordinator to be nominated for an upcoming SLI course
       </div>
     </div>
@@ -154,7 +149,7 @@ const RSVPEmail = () => {
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">2</div>
-      <div className="text-24 flex flex-col gap-4 self-center">
+      <div className="flex flex-col gap-4 self-center text-24">
         <p>
           If space is available, an RSVP email will be sent to you. Respond
           accordingly and you will receive a confirmation email with either a
@@ -179,7 +174,7 @@ const AttendSection = () => {
 export default function Page() {
   return (
     <article className="pb-[8rem]">
-      <BannerImageSection />
+      <Carousel />
       <WelcomeContentSection />
       <ServiceLeadershipContentSection />
       <LeadershipSection />
