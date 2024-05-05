@@ -6,6 +6,7 @@ import { Navbar } from '@/app/ui/home/navbar';
 
 //types
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
 
 function HomeLayout({ children }: { children: ReactNode }) {
   return (
@@ -27,3 +28,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: {
+    template: 'SLI | %s',
+    default: 'SLI',
+  },
+  description:
+    'Discover the art of effective meeting management, loving communication, and the essentials of service leadership',
+};

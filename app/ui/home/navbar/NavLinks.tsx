@@ -24,10 +24,10 @@ export function NavLinks({ className }: { className: string }) {
             key={link.name}
             href={link.href}
             className={clsx(
-              'hover:text-sos-secondary-blue text-24 flex flex-none cursor-pointer p-2.5 font-medium',
+              'flex flex-none cursor-pointer p-2.5 text-24 font-medium hover:text-sos-secondary-blue',
               pathname === link.href
                 ? 'text-sos-secondary-blue'
-                : 'text-sos-secondary-light-blue',
+                : 'text-sos-primary-blue',
             )}
           >
             {link.name}
