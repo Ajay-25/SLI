@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 
 const BannerImageSection = () => {
   return (
-    <div className="h-[110rem] w-full bg-[url('/home/courses-content.png')] bg-cover bg-center"></div>
+    <div className="h-[60rem] w-full bg-[url('/home/courses-content-2.png')] bg-cover bg-center"></div>
   );
 };
 

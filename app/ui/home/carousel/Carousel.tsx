@@ -3,29 +3,16 @@
 import React from 'react';
 import useCarousel from './useCarousel';
 
+//components
+import { Video } from '../video';
+
 const BannerImageSection = () => {
   return (
-    <div className="h-[80rem] w-full bg-[url('/home/home-content-edit.png')] bg-cover bg-center"></div>
+    <div className="h-[60rem] w-full bg-[url('/home/home-content-edit.png')] bg-cover bg-center"></div>
   );
 };
 
-const VideoItem = () => {
-  return (
-    <div className="video-container">
-      <iframe
-        width="100%"
-        height="800px"
-        src="https://www.youtube.com/embed/Lepmnv6GRZo?si=82J6VdxrRpK0k4d1"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      ></iframe>
-    </div>
-  );
-};
-
-const carouselItems = [BannerImageSection, VideoItem];
+const carouselItems = [BannerImageSection, Video];
 
 const Carousel = () => {
   const { currentIndex, showPrev, showNext } = useCarousel(2);

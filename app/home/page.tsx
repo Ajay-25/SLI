@@ -2,10 +2,18 @@ import clsx from 'clsx';
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
-import { Carousel } from '@/app/ui/home/carousel';
+import { VideoContainer } from '@/app/ui/home/videoContainer';
 
 //styles
 import styles from '@/app/ui/home/home.module.css';
+
+const BannerSection = () => {
+  return (
+    <div className="flex h-[60rem] w-full items-center justify-center bg-[url('/home/home-background.jpeg')] bg-cover bg-center">
+      <VideoContainer />
+    </div>
+  );
+};
 
 const WelcomeContentSection = () => {
   return (
@@ -174,7 +182,7 @@ const AttendSection = () => {
 export default function Page() {
   return (
     <article className="pb-[8rem]">
-      <Carousel />
+      <BannerSection />
       <WelcomeContentSection />
       <ServiceLeadershipContentSection />
       <LeadershipSection />
