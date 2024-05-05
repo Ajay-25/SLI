@@ -4,7 +4,10 @@ import { inter } from '@/app/ui/fonts';
 //components
 import { Navbar } from '@/app/ui/home/navbar';
 
-function HomeLayout({ children }: { children: React.ReactNode }) {
+//types
+import { ReactNode } from 'react';
+
+function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex h-screen flex-col">
       <div className="w-full flex-none">
@@ -15,11 +18,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>

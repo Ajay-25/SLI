@@ -8,7 +8,7 @@ import { Video } from '../video';
 
 const BannerImageSection = () => {
   return (
-    <div className="h-[60rem] w-full bg-[url('/home/home-content-edit.png')] bg-cover bg-center"></div>
+    <div className="h-[60rem] w-full bg-[url('/home/home-background.webp')] bg-cover bg-center"></div>
   );
 };
 

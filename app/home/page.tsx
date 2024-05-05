@@ -9,7 +9,7 @@ import styles from '@/app/ui/home/home.module.css';
 
 const BannerSection = () => {
   return (
-    <div className="flex h-[60rem] w-full items-center justify-center bg-[url('/home/home-background.jpeg')] bg-cover bg-center">
+    <div className="flex h-[60rem] w-full items-center justify-center bg-[url('/home/home-background.webp')] bg-cover bg-center">
       <VideoContainer />
     </div>
   );
@@ -103,7 +103,7 @@ const LeadershipAsVolunteer = () => {
 
 const LeadershipSection = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.jpeg')] bg-cover bg-center">
+    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
       <LeadershipInSettings />
       <div className="h-6 bg-white"></div>
       <LeadershipAsVolunteer />
@@ -171,7 +171,7 @@ const RSVPEmail = () => {
 
 const AttendSection = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.jpeg')] bg-cover bg-center">
+    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
       <CourseNomination />
       <div className="h-6 bg-white"></div>
       <RSVPEmail />

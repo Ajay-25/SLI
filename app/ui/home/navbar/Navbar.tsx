@@ -9,7 +9,7 @@ export function Navbar() {
     <div className="flex h-[9.8rem] justify-between px-[14.2rem] shadow-xl">
       <Link className="flex h-full items-center justify-center" href="/home">
         <Image
-          src="/home/home-logo.jpeg"
+          src="/home/home-logo.webp"
           width={94}
           height={94}
           className="block shadow-lg"

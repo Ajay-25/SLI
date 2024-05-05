@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 
 const BannerImageSection = () => {
   return (
-    <div className="h-[60rem] w-full bg-[url('/home/courses-content-2.png')] bg-cover bg-center"></div>
+    <div className="h-[60rem] w-full bg-[url('/home/courses-content.webp')] bg-cover bg-center"></div>
   );
 };
 
@@ -38,7 +38,7 @@ const ItemList = () => {
   return (
     <div className="mx-[14.2rem] flex flex-col">
       <Item
-        source="/home/loving-communication.jpeg"
+        source="/home/loving-communication.webp"
         altText="Loving Communication"
       >
         <div>
@@ -51,7 +51,7 @@ const ItemList = () => {
       </Item>
       <SectionSeparator />
       <Item
-        source="/home/serving-others.jpeg"
+        source="/home/serving-others.webp"
         altText="Serving Others As they grow"
       >
         <div>
@@ -67,7 +67,7 @@ const ItemList = () => {
         </div>
       </Item>
       <SectionSeparator />
-      <Item source="/home/delegation.jpeg" altText="Delegation">
+      <Item source="/home/delegation.webp" altText="Delegation">
         <div className="flex flex-col gap-8">
           <p>
             As leaders in a variety of roles, we know that delegation is needed,
@@ -91,7 +91,7 @@ const ItemList = () => {
       </Item>
       <SectionSeparator />
       <Item
-        source="/home/conflict-resolution.jpeg"
+        source="/home/conflict-resolution.webp"
         altText="Conflict Resolution"
       >
         <div>
@@ -104,7 +104,7 @@ const ItemList = () => {
       </Item>
       <SectionSeparator />
       <Item
-        source="/home/effective_meeting_management.jpeg"
+        source="/home/effective_meeting_management.webp"
         altText="Meeting Managment"
       >
         <div className="flex flex-col gap-6">
@@ -131,7 +131,7 @@ const ItemList = () => {
       </Item>
       <SectionSeparator />
       <Item
-        source="/home/collaborative_decision_making.jpeg"
+        source="/home/collaborative_decision_making.webp"
         altText="Collaborative Decision Making"
       >
         <div className="flex flex-col gap-6">
@@ -164,7 +164,7 @@ const ItemList = () => {
       </Item>
       <SectionSeparator />
       <Item
-        source="/home/building_lasting_change.jpeg"
+        source="/home/building_lasting_change.webp"
         altText="Building Lasting Change"
       >
         <div>
