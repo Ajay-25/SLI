@@ -1,5 +1,30 @@
-## Next.js App Router Course - Starter
+# SLI 
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+## Description
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+Service Leadership Institute Website
+
+## Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+
+## Installation
+
+
+```bash
+# Clone the repository
+git clone git@github.com:Ajay-25/SLI.git
+
+# Navigate to the project directory
+cd SLI
+
+# Install dependencies
+npm install
+```
+
+## Usage
+
+```bash
+# Start the development server
+npm run dev
