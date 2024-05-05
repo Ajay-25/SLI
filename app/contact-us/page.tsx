@@ -11,6 +11,7 @@ import {
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import {Metadata} from "next";
 
 const Input = ({
   name,
@@ -195,3 +196,4 @@ export default function Page() {
     </article>
   );
 }
+

@@ -3,6 +3,7 @@ import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
 
 //types
 import { ReactElement } from 'react';
+import { Metadata } from 'next';
 
 const config = [
   {
@@ -101,3 +102,7 @@ export default function Page() {
     </article>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Courses Schedule',
+};

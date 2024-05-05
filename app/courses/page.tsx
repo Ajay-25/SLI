@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 //types
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
 
 const BannerImageSection = () => {
   return (
@@ -189,3 +190,7 @@ export default function Page() {
     </article>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Courses',
+};
