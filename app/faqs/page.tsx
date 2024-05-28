@@ -8,7 +8,7 @@ const HowToEnrollSection = () => {
       <h2 className="text-32 font-medium text-sos-secondary-blue">
         How can I enroll in an SLI course?
       </h2>
-      <div className="flex flex-col gap-8 text-24 font-medium  text-sos-primary-blue">
+      <div className="flex flex-col gap-8 text-16 font-medium  text-sos-primary-blue">
         <p>
           The SLI currently operates on a nomination basis by regional
           coordinators.
@@ -24,7 +24,7 @@ const HowToEnrollSection = () => {
             and you will receive and RSVP link to the seva portal.
           </li>
         </ol>
-        <span className="underline">
+        <span className="underline text-24">
           It is crucial that you RSVP to reserve your seat.
         </span>
         <p>
@@ -43,7 +43,7 @@ const UnableToAttendSection = () => {
       <h2 className="text-32 font-medium text-sos-secondary-blue">
         What if I am invited to a course that I am unable to attend?
       </h2>
-      <p className="flex flex-col gap-8 text-24 font-medium  text-sos-primary-blue">
+      <p className="flex flex-col gap-8 text-16 font-medium  text-sos-primary-blue">
         The SLI is constantly offering courses. As of 2024, on average, courses
         are offered twice a year. One in-person, and one virtual.
       </p>
@@ -58,7 +58,7 @@ const CourseAsGroupSection = () => {
         What if a group I do seva with regularly want to take a course as a
         group.
       </h2>
-      <div className="flex flex-col gap-8 text-24 font-medium  text-sos-primary-blue">
+      <div className="flex flex-col gap-8 text-16 font-medium  text-sos-primary-blue">
         <p>
           Taking SLI courses with your respective seva teams and departments are
           an excellent way to experience these courses!
@@ -76,7 +76,7 @@ const CourseAsGroupSection = () => {
             The regional coordinator will then nominate all people in your list.
           </li>
         </ol>
-        <span className="italic text-sos-secondary-blue">
+        <span className="italic text-sos-secondary-blue text-24">
           What if our seva team/department are not available for any of the
           dates posted publicly?
         </span>
@@ -102,7 +102,7 @@ const LanguagesSection = () => {
       <h2 className="text-32 font-medium text-sos-secondary-blue">
         What languages are the SLI courses being offered in?
       </h2>
-      <div className="flex flex-col gap-8 text-24 font-medium  text-sos-primary-blue">
+      <div className="flex flex-col gap-8 text-16 font-medium  text-sos-primary-blue">
         <p>
           As of Jan 2024, the SLI courses are being offered in English and
           Spanish.
@@ -122,7 +122,7 @@ const RegionSection = () => {
       <h2 className="text-32 font-medium text-sos-secondary-blue">
         What regions does the SLI give courses in?
       </h2>
-      <div className="flex flex-col gap-8 text-24 font-medium  text-sos-primary-blue">
+      <div className="flex flex-col gap-8 text-16 font-medium  text-sos-primary-blue">
         <p>
           As of Jan 2024, the SLI does not operate regionally but rather by
           language. The SLI has different administrations per language. Each

@@ -5,61 +5,48 @@ import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
 import { ReactElement } from 'react';
 import { Metadata } from 'next';
 
-const config = [
+type Course = {
+  name: string;
+  trainingDate: string;
+  startTime: string;
+  endTime: string;
+  timezone: string;
+  venue: string;
+  facilitators: string[];
+  language: string;
+  seats?: number;
+  totalSeats?: number;
+};
+
+type Config = Array<{ month: string; courses: Array<Course> }>;
+
+const config: Config = [
   {
-    month: 'January',
+    month: 'June',
     courses: [
       {
-        name: 'Loving Communication pt. 1',
-        trainingDate: 'Jan 12th',
-        startTime: '10:00am',
-        endTime: '1:00pm',
-        timezone: 'UCT',
-        venue: 'Virtual',
-        seats: '13',
-        totalSeats: '25',
-        facilitators: ['Brian Waterloo', 'Kaite Forsythe'],
-        language: 'English',
-      },
-      {
-        name: 'Loving Communication pt. 2',
-        trainingDate: 'Jan 17th',
-        startTime: '10:00am',
-        endTime: '1:00pm',
-        timezone: 'UCT',
-        venue: 'Virtual',
-        seats: '8',
-        totalSeats: '25',
-        facilitators: ['Brian Waterloo', 'Kaite Forsythe'],
+        name: 'Loving communication',
+        trainingDate: 'Jun 2nd ',
+        startTime: '10:30am',
+        endTime: '1:30pm',
+        timezone: 'CDT',
+        venue: 'Lisle Center',
+        facilitators: ['Kait', 'Vicki Lumpkin'],
         language: 'English',
       },
     ],
   },
   {
-    month: 'February',
+    month: 'July',
     courses: [
       {
         name: 'Meeting Management',
-        trainingDate: 'Feb 10th',
+        trainingDate: 'Jul 14',
         startTime: '10:00am',
         endTime: '1:00pm',
-        timezone: 'UCT',
+        timezone: 'CDT',
         venue: 'Virtual',
-        seats: '5',
-        totalSeats: '25',
-        facilitators: ['Brian Waterloo', 'Kaite Forsythe'],
-        language: 'English',
-      },
-      {
-        name: 'Loving Communication',
-        trainingDate: 'Feb 17th',
-        startTime: '10:00am',
-        endTime: '1:00pm',
-        timezone: 'UCT',
-        venue: 'Virtual',
-        seats: '16',
-        totalSeats: '25',
-        facilitators: ['Brian Waterloo', 'Kaite Forsythe'],
+        facilitators: ['Tom', 'Karla'],
         language: 'English',
       },
     ],
@@ -68,16 +55,18 @@ const config = [
 
 const CoursesList = (): ReactElement[] => {
   return config.map(({ month, courses }) => (
-    <div key={month} className="flex flex-col gap-6">
+    <div key={month} className="flex flex-col gap-6 font-medium">
       <h2 className="text-42">{month}</h2>
       <div className="grid grid-cols-2 gap-12">
         {courses.map((course) => (
           <div key={course.name} className="flex flex-col gap-3">
-            <h3 className="text-32">{course.name}</h3>
-            <div className="flex flex-col gap-3 text-24">
+            <h3 className="text-24">{course.name}</h3>
+            <div className="text-12 flex flex-col gap-3">
               <span>{`${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`}</span>
               <span>{`Location: ${course.venue}`}</span>
-              <span>{`Seats Available: ${course.seats}/${course.totalSeats}`}</span>
+              {course.seats && course.totalSeats ? (
+                <span>{`Seats Available: ${course.seats}/${course.totalSeats}`}</span>
+              ) : null}
               {course.facilitators.map((facilitator) => (
                 <span key={facilitator}>{`Facilitator: ${facilitator}`}</span>
               ))}

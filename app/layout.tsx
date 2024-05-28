@@ -1,5 +1,5 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import { futuraFont } from '@/app/ui/fonts';
 
 //components
 import { Navbar } from '@/app/ui/home/navbar';
@@ -22,7 +22,7 @@ function HomeLayout({ children }: { children: ReactNode }) {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${futuraFont.className} antialiased`}>
         <HomeLayout>{children}</HomeLayout>
       </body>
     </html>

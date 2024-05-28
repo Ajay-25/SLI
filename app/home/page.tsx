@@ -17,10 +17,10 @@ const BannerSection = () => {
 
 const WelcomeContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 shadow-2xl">
+    <div className="mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl">
       <h1 className="text-center text-42 font-medium">Welcome</h1>
       <SectionSeparator />
-      <div className="flex flex-col gap-8 p-2 text-center text-24">
+      <div className="text-16 flex flex-col gap-8 p-2 text-center">
         <p>
           Welcome to the Service Leadership Institute, where we merge the
           profound teachings of the Spiritual Masters with practical leadership
@@ -43,12 +43,12 @@ const WelcomeContentSection = () => {
 
 const ServiceLeadershipContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8">
-      <h2 className="text-center text-32 font-medium text-sos-primary-blue">
+    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+      <h2 className="text-center text-32 font-medium">
         What is the Service Leadership Institute
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-24">
+      <div className="text-16 flex flex-col p-2">
         <p>
           Service Leadership starts with the premise that serving through
           leadership is most effective when we draw from the Qualities of our
@@ -113,12 +113,10 @@ const LeadershipSection = () => {
 
 const ServiceAttendContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8">
-      <h2 className="text-center text-32 font-medium text-sos-primary-blue">
-        How Can I Attend?
-      </h2>
+    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+      <h2 className="text-center text-32 font-medium">How Can I Attend?</h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-24">
+      <div className="text-16 flex flex-col p-2">
         <p>
           The SLI currently offers courses in English and Spanish. If you are in
           a region that speaks either of these languages officially, please
@@ -136,7 +134,7 @@ const CourseNomination = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-12 text-black',
+        'flex gap-6 p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
       )}
     >
@@ -152,7 +150,7 @@ const RSVPEmail = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-12 text-black',
+        'flex gap-6 p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
       )}
     >
