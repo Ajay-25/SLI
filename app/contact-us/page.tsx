@@ -33,7 +33,7 @@ const Input = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="text-16 grow border-current p-4 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
+      className="text-20 grow border-current p-4 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
       required={required}
     />
   );
@@ -81,7 +81,7 @@ const SuccessMessage = ({ onSendMail }: { onSendMail: MouseEventHandler }) => {
       <button
         type="button"
         onClick={onSendMail}
-        className="text-16 flex-none self-start border border-sos-secondary-dark-gold px-12 py-4 font-medium text-sos-primary-gold"
+        className="text-20 flex-none self-start border border-sos-secondary-dark-gold px-12 py-4 font-medium text-sos-primary-gold"
       >
         Send Another Message
       </button>
@@ -163,11 +163,11 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
         rows={4}
         placeholder="Question"
         required
-        className="text-16 max-h-80 grow overflow-auto border-current p-4 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
+        className="text-20 max-h-80 grow overflow-auto border-current p-4 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
       />
       <button
         type="submit"
-        className="text-16 flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-12 py-4 font-medium text-white"
+        className="text-20 flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-12 py-4 font-medium text-white"
       >
         Send
       </button>

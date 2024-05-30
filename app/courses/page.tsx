@@ -30,7 +30,7 @@ const Item = ({
         alt={altText}
         className="self-start"
       />
-      <div className="text-16 text-sos-primary-blue">{children}</div>
+      <div className="text-20 text-sos-primary-blue">{children}</div>
     </div>
   );
 };
