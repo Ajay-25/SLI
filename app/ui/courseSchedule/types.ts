@@ -49,6 +49,7 @@ export type CourseSchedule = {
 };
 
 export type AdaptedCourse = {
+  id: number;
   name: string;
   trainingDate: string;
   startTime: string;

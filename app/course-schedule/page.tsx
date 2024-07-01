@@ -1,4 +1,5 @@
 //components
+import Link from 'next/link';
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
 
 //utils
@@ -31,6 +32,14 @@ const CoursesList = ({ config }: { config: Config }): ReactElement[] => {
               ))}
               <span>{`Language: ${course.language}`}</span>
             </div>
+            <Link
+              href={`https://scd.sos.org/#/LandingPage?rsvpScheduleId=${course.id}`}
+              target="_blank"
+              referrerPolicy="no-referrer"
+              className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-12 py-4 text-20 font-medium text-white"
+            >
+              Register
+            </Link>
             <SectionSeparator />
           </div>
         ))}
