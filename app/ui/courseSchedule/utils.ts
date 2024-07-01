@@ -84,6 +84,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
         month: new Date(course.startTime).toLocaleString('en-US', {
           month: 'long',
         }),
+        id: course.Module.id,
         name: course.Module.name,
         trainingDate: formatDate(new Date(course.startTime)), // use formatEvent
         startTime: formatTime(new Date(course.startTime)),
@@ -108,7 +109,11 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
   const config: Config = Object.entries(groupedCourses)
     .map(([month, courses]) => ({
       month,
-      courses,
+      courses: courses.sort((a, b) => {
+        const dateA = new Date(a.trainingDate);
+        const dateB = new Date(b.trainingDate);
+        return dateA.getTime() - dateB.getTime();
+      }),
     }))
     .sort((a, b) => {
       const monthA = new Date(`01 ${a.month}`).getMonth();
