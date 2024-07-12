@@ -11,7 +11,7 @@ import { Metadata } from 'next';
 import { Config, CourseSchedule } from '@/app/ui/courseSchedule/types';
 
 const EmptyPlaceholder = () => {
-  return <h3 className="text-24">No Courses are scheduled currently</h3>;
+  return <h3 className="text-24">There are currently no scheduled courses.</h3>;
 };
 
 const CoursesList = ({
