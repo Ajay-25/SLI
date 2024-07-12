@@ -76,29 +76,35 @@ function getDateConfig(dateString: string): {
 }
 
 export const adaptCourses = (courses: CourseSchedule[]): Config => {
+  const currentTime = Date.now();
+
   const transformedCourses = courses.reduce<
     Array<AdaptedCourse & { month: string }>
   >((acc, course) => {
     if (course.Module) {
-      acc.push({
-        month: new Date(course.startTime).toLocaleString('en-US', {
-          month: 'long',
-        }),
-        id: course.Module.id,
-        name: course.Module.name,
-        trainingDate: formatDate(new Date(course.startTime)), // use formatEvent
-        startTime: formatTime(new Date(course.startTime)),
-        endTime: formatTime(new Date(course.endTime)),
-        timezone: course.trainingTimeZone,
-        venue: course.venue,
-        facilitators: [
-          course.Module.facilitator,
-          course.Module.Facilitators,
-        ].filter(Boolean),
-        language: course.language,
-        seats: course.seats,
-        totalSeats: course.confirmed + course.applied,
-      });
+      const courseStartTime = new Date(course.startTime).getTime();
+
+      if (courseStartTime > currentTime) {
+        acc.push({
+          month: new Date(course.startTime).toLocaleString('en-US', {
+            month: 'long',
+          }),
+          id: course.Module.id,
+          name: course.Module.name,
+          trainingDate: formatDate(new Date(course.startTime)), // todo: use formatEvent
+          startTime: formatTime(new Date(course.startTime)),
+          endTime: formatTime(new Date(course.endTime)),
+          timezone: course.trainingTimeZone,
+          venue: course.venue,
+          facilitators: [
+            course.Module.facilitator,
+            course.Module.Facilitators,
+          ].filter(Boolean),
+          language: course.language,
+          seats: course.seats,
+          totalSeats: course.confirmed + course.applied,
+        });
+      }
     }
 
     return acc;

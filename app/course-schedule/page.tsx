@@ -10,11 +10,23 @@ import { ReactElement } from 'react';
 import { Metadata } from 'next';
 import { Config, CourseSchedule } from '@/app/ui/courseSchedule/types';
 
-const CoursesList = ({ config }: { config: Config }): ReactElement[] => {
+const EmptyPlaceholder = () => {
+  return <h3 className="text-24">No Courses are scheduled currently</h3>;
+};
+
+const CoursesList = ({
+  config,
+}: {
+  config: Config;
+}): ReactElement[] | ReactElement => {
+  if (config.length === 0) {
+    return <EmptyPlaceholder />;
+  }
+
   return config.map(({ month, courses }) => (
     <div key={month} className="flex flex-col gap-6 font-medium">
       <h2 className="text-42">{month}</h2>
-      <div className="grid grid-cols-2 gap-12">
+      <div className="grid-cols-auto-fill-minmax-300 grid gap-12">
         {courses.map((course) => (
           <div
             key={course.name}
