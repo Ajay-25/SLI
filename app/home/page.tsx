@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
@@ -20,7 +21,7 @@ const WelcomeContentSection = () => {
     <div className="mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl">
       <h1 className="text-center text-42 font-medium">Welcome</h1>
       <SectionSeparator />
-      <div className="text-20 flex flex-col gap-8 p-2 text-center">
+      <div className="flex flex-col gap-8 p-2 text-center text-20">
         <p>
           Welcome to the Service Leadership Institute, where we merge the
           profound teachings of the Spiritual Masters with practical leadership
@@ -48,7 +49,7 @@ const ServiceLeadershipContentSection = () => {
         What is the Service Leadership Institute
       </h2>
       <SectionSeparator />
-      <div className="text-20 flex flex-col p-2">
+      <div className="flex flex-col p-2 text-20">
         <p>
           Service Leadership starts with the premise that serving through
           leadership is most effective when we draw from the Qualities of our
@@ -95,7 +96,7 @@ const LeadershipAsVolunteer = () => {
         Spirituality is focused on self realization and God realization and
         founded on the principles of love, unity and, peace; the leadership
         practices exercised by managers and leaders in the organization should
-        exemplify these qualities.AA
+        exemplify these qualities.
       </div>
     </div>
   );
@@ -116,13 +117,11 @@ const ServiceAttendContentSection = () => {
     <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
       <h2 className="text-center text-32 font-medium">How Can I Attend?</h2>
       <SectionSeparator />
-      <div className="text-20 flex flex-col p-2">
+      <div className="flex flex-col p-2 text-20">
         <p>
-          The SLI currently offers courses in English and Spanish. If you are in
-          a region that speaks either of these languages officially, please
-          reach out to your Regional Coordinator to express interest in these
-          courses. You will be able to be nominated by your Regional Coordinator
-          to attend the next available SLI course.
+          The SLI currently offers courses in English and Spanish. The course
+          schedule will be posted on this website on the “Courses” page where
+          you are able to register yourself.
         </p>
       </div>
       <div></div>
@@ -140,7 +139,11 @@ const CourseNomination = () => {
     >
       <div className="self-center text-[18.2rem] leading-none">1</div>
       <div className="self-center text-24">
-        Ask your regional coordinator to be nominated for an upcoming SLI course
+        Visit{' '}
+        <Link className="underline" href="https://sli.sos.org">
+          sli.sos.org
+        </Link>{' '}
+        (this website)
       </div>
     </div>
   );
@@ -157,11 +160,9 @@ const RSVPEmail = () => {
       <div className="self-center text-[18.2rem] leading-none">2</div>
       <div className="flex flex-col gap-4 self-center text-24">
         <p>
-          If space is available, an RSVP email will be sent to you. Respond
-          accordingly and you will receive a confirmation email with either a
-          link to a virtual class, or the address to the in-person class.
+          Navigate to the “Courses” page and register to the course you wish to
+          attend
         </p>
-        <p>Your attendance will be tracked.</p>
       </div>
     </div>
   );

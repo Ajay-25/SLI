@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 
 const BannerImageSection = () => {
   return (
-    <div className="h-[60rem] w-full bg-[url('/home/courses-content-2.webp')] bg-cover bg-center"></div>
+    <div className="h-[25rem] w-full bg-[url('/home/courses-content-2.webp')] bg-cover bg-center sm:h-[35rem] md:h-[40rem] lg:h-[45rem] xl:h-[60rem]"></div>
   );
 };
 
