@@ -9,22 +9,18 @@ const HowToEnrollSection = () => {
         How can I enroll in an SLI course?
       </h2>
       <div className="flex flex-col gap-8 text-20 font-medium  text-sos-primary-blue">
-        <p>
-          The SLI currently operates on a nomination basis by regional
-          coordinators.
-        </p>
+        <p>The SLI currently operates on an open enrollment basis.</p>
         <ol className="list-inside list-decimal pl-4">
           <li>
-            Establish contact with your respective regional coordinators to
-            express interest in a course and should there be available seats,
-            they will nominate you for attendance.
+            You may visit sli.sos.org (this website) and navigate to the
+            “Courses page”.
           </li>
-          <li>
-            The facilitator of the SLI course will then accept the nomination
-            and you will receive and RSVP link to the seva portal.
-          </li>
+          <li>Identify the course you wish to enroll in.</li>
+          <li>Click on “register”</li>
+          <li>Fill out the RSVP form.</li>
+          <li>Take note on the date and time of the event.</li>
         </ol>
-        <span className="underline text-24">
+        <span className="text-24 underline">
           It is crucial that you RSVP to reserve your seat.
         </span>
         <p>
@@ -76,7 +72,7 @@ const CourseAsGroupSection = () => {
             The regional coordinator will then nominate all people in your list.
           </li>
         </ol>
-        <span className="italic text-sos-secondary-blue text-24">
+        <span className="text-24 italic text-sos-secondary-blue">
           What if our seva team/department are not available for any of the
           dates posted publicly?
         </span>

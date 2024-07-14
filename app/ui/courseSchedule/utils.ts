@@ -82,7 +82,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
     Array<AdaptedCourse & { month: string }>
   >((acc, course) => {
     if (course.Module) {
-      const courseStartTime = new Date(course.startTime).getTime();
+      const courseStartTime = new Date(course.trainingDate).getTime();
 
       if (courseStartTime > currentTime) {
         acc.push({
