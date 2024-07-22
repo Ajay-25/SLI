@@ -86,12 +86,12 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
 
       if (courseStartTime > currentTime) {
         acc.push({
-          month: new Date(course.startTime).toLocaleString('en-US', {
+          month: new Date(course.trainingDate).toLocaleString('en-US', {
             month: 'long',
           }),
           id: course.Module.id,
           name: course.Module.name,
-          trainingDate: formatDate(new Date(course.startTime)), // todo: use formatEvent
+          trainingDate: formatDate(new Date(course.trainingDate)), // todo: use formatEvent
           startTime: formatTime(new Date(course.startTime)),
           endTime: formatTime(new Date(course.endTime)),
           timezone: course.trainingTimeZone,
