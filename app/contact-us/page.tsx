@@ -1,5 +1,7 @@
 'use client';
 
+import axios from 'axios';
+
 import {
   ChangeEvent,
   FormEvent,
@@ -8,6 +10,11 @@ import {
   useState,
   useCallback,
 } from 'react';
+
+import { GoogleCaptchaProvider } from '@/app/ui/googleCaptchaProvider';
+
+//hooks
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 //components
 import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
@@ -46,29 +53,32 @@ type FormData = {
   region: string;
   subject: string;
   question: string;
+  reCaptchaToken: string;
 };
 
-const sendMail = (
+const sendMail = async (
   data: FormData,
-  { onComplete }: { onComplete: () => void },
+  { onComplete, onError }: { onComplete: () => void; onError: () => void },
 ) => {
   try {
-    fetch('/api/contact', {
+    const response = await axios({
       method: 'POST',
+      url: '/api/contact',
+      data,
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      console.log('Response received');
-      if (res.status === 200) {
-        console.log('Response succeeded!');
-        onComplete();
-      }
     });
+
+    console.log('Response received');
+    if (response.status === 200) {
+      console.log('Response succeeded!');
+      onComplete();
+    }
   } catch (e) {
     console.error(e);
+    onError();
   }
 };
 
@@ -89,9 +99,8 @@ const SuccessMessage = ({ onSendMail }: { onSendMail: MouseEventHandler }) => {
   );
 };
 
-const InputFor = () => {};
-
 const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
+  const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -110,10 +119,30 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!executeRecaptcha) {
+      console.log('Recaptcha validation not available');
+      return;
+    }
+
+    setSending(true);
+    const reCaptchaToken = await executeRecaptcha('contactUsSubmit');
+
     // Add logic to handle form submission here
-    // sendMail(formData, { onComplete: onSubmit });
+    sendMail(
+      { ...formData, reCaptchaToken },
+      {
+        onComplete: () => {
+          onSubmit();
+          setSending(false);
+        },
+        onError: () => setSending(false),
+      },
+    );
   };
 
   return (
@@ -167,10 +196,9 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
       />
       <button
         type="submit"
-        disabled
         className="flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-12 py-4 text-20 font-medium text-white"
       >
-        Send
+        {sending ? 'Sending Mail' : 'Send'}
       </button>
     </form>
   );
@@ -183,16 +211,18 @@ export default function Page() {
   const sendMail = useCallback(() => setMailSent(false), []);
 
   return (
-    <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
-      <h1 className="text-42 font-medium text-sos-primary-blue">
-        Contact the SLI Admin for questions
-      </h1>
-      <SectionSeparator />
-      {mailSent ? (
-        <SuccessMessage onSendMail={sendMail} />
-      ) : (
-        <ContactForm onSubmit={handleSubmit} />
-      )}
-    </article>
+    <GoogleCaptchaProvider>
+      <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
+        <h1 className="text-42 font-medium text-sos-primary-blue">
+          Contact the SLI Admin for questions
+        </h1>
+        <SectionSeparator />
+        {mailSent ? (
+          <SuccessMessage onSendMail={sendMail} />
+        ) : (
+          <ContactForm onSubmit={handleSubmit} />
+        )}
+      </article>
+    </GoogleCaptchaProvider>
   );
 }
