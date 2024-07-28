@@ -47,6 +47,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   if (res && res.data?.success && res.data?.score > 0.5) {
     let transporter = nodemailer.createTransport({
+      name: 'smtp.office365.com',
       host: 'smtp.office365.com',
       port: 587,
       secure: false,
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     });
 
     // verify connection configuration
-    transporter.verify(function (error, success) {
+    await transporter.verify(function (error, success) {
       if (error) {
         console.error(error);
       } else {
@@ -75,10 +76,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
         </div>`,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    await transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error('Failed to send mail', error);
       }
+      console.log('info', info);
     });
 
     return NextResponse.json({
