@@ -14,8 +14,10 @@ declare module 'nodemailer' {
     sendMail(
       mailOptions: MailOptions,
       callback: (error: any, info: any) => void,
-    ): void;
-    verify(callback: (error: Error | null, success: boolean) => void): void;
+    ): Promise<any>;
+    verify(
+      callback: (error: Error | null, success: boolean) => void,
+    ): Promise<unknown>;
 
     // Add any other methods as needed
   }
