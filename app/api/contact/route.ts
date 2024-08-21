@@ -51,7 +51,10 @@ export async function POST(request: NextRequest, response: NextResponse) {
       host: 'smtp.office365.com',
       port: 587,
       secure: false,
-      auth: { user: 'sli-admin@sos.org', pass: 'c>uA;SU6Z5(_iZI!,y]H' }, //todo : move to dynamic credentials for security reasons
+      auth: {
+        user: 'sli-admin@sos.org',
+        pass: 'D9.2uYfMuq7smGLv_2@ziLA*bzi-u',
+      }, //todo : move to dynamic credentials for security reasons
     });
 
     // verify connection configuration
