@@ -9,6 +9,9 @@ const nextConfig = {
       },
     ];
   },
+  experimental: {
+    middleware: true,
+  },
 };
 
 module.exports = nextConfig;
