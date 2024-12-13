@@ -46,6 +46,7 @@ export type CourseSchedule = {
     rsvp: string;
     addedBy: string;
   };
+  facilitators: { FirstName: string; MiddleName?: string; LastName: string }[];
 };
 
 export type AdaptedCourse = {
