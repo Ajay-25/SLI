@@ -64,7 +64,7 @@ const CoursesList = ({
 
 async function getServerSideProps(): Promise<CourseSchedule[]> {
   const res = await fetch(
-    'https://scd.sos.org/api/SLIInfo/getSLIModuleSchedule',
+    'https://scd.sos.org/api/SLIInfo/getSLIModuleSchedule?getDetails=true',
   );
   return await res.json();
 }
