@@ -3,6 +3,8 @@ import '@/app/ui/global.css';
 import { futuraFont } from '@/app/ui/fonts';
 import { useEffect } from 'react';
 
+import axios from 'axios';
+
 //components
 import { Navbar } from '@/app/ui/home/navbar';
 
@@ -23,44 +25,85 @@ function HomeLayout({ children }: { children: ReactNode }) {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const authenticate = async () => {
+    // const authenticate = async () => {
+    //   try {
+    //     const response = await fetch(
+    //       'https://sangat.sos.org/authtoken.asmx/GetToken',
+    //       {
+    //         method: 'POST',
+    //         credentials: 'include',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //           origin: 'https://sangat.sos.org',
+    //         },
+    //         body: JSON.stringify({}),
+    //       },
+    //     );
+    //
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //
+    //       if (data.authStatus) {
+    //         document.cookie = `authToken=${data.authToken}; Path=/;`;
+    //         console.log('data with status:', data);
+    //       } else {
+    //         const currentUrl = window.location.href;
+    //
+    //         window.location.href = `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
+    //           currentUrl,
+    //         )}`;
+    //       }
+    //     } else {
+    //       console.log('Authentication failed');
+    //     }
+    //   } catch (error) {
+    //     console.error('Error during authentication:', error);
+    //   }
+    // };
+    //
+    // authenticate();
+
+    const handleLogin = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.post(
           'https://sangat.sos.org/authtoken.asmx/GetToken',
+          {}, // Empty payload for this request
           {
-            method: 'POST',
-            credentials: 'include',
-            mode: 'cors',
+            withCredentials: true, // Include cookies with the request
             headers: {
-              'Content-Type': 'application/json',
-              origin: 'https://sangat.sos.org',
+              origin: 'https://sangat.sos.org', // Set the request origin
             },
-            body: JSON.stringify({}),
           },
         );
 
-        if (response.ok) {
-          const data = await response.json();
+        let data = response.data;
 
-          if (data.authStatus) {
-            document.cookie = `authToken=${data.authToken}; Path=/;`;
-            console.log('data with status:', data);
-          } else {
-            const currentUrl = window.location.href;
+        // If the response is a JSON string, parse it
+        if (typeof data === 'string') {
+          data = JSON.parse(data);
+        }
 
-            window.location.href = `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
-              currentUrl,
-            )}`;
-          }
+        if (data.authStatus) {
+          // authStatus is true: perform successful login actions
+          // e.g., navigate to a landing page, display user-specific content
+          console.log('Login successful:', data);
         } else {
-          console.log('Authentication failed');
+          // authStatus is false: handle error scenario
+          // e.g., navigate to an error page or show an error message
+          console.error('Login failed: Invalid credentials or session expired');
+          const currentUrl = window.location.href;
+
+          window.location.href = `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
+            currentUrl,
+          )}`;
         }
       } catch (error) {
-        console.error('Error during authentication:', error);
+        console.error('Error during login:', error);
+        // Handle network or server errors here
       }
     };
 
-    authenticate();
+    handleLogin();
   }, []);
 
   return (
