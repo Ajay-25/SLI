@@ -17,15 +17,15 @@ export type CourseSchedule = {
   };
   id: number;
   trainingDate: string;
-  trainingTimeZone: string;
+  trainingTimeZone: string | null;
   startTime: string;
   endTime: string;
-  language: string;
-  status: string;
+  language: string | null;
+  status: 'Public' | 'Hidden';
   seats: number;
   applied: number;
   confirmed: number;
-  venue: string;
+  venue: string | null;
   openToStates: string;
   facilitatorID_FK: number;
   facilitatorID2_FK: number;
@@ -55,7 +55,7 @@ export type AdaptedCourse = {
   trainingDate: string;
   startTime: string;
   endTime: string;
-  timezone: string;
+  timezone: string | null;
   venue: string;
   facilitators: string[];
   language: string;
