@@ -189,7 +189,7 @@ const CertifiedSteps = () => {
     </div>
   );
   const Step2 = (
-    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-sos-secondary-blue text-white">
+    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-white">
       <div className="self-center text-[7.2rem] leading-none">2</div>
       <div className="flex flex-col gap-4 self-center text-24">
         <p>Receive notification email</p>
