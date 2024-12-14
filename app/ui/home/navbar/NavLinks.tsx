@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import clsx from 'clsx';
 
+//components
+import { HamburgerMenu } from '@/app/ui/menu';
+
 //hooks
 import { usePathname } from 'next/navigation';
 
@@ -18,33 +21,30 @@ export function NavLinks({ className }: { className: string }) {
 
   return (
     <>
-    <div className={clsx('hidden md:flex grow items-center justify-end', className)}>
-      {links.map((link) => {
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={clsx(
-              'flex flex-none cursor-pointer p-2.5 text-24 font-medium hover:text-sos-secondary-blue',
-              pathname === link.href
-                ? 'text-sos-secondary-blue'
-                : 'text-sos-primary-blue',
-            )}
-          >
-            {link.name}
-          </Link>
-        );
-      })}
-    </div>
-    <div className={clsx('md:hidden flex grow items-center justify-end ', className)}>
-      <button className='space-y-1 group'>
-        <div className='w-6 h-1 bg-sos-primary-gold'></div>
-        <div className='w-6 h-1 bg-sos-primary-gold'></div>
-        <div className='w-6 h-1 bg-sos-primary-gold'></div>
-
-        
-      </button>
-    </div>
-  </>
+      <div
+        className={clsx(
+          'hidden grow items-center justify-end md:flex',
+          className,
+        )}
+      >
+        {links.map((link) => {
+          return (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={clsx(
+                'flex flex-none cursor-pointer p-2.5 text-24 font-medium hover:text-sos-secondary-blue',
+                pathname === link.href
+                  ? 'text-sos-secondary-blue'
+                  : 'text-sos-primary-blue',
+              )}
+            >
+              {link.name}
+            </Link>
+          );
+        })}
+      </div>
+      <HamburgerMenu links={links} />
+    </>
   );
 }
