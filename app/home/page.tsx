@@ -44,12 +44,12 @@ const WelcomeContentSection = () => {
 
 const ServiceLeadershipContentSection = () => {
   return (
-    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-2 text-sos-primary-blue lg:mx-[14.2rem] lg:p-8 ">
       <h2 className="text-center text-24 font-medium lg:text-32">
         What is the Service Leadership Institute
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-16 lg:text-20">
+      <div className="flex flex-col p-2 text-justify text-16 lg:text-20">
         <p>
           Service Leadership starts with the premise that serving through
           leadership is most effective when we draw from the Qualities of our
@@ -117,12 +117,12 @@ const LeadershipSection = () => {
 
 const ServiceAttendContentSection = () => {
   return (
-    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-2 text-sos-primary-blue lg:mx-[14.2rem] lg:p-8">
       <h2 className="text-center text-24 font-medium lg:text-32">
         How Can I Attend?
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-16 lg:text-20">
+      <div className="flex flex-col p-2 text-justify text-16 lg:text-20">
         <p>
           The SLI currently offers courses in English and Spanish. The course
           schedule will be posted on this website on the “Courses” page where
@@ -225,12 +225,12 @@ const CertifiedSteps = () => {
 
 const CertifiedSection = () => {
   return (
-    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-2 text-sos-primary-blue lg:mx-[14.2rem] lg:p-8">
       <h2 className="text-center text-32 font-medium">
         How Can I Get Certified?
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-20 lg:text-24">
+      <div className="flex flex-col p-2 text-justify text-16 lg:text-20">
         <p>
           To achieve certification from the Service Leadership Institute,
           participants are required to complete five out of the seven courses we

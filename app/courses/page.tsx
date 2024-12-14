@@ -37,7 +37,7 @@ const Item = ({
         alt={altText}
         className="self-start lg:hidden"
       />
-      <div className="text-16 text-sos-primary-blue lg:text-20">{children}</div>
+      <div className="text-16 text-sos-primary-blue lg:text-20 text-justify">{children}</div>
     </div>
   );
 };
