@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {
             method: 'POST',
             credentials: 'include',
+            mode: 'cors',
             headers: {
               'Content-Type': 'application/json',
               origin: 'https://sangat.sos.org',
