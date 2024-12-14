@@ -171,9 +171,9 @@ const RSVPEmail = ({ classname }: { classname: string }) => {
 
 const AttendSection = () => {
   return (
-    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex bg-[url('/home/courses-background.webp')] bg-cover bg-center">
+    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex bg-[url('/home/courses-background.webp')] bg-cover bg-center flex-col lg:flex-row lg:space-y-0">
       <CourseNomination classname="flex-1" />
-      <div className="w-12 bg-white"></div>
+      <div className="h-4 lg:h-auto w-full lg:w-12 bg-white"></div>
       <RSVPEmail classname="flex-1" />
     </div>
   );
@@ -181,7 +181,7 @@ const AttendSection = () => {
 
 const CertifiedSteps = () => {
   const Step1 = (
-    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
       <div className="self-center text-[7.2rem] leading-none">1</div>
       <div className="flex flex-col gap-4 self-center text-24">
         <p>Complete 5/7 courses</p>
@@ -189,7 +189,7 @@ const CertifiedSteps = () => {
     </div>
   );
   const Step2 = (
-    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-white">
+    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-white">
       <div className="self-center text-[7.2rem] leading-none">2</div>
       <div className="flex flex-col gap-4 self-center text-24">
         <p>Receive notification email</p>
@@ -197,7 +197,7 @@ const CertifiedSteps = () => {
     </div>
   );
   const Step3 = (
-    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
       <div className="self-center text-[7.2rem] leading-none">3</div>
       <div className="flex flex-col gap-4 self-center text-24">
         <p>Confirm postal address and Name</p>
@@ -206,7 +206,7 @@ const CertifiedSteps = () => {
   );
 
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:justify-between">
       {Step1}
       {Step2}
       {Step3}
