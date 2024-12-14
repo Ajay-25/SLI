@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 
 const BannerImageSection = () => {
   return (
-    <div className="h-[25rem] w-full bg-[url('/home/courses-content-2.webp')] bg-cover bg-center sm:h-[35rem] md:h-[40rem] lg:h-[45rem] xl:h-[60rem]"></div>
+    <div className="h-[20rem] w-full bg-[url('/home/courses-content-2.webp')] bg-cover bg-center sm:h-[35rem] md:h-[40rem] lg:h-[45rem] xl:h-[60rem]"></div>
   );
 };
 
@@ -22,22 +22,29 @@ const Item = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="flex gap-8 p-12">
+    <div className="flex gap-4 p-4 lg:gap-8 lg:p-12">
       <Image
         src={source}
         width={180}
         height={180}
         alt={altText}
-        className="self-start"
+        className="hidden self-start lg:block"
       />
-      <div className="text-20 text-sos-primary-blue">{children}</div>
+      <Image
+        src={source}
+        width={60}
+        height={60}
+        alt={altText}
+        className="self-start lg:hidden"
+      />
+      <div className="text-16 text-sos-primary-blue lg:text-20">{children}</div>
     </div>
   );
 };
 
 const ItemList = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col">
+    <div className="mx-[2.2rem] flex flex-col lg:mx-[14.2rem]">
       <Item
         source="/home/loving-communication.webp"
         altText="Loving Communication"
@@ -184,7 +191,7 @@ const ItemList = () => {
 
 export default function Page() {
   return (
-    <article className="flex flex-col gap-6 pb-[8rem]">
+    <article className="flex flex-col gap-2 pb-[2rem] lg:gap-6 lg:pb-[8rem]">
       <BannerImageSection />
       <ItemList />
     </article>

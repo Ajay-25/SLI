@@ -10,7 +10,7 @@ import styles from '@/app/ui/home/home.module.css';
 
 const BannerSection = () => {
   return (
-    <div className="flex h-[60rem] w-full items-center justify-center bg-[url('/home/home-background.webp')] bg-cover bg-center">
+    <div className="flex h-[40rem] w-full items-center justify-center bg-[url('/home/home-background.webp')] bg-cover bg-center lg:h-[60rem]">
       <VideoContainer />
     </div>
   );
@@ -18,10 +18,10 @@ const BannerSection = () => {
 
 const WelcomeContentSection = () => {
   return (
-    <div className="mx-[4.2rem] lg:mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl">
-      <h1 className="text-center text-42 font-medium">Welcome</h1>
+    <div className="mx-[2.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl lg:mx-[14.2rem]">
+      <h1 className="text-center text-32 font-medium lg:text-42">Welcome</h1>
       <SectionSeparator />
-      <div className="flex flex-col gap-8 p-2 text-center text-20">
+      <div className="flex flex-col gap-8 p-2 text-center text-16 lg:text-20">
         <p>
           Welcome to the Service Leadership Institute, where we merge the
           profound teachings of the Spiritual Masters with practical leadership
@@ -44,12 +44,12 @@ const WelcomeContentSection = () => {
 
 const ServiceLeadershipContentSection = () => {
   return (
-    <div className="mx-[2.2rem] lg:mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
-      <h2 className="text-center text-32 font-medium">
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
+      <h2 className="text-center text-24 font-medium lg:text-32">
         What is the Service Leadership Institute
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-20">
+      <div className="flex flex-col p-2 text-16 lg:text-20">
         <p>
           Service Leadership starts with the premise that serving through
           leadership is most effective when we draw from the Qualities of our
@@ -58,7 +58,6 @@ const ServiceLeadershipContentSection = () => {
           Bliss, Service Leadership involves two things:
         </p>
       </div>
-      <div></div>
     </div>
   );
 };
@@ -67,12 +66,14 @@ const LeadershipInSettings = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 lg:p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 text-white lg:p-12',
         styles.leadershipBackgroundBlue,
       )}
     >
-      <div className="self-center text-[18.2rem] leading-none">1</div>
-      <div className="self-center text-24">
+      <div className="self-center text-[12rem] leading-none lg:text-[18.2rem]">
+        1
+      </div>
+      <div className="self-center text-20 lg:text-24">
         Providing leadership in settings where the overarching mission is to
         care for, support and encourage positive outcomes for oneself and others
       </div>
@@ -84,12 +85,14 @@ const LeadershipAsVolunteer = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 lg:p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 text-white lg:p-12',
         styles.leadershipBackgroundBlue,
       )}
     >
-      <div className="self-center text-[18.2rem] leading-none">2</div>
-      <div className="self-center text-24">
+      <div className="self-center text-[12rem] leading-none lg:text-[18.2rem]">
+        2
+      </div>
+      <div className="self-center text-20 lg:text-24">
         Providing leadership as a volunteer for the primary purpose of helping
         others and supporting a mission. These two conditions play an important
         role in how service leaders lead. Because the mission of Science of
@@ -104,7 +107,7 @@ const LeadershipAsVolunteer = () => {
 
 const LeadershipSection = () => {
   return (
-    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
+    <div className="mx-[2.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center lg:mx-[14.2rem]">
       <LeadershipInSettings />
       <div className="h-6 bg-white"></div>
       <LeadershipAsVolunteer />
@@ -114,10 +117,12 @@ const LeadershipSection = () => {
 
 const ServiceAttendContentSection = () => {
   return (
-    <div className="mx-[2.2rem] lg:mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
-      <h2 className="text-center text-32 font-medium">How Can I Attend?</h2>
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
+      <h2 className="text-center text-24 font-medium lg:text-32">
+        How Can I Attend?
+      </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-20">
+      <div className="flex flex-col p-2 text-16 lg:text-20">
         <p>
           The SLI currently offers courses in English and Spanish. The course
           schedule will be posted on this website on the “Courses” page where
@@ -132,13 +137,15 @@ const CourseNomination = ({ classname }: { classname: string }) => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-4 lg:p-12 text-sos-secondary-blue',
+        'flex gap-6 p-8 text-sos-secondary-blue lg:p-12',
         styles.leadershipBackgroundYellow,
         classname,
       )}
     >
-      <div className="self-center text-[18.2rem] leading-none">1</div>
-      <div className="self-center text-24">
+      <div className="self-center text-[10rem] leading-none lg:text-[18.2rem]">
+        1
+      </div>
+      <div className="self-center text-20 lg:text-24">
         Visit{' '}
         <Link className="underline" href="https://sli.sos.org">
           sli.sos.org
@@ -153,13 +160,15 @@ const RSVPEmail = ({ classname }: { classname: string }) => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-4 lg:p-12 text-sos-secondary-blue',
+        'flex gap-6 p-8 text-sos-secondary-blue lg:p-12',
         styles.leadershipBackgroundYellow,
         classname,
       )}
     >
-      <div className="self-center text-[18.2rem] leading-none">2</div>
-      <div className="flex flex-col gap-4 self-center text-24">
+      <div className="self-center text-[10rem] leading-none lg:text-[18.2rem]">
+        2
+      </div>
+      <div className="flex flex-col gap-4 self-center text-20 lg:text-24">
         <p>
           Navigate to the “Courses” page and register to the course you wish to
           attend
@@ -171,9 +180,9 @@ const RSVPEmail = ({ classname }: { classname: string }) => {
 
 const AttendSection = () => {
   return (
-    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex bg-[url('/home/courses-background.webp')] bg-cover bg-center flex-col lg:flex-row lg:space-y-0">
+    <div className="mx-[2.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center lg:mx-[14.2rem] lg:flex-row">
       <CourseNomination classname="flex-1" />
-      <div className="h-4 lg:h-auto w-full lg:w-12 bg-white"></div>
+      <div className="h-4 w-full bg-white lg:h-auto lg:w-12"></div>
       <RSVPEmail classname="flex-1" />
     </div>
   );
@@ -181,32 +190,32 @@ const AttendSection = () => {
 
 const CertifiedSteps = () => {
   const Step1 = (
-    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+    <div className="flex h-72 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-8 text-sos-secondary-blue lg:h-96 lg:w-96 lg:p-12">
       <div className="self-center text-[7.2rem] leading-none">1</div>
-      <div className="flex flex-col gap-4 self-center text-24">
+      <div className="flex flex-col gap-4 self-center text-20 lg:text-24">
         <p>Complete 5/7 courses</p>
       </div>
     </div>
   );
   const Step2 = (
-    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-white">
+    <div className="flex  h-72 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-8 text-white lg:h-96 lg:w-96 lg:p-12">
       <div className="self-center text-[7.2rem] leading-none">2</div>
-      <div className="flex flex-col gap-4 self-center text-24">
+      <div className="flex flex-col gap-4 self-center text-20 lg:text-24">
         <p>Receive notification email</p>
       </div>
     </div>
   );
   const Step3 = (
-    <div className="flex h-96 lg:w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+    <div className="flex  h-72 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-8 text-sos-secondary-blue lg:h-96 lg:w-96 lg:p-12">
       <div className="self-center text-[7.2rem] leading-none">3</div>
-      <div className="flex flex-col gap-4 self-center text-24">
+      <div className="flex flex-col gap-4 self-center text-20 lg:text-24">
         <p>Confirm postal address and Name</p>
       </div>
     </div>
   );
 
   return (
-    <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:justify-between">
+    <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:gap-0">
       {Step1}
       {Step2}
       {Step3}
@@ -216,12 +225,12 @@ const CertifiedSteps = () => {
 
 const CertifiedSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+    <div className="mx-[2.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue lg:mx-[14.2rem]">
       <h2 className="text-center text-32 font-medium">
         How Can I Get Certified?
       </h2>
       <SectionSeparator />
-      <div className="flex flex-col p-2 text-20">
+      <div className="flex flex-col p-2 text-20 lg:text-24">
         <p>
           To achieve certification from the Service Leadership Institute,
           participants are required to complete five out of the seven courses we

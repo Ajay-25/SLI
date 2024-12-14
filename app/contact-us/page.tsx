@@ -40,7 +40,7 @@ const Input = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className="grow border-current p-4 text-20 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
+      className="grow border-current p-2 text-16 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50 lg:p-4 lg:text-20"
       required={required}
     />
   );
@@ -148,9 +148,9 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-6 text-sos-primary-blue"
+      className="flex flex-col gap-4 text-sos-primary-blue lg:gap-6"
     >
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-4 lg:flex-row lg:gap-6 ">
         <Input
           name="firstName"
           value={formData.firstName}
@@ -192,11 +192,11 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
         rows={4}
         placeholder="Question"
         required
-        className="max-h-80 grow overflow-auto border-current p-4 text-20 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50"
+        className="mx-h-60 grow overflow-auto border-current p-2 text-16 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50 lg:max-h-80 lg:p-4 lg:text-20"
       />
       <button
         type="submit"
-        className="flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-12 py-4 text-20 font-medium text-white"
+        className="flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-4 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
       >
         {sending ? 'Sending Mail' : 'Send'}
       </button>
@@ -212,8 +212,8 @@ export default function Page() {
 
   return (
     <GoogleCaptchaProvider>
-      <article className="flex flex-col gap-4 px-[14rem] pb-[8rem] pt-[6rem]">
-        <h1 className="text-42 font-medium text-sos-primary-blue">
+      <article className="flex flex-col gap-4 px-[2.2rem] pb-[4rem] pt-[2rem] lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+        <h1 className="text-32 font-medium text-sos-primary-blue lg:text-42">
           Contact the SLI Admin for questions
         </h1>
         <SectionSeparator />

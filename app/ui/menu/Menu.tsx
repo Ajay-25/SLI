@@ -68,7 +68,7 @@ const HamburgerMenu = ({ links }: { links: LinkType[] }) => {
                 <Link
                   href={link.href}
                   className={clsx(
-                    'flex flex-none cursor-pointer p-2.5 text-12 font-medium hover:text-sos-secondary-blue',
+                    'flex flex-none cursor-pointer p-2.5 text-16 font-medium hover:text-sos-secondary-blue',
                     pathname === link.href
                       ? 'text-sos-secondary-blue'
                       : 'text-sos-primary-blue',
