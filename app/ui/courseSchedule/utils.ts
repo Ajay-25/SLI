@@ -90,7 +90,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
           month: new Date(course.trainingDate).toLocaleString('en-US', {
             month: 'long',
           }),
-          id: course.Module.id,
+          id: course.id,
           name: course.Module.name,
           trainingDate: formatDate(new Date(course.trainingDate)), // todo: use formatEvent
           startTime: formatTime(new Date(course.startTime)),
