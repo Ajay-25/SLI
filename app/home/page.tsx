@@ -206,7 +206,7 @@ const CertifiedSteps = () => {
   );
 
   return (
-    <div className="flex lg:justify-between md:flex-col">
+    <div className="flex justify-between">
       {Step1}
       {Step2}
       {Step3}
