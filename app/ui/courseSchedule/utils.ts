@@ -84,8 +84,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
     if (course.Module) {
       const courseStartTime = new Date(course.trainingDate).getTime();
 
-      console.log(course.facilitators);
-      if (courseStartTime > currentTime) {
+      if (courseStartTime > currentTime && course.status === 'Public') {
         acc.push({
           month: new Date(course.trainingDate).toLocaleString('en-US', {
             month: 'long',
@@ -96,7 +95,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
           startTime: formatTime(new Date(course.startTime)),
           endTime: formatTime(new Date(course.endTime)),
           timezone: course.trainingTimeZone,
-          venue: course.venue,
+          venue: course.venue ?? '',
           facilitators: course.facilitators.map((facilitator) => {
             const { FirstName, MiddleName, LastName } = facilitator;
             let name = FirstName ? FirstName : '';
@@ -108,7 +107,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
             }
             return LastName ? `${name} ${LastName}` : name;
           }),
-          language: course.language,
+          language: course.language ?? '',
           seats: course.seats,
           totalSeats: course.confirmed + course.applied,
         });

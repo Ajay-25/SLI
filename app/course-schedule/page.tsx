@@ -34,7 +34,11 @@ const CoursesList = ({
           >
             <h3 className="text-24">{course.name}</h3>
             <div className="flex flex-col gap-3 text-16">
-              <span>{`${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`}</span>
+              <span>
+                {course.timezone
+                  ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
+                  : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
+              </span>
               <span>{`Location: ${course.venue}`}</span>
               {course.seats && course.totalSeats ? (
                 <span>{`Seats Available: ${course.seats}/${course.totalSeats}`}</span>
