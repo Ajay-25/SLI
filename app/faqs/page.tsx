@@ -8,7 +8,7 @@ const HowToEnrollSection = () => {
       <h2 className="text-24 font-medium text-sos-secondary-blue lg:text-32">
         How can I enroll in an SLI course?
       </h2>
-      <div className="flex flex-col gap-4 text-16 font-medium text-sos-primary-blue lg:gap-8  lg:text-20">
+      <div className="flex flex-col gap-4 text-justify text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
         <p>The SLI currently operates on an open enrollment basis.</p>
         <ol className="list-inside list-decimal pl-4">
           <li>
@@ -39,7 +39,7 @@ const UnableToAttendSection = () => {
       <h2 className="text-24 font-medium text-sos-secondary-blue lg:text-32">
         What if I am invited to a course that I am unable to attend?
       </h2>
-      <p className="flex flex-col  gap-4 text-16 font-medium text-sos-primary-blue lg:gap-8  lg:text-20">
+      <p className="flex flex-col  gap-4 text-justify text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
         The SLI is constantly offering courses. As of 2024, on average, courses
         are offered twice a year. One in-person, and one virtual.
       </p>
@@ -54,7 +54,7 @@ const CourseAsGroupSection = () => {
         What if a group I do seva with regularly want to take a course as a
         group.
       </h2>
-      <div className="flex flex-col  gap-4 text-16 font-medium text-sos-primary-blue lg:gap-8  lg:text-20">
+      <div className="flex flex-col  gap-4 text-justify text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
         <p>
           Taking SLI courses with your respective seva teams and departments are
           an excellent way to experience these courses!
@@ -98,7 +98,7 @@ const LanguagesSection = () => {
       <h2 className="text-24 font-medium text-sos-secondary-blue lg:text-32">
         What languages are the SLI courses being offered in?
       </h2>
-      <div className="flex flex-col  gap-4 text-16 font-medium text-sos-primary-blue lg:gap-8  lg:text-20">
+      <div className="flex flex-col  gap-4 text-justify text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
         <p>
           As of Jan 2024, the SLI courses are being offered in English and
           Spanish.
@@ -118,7 +118,7 @@ const RegionSection = () => {
       <h2 className="text-24 font-medium text-sos-secondary-blue lg:text-32">
         Who can I contact for assistance or questions?
       </h2>
-      <div className="flex flex-col gap-4 text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
+      <div className="flex flex-col gap-4 text-justify text-16 font-medium text-sos-primary-blue lg:gap-8 lg:text-20">
         <p>
           As of Jan 2024 the SLI has different administrations per language or
           region. Each administration is able to offer any courses in the
