@@ -18,7 +18,7 @@ const BannerSection = () => {
 
 const WelcomeContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl">
+    <div className="mx-[4.2rem] lg:mx-[14.2rem] mt-[4.8rem] flex flex-col justify-center gap-4 p-8 text-sos-secondary-blue shadow-2xl">
       <h1 className="text-center text-42 font-medium">Welcome</h1>
       <SectionSeparator />
       <div className="flex flex-col gap-8 p-2 text-center text-20">
@@ -44,7 +44,7 @@ const WelcomeContentSection = () => {
 
 const ServiceLeadershipContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+    <div className="mx-[2.2rem] lg:mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
       <h2 className="text-center text-32 font-medium">
         What is the Service Leadership Institute
       </h2>
@@ -67,7 +67,7 @@ const LeadershipInSettings = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 lg:p-12 text-white',
         styles.leadershipBackgroundBlue,
       )}
     >
@@ -84,7 +84,7 @@ const LeadershipAsVolunteer = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-12 text-white',
+        'flex gap-6 border-[0.5rem] border-sos-primary-gold p-4 lg:p-12 text-white',
         styles.leadershipBackgroundBlue,
       )}
     >
@@ -104,7 +104,7 @@ const LeadershipAsVolunteer = () => {
 
 const LeadershipSection = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
+    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
       <LeadershipInSettings />
       <div className="h-6 bg-white"></div>
       <LeadershipAsVolunteer />
@@ -114,7 +114,7 @@ const LeadershipSection = () => {
 
 const ServiceAttendContentSection = () => {
   return (
-    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+    <div className="mx-[2.2rem] lg:mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
       <h2 className="text-center text-32 font-medium">How Can I Attend?</h2>
       <SectionSeparator />
       <div className="flex flex-col p-2 text-20">
@@ -133,7 +133,7 @@ const CourseNomination = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-12 text-sos-secondary-blue',
+        'flex gap-6 p-4 lg:p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
       )}
     >
@@ -153,7 +153,7 @@ const RSVPEmail = () => {
   return (
     <div
       className={clsx(
-        'flex gap-6 p-12 text-sos-secondary-blue',
+        'flex gap-6 p-4 lg:p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
       )}
     >
@@ -170,7 +170,7 @@ const RSVPEmail = () => {
 
 const AttendSection = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
+    <div className="mx-[2.2rem] lg:mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
       <CourseNomination />
       <div className="h-6 bg-white"></div>
       <RSVPEmail />
