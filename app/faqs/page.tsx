@@ -116,14 +116,13 @@ const RegionSection = () => {
   return (
     <section className="flex flex-col gap-4">
       <h2 className="text-32 font-medium text-sos-secondary-blue">
-        What regions does the SLI give courses in?
+        Who can I contact for assistance or questions?
       </h2>
       <div className="flex flex-col gap-8 text-20 font-medium  text-sos-primary-blue">
         <p>
-          As of Jan 2024, the SLI does not operate regionally but rather by
-          language. The SLI has different administrations per language. Each
-          administration is able to offer any courses in the Western Hemisphere
-          based on the languages offered by the SLI.
+          As of Jan 2024 the SLI has different administrations per language or
+          region. Each administration is able to offer any courses in the
+          Western Hemisphere based on the languages offered by the SLI.
         </p>
         <ul className="list-inside list-disc pl-4">
           <li>For inquires on English courses - sli-admin@sos.org</li>
