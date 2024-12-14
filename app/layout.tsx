@@ -25,44 +25,6 @@ function HomeLayout({ children }: { children: ReactNode }) {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
-    // const authenticate = async () => {
-    //   try {
-    //     const response = await fetch(
-    //       'https://sangat.sos.org/authtoken.asmx/GetToken',
-    //       {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //           origin: 'https://sangat.sos.org',
-    //         },
-    //         body: JSON.stringify({}),
-    //       },
-    //     );
-    //
-    //     if (response.ok) {
-    //       const data = await response.json();
-    //
-    //       if (data.authStatus) {
-    //         document.cookie = `authToken=${data.authToken}; Path=/;`;
-    //         console.log('data with status:', data);
-    //       } else {
-    //         const currentUrl = window.location.href;
-    //
-    //         window.location.href = `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
-    //           currentUrl,
-    //         )}`;
-    //       }
-    //     } else {
-    //       console.log('Authentication failed');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error during authentication:', error);
-    //   }
-    // };
-    //
-    // authenticate();
-
     const handleLogin = async () => {
       try {
         const response = await axios.post(
