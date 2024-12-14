@@ -17,7 +17,8 @@ export function NavLinks({ className }: { className: string }) {
   const pathname = usePathname();
 
   return (
-    <div className={clsx('flex grow items-center justify-end', className)}>
+    <>
+    <div className={clsx('hidden md:flex grow items-center justify-end', className)}>
       {links.map((link) => {
         return (
           <Link
@@ -35,5 +36,15 @@ export function NavLinks({ className }: { className: string }) {
         );
       })}
     </div>
+    <div className={clsx('md:hidden flex grow items-center justify-end ', className)}>
+      <button className='space-y-1 group'>
+        <div className='w-6 h-1 bg-sos-primary-gold'></div>
+        <div className='w-6 h-1 bg-sos-primary-gold'></div>
+        <div className='w-6 h-1 bg-sos-primary-gold'></div>
+
+        
+      </button>
+    </div>
+  </>
   );
 }
