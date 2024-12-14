@@ -43,8 +43,10 @@ const CoursesList = ({
               {course.seats && course.totalSeats ? (
                 <span>{`Seats Available: ${course.seats}/${course.totalSeats}`}</span>
               ) : null}
-              {course.facilitators.map((facilitator) => (
-                <span key={facilitator}>{`Facilitator: ${facilitator}`}</span>
+              {course.facilitators.map((facilitator, index) => (
+                <span key={facilitator}>{`Facilitator ${
+                  index + 1
+                }: ${facilitator}`}</span>
               ))}
               <span>{`Language: ${course.language}`}</span>
             </div>
