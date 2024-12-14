@@ -124,17 +124,17 @@ const ServiceAttendContentSection = () => {
           you are able to register yourself.
         </p>
       </div>
-      <div></div>
     </div>
   );
 };
 
-const CourseNomination = () => {
+const CourseNomination = ({ classname }: { classname: string }) => {
   return (
     <div
       className={clsx(
         'flex gap-6 p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
+        classname,
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">1</div>
@@ -149,12 +149,13 @@ const CourseNomination = () => {
   );
 };
 
-const RSVPEmail = () => {
+const RSVPEmail = ({ classname }: { classname: string }) => {
   return (
     <div
       className={clsx(
         'flex gap-6 p-12 text-sos-secondary-blue',
         styles.leadershipBackgroundYellow,
+        classname,
       )}
     >
       <div className="self-center text-[18.2rem] leading-none">2</div>
@@ -170,10 +171,68 @@ const RSVPEmail = () => {
 
 const AttendSection = () => {
   return (
-    <div className="mx-[14.2rem] flex flex-col bg-[url('/home/courses-background.webp')] bg-cover bg-center">
-      <CourseNomination />
-      <div className="h-6 bg-white"></div>
-      <RSVPEmail />
+    <div className="mx-[14.2rem] flex bg-[url('/home/courses-background.webp')] bg-cover bg-center">
+      <CourseNomination classname="flex-1" />
+      <div className="w-12 bg-white"></div>
+      <RSVPEmail classname="flex-1" />
+    </div>
+  );
+};
+
+const CertifiedSteps = () => {
+  const Step1 = (
+    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+      <div className="self-center text-[7.2rem] leading-none">1</div>
+      <div className="flex flex-col gap-4 self-center text-24">
+        <p>Complete 5/7 courses</p>
+      </div>
+    </div>
+  );
+  const Step2 = (
+    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-blue bg-sos-primary-blue p-12 text-sos-secondary-blue text-white">
+      <div className="self-center text-[7.2rem] leading-none">2</div>
+      <div className="flex flex-col gap-4 self-center text-24">
+        <p>Receive notification email</p>
+      </div>
+    </div>
+  );
+  const Step3 = (
+    <div className="flex h-96 w-96 flex-none gap-6 border-4 border-sos-secondary-dark-gold bg-sos-primary-gold p-12 text-sos-secondary-blue">
+      <div className="self-center text-[7.2rem] leading-none">3</div>
+      <div className="flex flex-col gap-4 self-center text-24">
+        <p>Confirm postal address and Name</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="flex justify-between">
+      {Step1}
+      {Step2}
+      {Step3}
+    </div>
+  );
+};
+
+const CertifiedSection = () => {
+  return (
+    <div className="mx-[14.2rem] mt-[6.4rem] flex flex-col justify-center gap-4 p-8 text-sos-primary-blue">
+      <h2 className="text-center text-32 font-medium">
+        How Can I Get Certified?
+      </h2>
+      <SectionSeparator />
+      <div className="flex flex-col p-2 text-20">
+        <p>
+          To achieve certification from the Service Leadership Institute,
+          participants are required to complete five out of the seven courses we
+          offer. Once you have successfully completed the necessary courses, you
+          will receive an email from us to verify your postal address and
+          confirm the spelling of your name. Upon confirmation, your
+          certification will be processed and mailed to you. If you have any
+          further questions, please feel free to reach out through our website.
+        </p>
+      </div>
+      <CertifiedSteps />
     </div>
   );
 };
@@ -187,6 +246,7 @@ export default function Page() {
       <LeadershipSection />
       <ServiceAttendContentSection />
       <AttendSection />
+      <CertifiedSection />
     </article>
   );
 }
