@@ -11,7 +11,11 @@ import { Metadata } from 'next';
 import { Config, CourseSchedule } from '@/app/ui/courseSchedule/types';
 
 const EmptyPlaceholder = () => {
-  return <h3 className="text-24">There are currently no scheduled courses.</h3>;
+  return (
+    <h3 className="text-20 lg:text-24">
+      There are currently no scheduled courses.
+    </h3>
+  );
 };
 
 const CoursesList = ({
@@ -25,15 +29,15 @@ const CoursesList = ({
 
   return config.map(({ month, courses }) => (
     <div key={month} className="flex flex-col gap-6 font-medium">
-      <h2 className="text-42">{month}</h2>
+      <h2 className="text-32 lg:text-42">{month}</h2>
       <div className="grid grid-cols-auto-fill-minmax-300 gap-12">
         {courses.map((course) => (
           <div
             key={course.name}
-            className="flex flex-col justify-between gap-3"
+            className="flex flex-col justify-between gap-2 lg:gap-3"
           >
-            <h3 className="text-24">{course.name}</h3>
-            <div className="flex flex-col gap-3 text-16">
+            <h3 className="text-20 lg:text-24">{course.name}</h3>
+            <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
               <span>
                 {course.timezone
                   ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
@@ -56,7 +60,7 @@ const CoursesList = ({
               )}`}
               target="_blank"
               referrerPolicy="no-referrer"
-              className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-12 py-4 text-20 font-medium text-white"
+              className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
             >
               Register
             </Link>
@@ -80,8 +84,8 @@ export default async function Page() {
   const coursesConfig = adaptCourses(courses);
 
   return (
-    <article className="flex flex-col gap-6 px-[14rem] pb-[8rem] pt-[6rem] text-sos-primary-blue">
-      <h1 className="self-start text-center text-42 font-medium">
+    <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-primary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+      <h1 className="self-start text-center text-32 font-medium lg:text-42">
         Course Schedule
       </h1>
       <SectionSeparator />
