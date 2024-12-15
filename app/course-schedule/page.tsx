@@ -92,6 +92,12 @@ const CoursesList = ({
 async function getServerSideProps(): Promise<CourseSchedule[]> {
   const res = await fetch(
     'https://scd.sos.org/api/SLIInfo/getSLIModuleSchedule?getDetails=true',
+    {
+      method: 'GET',
+      headers: {
+        'Cache-Control': 'no-cache', // Bypass caching
+      },
+    },
   );
   return await res.json();
 }
