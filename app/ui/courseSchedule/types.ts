@@ -59,7 +59,7 @@ export type AdaptedCourse = {
   venue: string;
   facilitators: string[];
   language: string;
-  seats?: number;
+  confirmedSeats: number;
   totalSeats?: number;
 };
 
