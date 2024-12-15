@@ -108,8 +108,8 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
             return LastName ? `${name} ${LastName}` : name;
           }),
           language: course.language ?? '',
-          seats: course.seats,
-          totalSeats: course.confirmed + course.applied,
+          confirmedSeats: course.confirmed ?? 0,
+          totalSeats: course.seats,
         });
       }
     }

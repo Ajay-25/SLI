@@ -31,42 +31,59 @@ const CoursesList = ({
     <div key={month} className="flex flex-col gap-6 font-medium">
       <h2 className="text-32 lg:text-42">{month}</h2>
       <div className="grid grid-cols-auto-fill-minmax-300 gap-12">
-        {courses.map((course) => (
-          <div
-            key={course.name}
-            className="flex flex-col justify-between gap-2 lg:gap-3"
-          >
-            <h3 className="text-20 lg:text-24">{course.name}</h3>
-            <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
-              <span>
-                {course.timezone
-                  ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
-                  : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
-              </span>
-              <span>{`Location: ${course.venue}`}</span>
-              {course.seats && course.totalSeats ? (
-                <span>{`Seats Available: ${course.seats}/${course.totalSeats}`}</span>
-              ) : null}
-              {course.facilitators.map((facilitator, index) => (
-                <span key={facilitator}>{`Facilitator ${
-                  index + 1
-                }: ${facilitator}`}</span>
-              ))}
-              <span>{`Language: ${course.language}`}</span>
-            </div>
-            <Link
-              href={`https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
-                `https://scd.sos.org/#/LandingPage?rsvpScheduleId=${course.id}`,
-              )}`}
-              target="_blank"
-              referrerPolicy="no-referrer"
-              className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
+        {courses.map((course) => {
+          const isCourseFull =
+            course.totalSeats && course.confirmedSeats >= course.totalSeats;
+
+          return (
+            <div
+              key={course.name}
+              className="flex flex-col justify-between gap-2 lg:gap-3"
             >
-              Register
-            </Link>
-            <SectionSeparator />
-          </div>
-        ))}
+              <h3 className="text-20 lg:text-24">{course.name}</h3>
+              <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
+                <span>
+                  {course.timezone
+                    ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
+                    : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
+                </span>
+                <span>{`Location: ${course.venue}`}</span>
+                {course.totalSeats ? (
+                  <span>{`Seats Available: ${course.confirmedSeats}/${course.totalSeats}`}</span>
+                ) : null}
+                {course.facilitators.length === 1 ? (
+                  <span
+                    key={course.facilitators[0]}
+                  >{`Facilitator: ${course.facilitators[0]}`}</span>
+                ) : (
+                  course.facilitators.map((facilitator, index) => (
+                    <span key={facilitator}>{`Facilitator ${
+                      index + 1
+                    }: ${facilitator}`}</span>
+                  ))
+                )}
+                <span>{`Language: ${course.language}`}</span>
+              </div>
+              {isCourseFull ? (
+                <div className="flex-none cursor-not-allowed self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white opacity-50 lg:px-12 lg:py-4 lg:text-20">
+                  Register
+                </div>
+              ) : (
+                <Link
+                  href={`https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
+                    `https://scd.sos.org/#/LandingPage?rsvpScheduleId=${course.id}`,
+                  )}`}
+                  target="_blank"
+                  referrerPolicy="no-referrer"
+                  className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
+                >
+                  Register
+                </Link>
+              )}
+              <SectionSeparator />
+            </div>
+          );
+        })}
       </div>
     </div>
   ));

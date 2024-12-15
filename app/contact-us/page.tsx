@@ -85,13 +85,13 @@ const sendMail = async (
 const SuccessMessage = ({ onSendMail }: { onSendMail: MouseEventHandler }) => {
   return (
     <div className="flex flex-col gap-6">
-      <div className="text-center text-32 font-medium">
+      <div className="text-center text-24 font-medium lg:text-32">
         Your message has been sent!
       </div>
       <button
         type="button"
         onClick={onSendMail}
-        className="flex-none self-start border border-sos-secondary-dark-gold px-12 py-4 text-20 font-medium text-sos-primary-gold"
+        className="flex-none self-start border border-sos-secondary-dark-gold px-4 py-2 text-16 font-medium text-sos-primary-gold lg:px-12 lg:py-4 lg:text-20"
       >
         Send Another Message
       </button>
