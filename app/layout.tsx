@@ -33,7 +33,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {
             withCredentials: true, // Include cookies with the request
             headers: {
-              origin: 'https://sangat.sos.org', // Set the request origin
+              'origin': 'https://sangat.sos.org', // Set the request origin
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
             },
           },
         );
