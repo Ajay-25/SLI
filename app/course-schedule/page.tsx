@@ -66,7 +66,7 @@ const CoursesList = ({
               </div>
               {isCourseFull ? (
                 <div className="flex-none cursor-not-allowed self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white opacity-50 lg:px-12 lg:py-4 lg:text-20">
-                  Register
+                  Full class
                 </div>
               ) : (
                 <Link
@@ -93,6 +93,7 @@ async function getServerSideProps(): Promise<CourseSchedule[]> {
   const res = await fetch(
     'https://scd.sos.org/api/SLIInfo/getSLIModuleSchedule?getDetails=true',
     {
+      cache: 'no-store',
       method: 'GET',
       headers: {
         'Cache-Control': 'no-cache', // Bypass caching
