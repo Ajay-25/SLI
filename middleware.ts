@@ -34,7 +34,7 @@ export function middleware(request: NextRequest) {
     !url.pathname?.includes('/not-available')
   ) {
     url.pathname = '/not-available';
-    return NextResponse.redirect(url);
+    return NextResponse.rewrite(url);
   }
   return NextResponse.next();
 }
