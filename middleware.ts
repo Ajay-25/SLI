@@ -28,13 +28,23 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   console.log('country', country);
 
+  // Exclude requests for static assets and favicons
+  if (
+    url.pathname.startsWith('/_next/') || // Static assets (like JavaScript, CSS)
+    url.pathname.startsWith('/api/') || // API routes
+    url.pathname === '/favicon.ico' || // Favicon
+    url.pathname.startsWith('/static/') // Custom static folder
+  ) {
+    return NextResponse.next(); // Don't redirect static file requests
+  }
+
   // Redirect based on country
   if (
     RESTRICTED_COUNTRIES.includes(country) &&
     !url.pathname?.includes('/not-available')
   ) {
     url.pathname = '/not-available';
-    return NextResponse.rewrite(url);
+    return NextResponse.redirect(url);
   }
   return NextResponse.next();
 }
