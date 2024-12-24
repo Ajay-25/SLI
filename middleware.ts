@@ -31,7 +31,7 @@ export function middleware(request: NextRequest) {
   // Redirect based on country
   if (
     RESTRICTED_COUNTRIES.includes(country) &&
-    url.pathname?.includes('/error')
+    !url.pathname?.includes('/error')
   ) {
     url.pathname = '/error';
     return NextResponse.redirect(url);
