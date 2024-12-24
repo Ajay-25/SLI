@@ -31,9 +31,9 @@ export function middleware(request: NextRequest) {
   // Redirect based on country
   if (
     RESTRICTED_COUNTRIES.includes(country) &&
-    !url.pathname?.includes('/error')
+    !url.pathname?.includes('/not-available')
   ) {
-    url.pathname = '/error';
+    url.pathname = '/not-available';
     return NextResponse.redirect(url);
   }
   return NextResponse.next();
