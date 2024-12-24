@@ -1,25 +1,44 @@
+// middleware.js
 import { NextResponse, NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  // const token = request.cookies.get('authStatus');
-  // console.log('request', request);
-  // console.log('token', token);
-  // console.log('request.cookies', request.cookies);
-  // const cookies = document.cookie;
-  // console.log('cookies', cookies);
-  //
-  // if (!token) {
-  //   const loginUrl = new URL('https://sangat.sos.org/Forwarder');
-  //
-  //   // const loginUrl = new URL(
-  //   //   `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
-  //   //     request.nextUrl.href,
-  //   //   )}`,
-  //   // );
-  //   loginUrl.searchParams.set('RedirectTo', request.nextUrl.href); // Pass current URL as redirect
-  //
-  //   return NextResponse.redirect(loginUrl);
-  // }
+const MIDDLE_EAST_COUNTRIES = [
+  'BH',
+  'CY',
+  'EG',
+  'IR',
+  'IQ',
+  'IL',
+  'JO',
+  'KW',
+  'LB',
+  'OM',
+  'PS',
+  'QA',
+  'SA',
+  'SY',
+  'TR',
+  'AE',
+  'YE',
+];
 
+const RESTRICTED_COUNTRIES = ['IN', ...MIDDLE_EAST_COUNTRIES];
+
+export function middleware(request: NextRequest) {
+  const country = request.geo?.country || 'US';
+  const url = request.nextUrl.clone();
+  console.log('country', country);
+
+  // Redirect based on country
+  if (
+    RESTRICTED_COUNTRIES.includes(country) &&
+    url.pathname?.includes('/error')
+  ) {
+    url.pathname = '/error';
+    return NextResponse.redirect(url);
+  }
   return NextResponse.next();
 }
+
+export const config = {
+  matcher: '/:path*', // Match all paths
+};
