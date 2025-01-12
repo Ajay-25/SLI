@@ -37,7 +37,7 @@ const CoursesList = ({
 
           return (
             <div
-              key={course.name}
+              key={`${course.name}-${course.startTime}`}
               className="flex flex-col justify-between gap-2 lg:gap-3"
             >
               <h3 className="text-20 lg:text-24">{course.name}</h3>
@@ -53,13 +53,13 @@ const CoursesList = ({
                 ) : null}
                 {course.facilitators.length === 1 ? (
                   <span
-                    key={course.facilitators[0]}
+                    key={`${course.name}-${course.facilitators[0]}`}
                   >{`Facilitator: ${course.facilitators[0]}`}</span>
                 ) : (
                   course.facilitators.map((facilitator, index) => (
-                    <span key={facilitator}>{`Facilitator ${
-                      index + 1
-                    }: ${facilitator}`}</span>
+                    <span
+                      key={`${course.name}-${facilitator}-${index}`}
+                    >{`Facilitator ${index + 1}: ${facilitator}`}</span>
                   ))
                 )}
                 <span>{`Language: ${course.language}`}</span>

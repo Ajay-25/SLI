@@ -1,6 +1,8 @@
 // middleware.js
 import { NextResponse, NextRequest } from 'next/server';
 
+import { geolocation } from '@vercel/functions';
+
 const MIDDLE_EAST_COUNTRIES = [
   'BH',
   'CY',
@@ -24,7 +26,7 @@ const MIDDLE_EAST_COUNTRIES = [
 const RESTRICTED_COUNTRIES = ['IN', ...MIDDLE_EAST_COUNTRIES];
 
 export function middleware(request: NextRequest) {
-  const country = request.geo?.country || 'US';
+  const country = geolocation(request)?.country || 'US';
   const url = request.nextUrl.clone();
   console.log('country', country);
 
