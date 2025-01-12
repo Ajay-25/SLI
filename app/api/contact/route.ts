@@ -13,14 +13,14 @@ type Data = {
   reCaptchaToken: string;
 };
 
-export async function POST(request: NextRequest, response: NextResponse) {
+export async function POST(request: NextRequest) {
   const secretKey = process?.env?.RECAPTCHA_SECRET_KEY;
   let res;
 
   if (!secretKey) {
     // If the secret key is not found, log an error and return an appropriate response.
     console.error('RECAPTCHA_SECRET_KEY is not set in environment variables.');
-    return NextResponse.json({
+    return NextResponse.json<{ success: boolean; error: string }>({
       success: false,
       error: 'RECAPTCHA_SECRET_KEY Not Found',
     });
@@ -42,7 +42,10 @@ export async function POST(request: NextRequest, response: NextResponse) {
       },
     );
   } catch (error) {
-    return NextResponse.json({ success: false, error: error });
+    return NextResponse.json<{ success: boolean; error: string }>({
+      success: false,
+      error: error as string,
+    });
   }
 
   if (res && res.data?.success && res.data?.score > 0.5) {
@@ -86,7 +89,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
       console.log('info', info);
     });
 
-    return NextResponse.json({
+    return NextResponse.json<{ success: boolean; score: number }>({
       success: true,
       score: res.data.score,
     });
