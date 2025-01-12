@@ -3,7 +3,6 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "install": "npm install --legacy-peer-deps",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "start": "next start"
@@ -47,5 +46,9 @@
   "overrides": {
     "@types/react": "19.0.4",
     "@types/react-dom": "19.0.2"
+  },
+  "resolution": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   }
 }
