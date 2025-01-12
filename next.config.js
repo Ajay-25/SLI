@@ -12,6 +12,14 @@ const nextConfig = {
   experimental: {
     middleware: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "scd.sos.org",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
