@@ -76,15 +76,13 @@ function getDateConfig(dateString: string): {
 }
 
 export const adaptCourses = (courses: CourseSchedule[]): Config => {
-  const currentTime = Date.now();
-
   const transformedCourses = courses.reduce<
     Array<AdaptedCourse & { month: string }>
   >((acc, course) => {
     if (course.Module) {
       const courseStartTime = new Date(course.trainingDate).getTime();
 
-      if (courseStartTime > currentTime && course.status === 'Public') {
+      if (course.status === 'Public') {
         acc.push({
           month: new Date(course.trainingDate).toLocaleString('en-US', {
             month: 'long',
