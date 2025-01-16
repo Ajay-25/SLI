@@ -47,6 +47,7 @@ export type CourseSchedule = {
     addedBy: string;
   };
   facilitators: { FirstName: string; MiddleName?: string; LastName: string }[];
+  childSchedules: [];
 };
 
 export type AdaptedCourse = {
@@ -61,6 +62,7 @@ export type AdaptedCourse = {
   language: string;
   confirmedSeats: number;
   totalSeats?: number;
+  parts: number;
 };
 
 export type Config = Array<{ month: string; courses: Array<AdaptedCourse> }>;

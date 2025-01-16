@@ -79,37 +79,34 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
   const transformedCourses = courses.reduce<
     Array<AdaptedCourse & { month: string }>
   >((acc, course) => {
-    if (course.Module) {
-      const courseStartTime = new Date(course.trainingDate).getTime();
+    if (course.Module && course.status === 'Public') {
+      acc.push({
+        month: new Date(course.trainingDate).toLocaleString('en-US', {
+          month: 'long',
+        }),
+        id: course.id,
+        name: course.Module.name,
+        trainingDate: formatDate(new Date(course.trainingDate)), // todo: use formatEvent
+        startTime: formatTime(new Date(course.startTime)),
+        endTime: formatTime(new Date(course.endTime)),
+        timezone: course.trainingTimeZone,
+        venue: course.venue ?? '',
+        facilitators: course.facilitators.map((facilitator) => {
+          const { FirstName, MiddleName, LastName } = facilitator;
+          let name = FirstName ? FirstName : '';
 
-      if (course.status === 'Public') {
-        acc.push({
-          month: new Date(course.trainingDate).toLocaleString('en-US', {
-            month: 'long',
-          }),
-          id: course.id,
-          name: course.Module.name,
-          trainingDate: formatDate(new Date(course.trainingDate)), // todo: use formatEvent
-          startTime: formatTime(new Date(course.startTime)),
-          endTime: formatTime(new Date(course.endTime)),
-          timezone: course.trainingTimeZone,
-          venue: course.venue ?? '',
-          facilitators: course.facilitators.map((facilitator) => {
-            const { FirstName, MiddleName, LastName } = facilitator;
-            let name = FirstName ? FirstName : '';
-
-            if (MiddleName) {
-              return LastName
-                ? `${name} ${MiddleName} ${LastName}`
-                : `${name} ${MiddleName}`;
-            }
-            return LastName ? `${name} ${LastName}` : name;
-          }),
-          language: course.language ?? '',
-          confirmedSeats: course.confirmed ?? 0,
-          totalSeats: course.seats,
-        });
-      }
+          if (MiddleName) {
+            return LastName
+              ? `${name} ${MiddleName} ${LastName}`
+              : `${name} ${MiddleName}`;
+          }
+          return LastName ? `${name} ${LastName}` : name;
+        }),
+        language: course.language ?? '',
+        confirmedSeats: course.confirmed ?? 0,
+        totalSeats: course.seats,
+        parts: course.childSchedules.length
+      });
     }
 
     return acc;
