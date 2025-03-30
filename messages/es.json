@@ -1,0 +1,53 @@
+{
+  "HomePage": {
+    "BannerSection": {
+      "VideoContainer": "Contenedor de Video"
+    },
+    "WelcomeContentSection": {
+      "title": "Bienvenido",
+      "separator": "Separador de Sección",
+      "introMessage": "Bienvenido al Instituto de Liderazgo en el Servicio, donde fusionamos las profundas enseñanzas de los Maestros Espirituales con habilidades prácticas de liderazgo para cultivar un enfoque único hacia el servicio. A medida que emprendes este viaje transformador, explora nuestros cursos diseñados para empoderarte como líder de servicio, arraigados en las cualidades de tu alma empoderada.",
+      "missionStatement": "Descubre el arte de la gestión efectiva de reuniones, la comunicación amorosa y los principios esenciales del liderazgo en el servicio. Únete a nosotros para desbloquear los secretos del liderazgo impactante, donde la espiritualidad y la gestión convergen para formar líderes que encarnan el amor, la unidad y la paz. Prepárate para aprender, crecer y liderar con propósito."
+    },
+    "ServiceLeadershipContentSection": {
+      "title": "¿Qué es el Instituto de Liderazgo en el Servicio?",
+      "separator": "Separador de Sección",
+      "description": "El Liderazgo en el Servicio parte del principio de que servir a través del liderazgo es más efectivo cuando nos inspiramos en las cualidades de nuestra alma empoderada. Basándose en estas cualidades de Sabiduría Ilimitada, Inmortalidad, Amor Incondicional, Valentía, Conexión y Felicidad, el Liderazgo en el Servicio implica dos cosas:"
+    },
+    "LeadershipSection": {
+      "LeadershipInSettings": {
+        "title": "1",
+        "description": "Proporcionar liderazgo en entornos donde la misión principal es cuidar, apoyar y fomentar resultados positivos para uno mismo y para los demás."
+      },
+      "LeadershipAsVolunteer": {
+        "title": "2",
+        "description": "Proporcionar liderazgo como voluntario con el propósito principal de ayudar a otros y apoyar una misión. Estas dos condiciones juegan un papel importante en la forma en que los líderes de servicio dirigen. Dado que la misión de Ciencia de la Espiritualidad se enfoca en la autorrealización y la realización de Dios, y está fundada en los principios de amor, unidad y paz; las prácticas de liderazgo ejercidas por los gerentes y líderes en la organización deben ejemplificar estas cualidades."
+      }
+    },
+    "ServiceAttendContentSection": {
+      "title": "¿Cómo puedo asistir?",
+      "separator": "Separador de Sección",
+      "details": "El Instituto SLI actualmente ofrece cursos en inglés y español. El calendario de cursos se publicará en este sitio web en la página de 'Cursos', donde podrás registrarte."
+    },
+    "AttendSection": {
+      "CourseNomination": {
+        "title": "1",
+        "description": "Visita <link>sli.sos.org</link> (este sitio web)"
+      },
+      "RSVPEmail": {
+        "title": "2",
+        "description": "Dirígete a la página 'Cursos' y regístrate en el curso al que deseas asistir"
+      }
+    },
+    "CertifiedSection": {
+      "title": "¿Cómo puedo obtener la certificación?",
+      "separator": "Separador de Sección",
+      "details": "Para obtener la certificación del Instituto de Liderazgo en el Servicio, los participantes deben completar cinco de los siete cursos que ofrecemos. Una vez que hayas completado con éxito los cursos necesarios, recibirás un correo electrónico nuestro para verificar tu dirección postal y confirmar la ortografía de tu nombre. Tras la confirmación, tu certificación será procesada y enviada por correo. Si tienes alguna otra pregunta, no dudes en comunicarte a través de nuestro sitio web.",
+      "CertifiedSteps": {
+        "Step1": "Completa 5/7 cursos",
+        "Step2": "Recibe un correo de notificación",
+        "Step3": "Confirma dirección postal y nombre"
+      }
+    }
+  }
+}

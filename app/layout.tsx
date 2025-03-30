@@ -1,11 +1,13 @@
-import '@/app/ui/global.css';
-import { futuraFont } from '@/app/ui/fonts';
+import '@/ui/global.css';
+import { futuraFont } from '@/ui/fonts';
+
+import { NextIntlClientProvider } from 'next-intl';
 
 //components
-import { Authenticate } from '@/app/ui/authenticate';
+import { Authenticate } from '@/ui/authenticate';
 
 //components
-import { Navbar } from '@/app/ui/home/navbar';
+import { Navbar } from '@/ui/home/navbar';
 
 //types
 import type { ReactNode } from 'react';
@@ -22,12 +24,22 @@ function HomeLayout({ children }: { children: ReactNode }) {
   );
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${futuraFont.className} antialiased`}>
-        <HomeLayout>{children}</HomeLayout>
-        <Authenticate />
+        <NextIntlClientProvider>
+          <HomeLayout>{children}</HomeLayout>
+          <Authenticate />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

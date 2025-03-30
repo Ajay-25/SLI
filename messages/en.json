@@ -1,0 +1,53 @@
+{
+  "HomePage": {
+    "BannerSection": {
+      "VideoContainer": "VideoContainer"
+    },
+    "WelcomeContentSection": {
+      "title": "Welcome",
+      "separator": "SectionSeparator",
+      "introMessage": "Welcome to the Service Leadership Institute, where we merge the profound teachings of the Spiritual Masters with practical leadership skills to cultivate a unique approach to service. As you embark on this transformative journey, explore our courses designed to empower you as a service leader, rooted in the qualities of your empowered soul.",
+      "missionStatement": "Discover the art of effective meeting management, loving communication, and the essentials of service leadership. Join us in unlocking the secrets to impactful leadership, where spirituality and management converge to shape leaders who embody love, unity, and peace. Get ready to learn, grow, and lead with purpose."
+    },
+    "ServiceLeadershipContentSection": {
+      "title": "What is the Service Leadership Institute",
+      "separator": "SectionSeparator",
+      "description": "Service Leadership starts with the premise that serving through leadership is most effective when we draw from the Qualities of our empowered Soul. Building upon these qualities of Unlimited Wisdom, Immortality, Unconditional Love, Fearlessness, Connectedness, and Bliss, Service Leadership involves two things:"
+    },
+    "LeadershipSection": {
+      "LeadershipInSettings": {
+        "title": "1",
+        "description": "Providing leadership in settings where the overarching mission is to care for, support and encourage positive outcomes for oneself and others"
+      },
+      "LeadershipAsVolunteer": {
+        "title": "2",
+        "description": "Providing leadership as a volunteer for the primary purpose of helping others and supporting a mission. These two conditions play an important role in how service leaders lead. Because the mission of Science of Spirituality is focused on self realization and God realization and founded on the principles of love, unity, and peace; the leadership practices exercised by managers and leaders in the organization should exemplify these qualities."
+      }
+    },
+    "ServiceAttendContentSection": {
+      "title": "How Can I Attend?",
+      "separator": "SectionSeparator",
+      "details": "The SLI currently offers courses in English and Spanish. The course schedule will be posted on this website on the “Courses” page where you are able to register yourself."
+    },
+    "AttendSection": {
+      "CourseNomination": {
+        "title": "1",
+        "description": "Visit <link>sli.sos.org</link> (this website)"
+      },
+      "RSVPEmail": {
+        "title": "2",
+        "description": "Navigate to the “Courses” page and register to the course you wish to attend"
+      }
+    },
+    "CertifiedSection": {
+      "title": "How Can I Get Certified?",
+      "separator": "SectionSeparator",
+      "details": "To achieve certification from the Service Leadership Institute, participants are required to complete five out of the seven courses we offer. Once you have successfully completed the necessary courses, you will receive an email from us to verify your postal address and confirm the spelling of your name. Upon confirmation, your certification will be processed and mailed to you. If you have any further questions, please feel free to reach out through our website.",
+      "CertifiedSteps": {
+        "Step1": "Complete 5/7 courses",
+        "Step2": "Receive notification email",
+        "Step3": "Confirm postal address and Name"
+      }
+    }
+  }
+}

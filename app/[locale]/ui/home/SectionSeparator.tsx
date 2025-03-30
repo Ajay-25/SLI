@@ -1,5 +1,5 @@
 const SectionSeparator = () => {
-  return <div className="bg-sos-primary-gold h-px" />;
+  return <div className="h-px bg-sos-primary-gold" />;
 };
 
 export { SectionSeparator };

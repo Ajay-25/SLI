@@ -11,13 +11,13 @@ import {
   useCallback,
 } from 'react';
 
-import { GoogleCaptchaProvider } from '@/app/ui/googleCaptchaProvider';
+import { GoogleCaptchaProvider } from '@/ui/googleCaptchaProvider';
 
 //hooks
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 //components
-import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { SectionSeparator } from '@/ui/home/SectionSeparator';
 
 const Input = ({
   name,

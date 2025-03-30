@@ -1,14 +1,14 @@
 //components
 import Link from 'next/link';
-import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { SectionSeparator } from '@/ui/home/SectionSeparator';
 
 //utils
-import { adaptCourses } from '@/app/ui/courseSchedule/utils';
+import { adaptCourses } from '@/ui/courseSchedule/utils';
 
 //types
 import { ReactElement } from 'react';
 import { Metadata } from 'next';
-import { Config, CourseSchedule } from '@/app/ui/courseSchedule/types';
+import { Config, CourseSchedule } from '@/ui/courseSchedule/types';
 
 const EmptyPlaceholder = () => {
   return (

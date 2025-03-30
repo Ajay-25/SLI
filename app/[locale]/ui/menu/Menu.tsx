@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Install react-icons if not already done: npm install react-icons
 import Link from 'next/link';
-import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { SectionSeparator } from '@/ui/home/SectionSeparator';
 
 //hooks
 import { usePathname } from 'next/navigation';
 
 //types
-import type { Link as LinkType } from '@/app/ui/types/links';
+import type { Link as LinkType } from '@/ui/types/links';
 import clsx from 'clsx';
 import Image from 'next/image';
 

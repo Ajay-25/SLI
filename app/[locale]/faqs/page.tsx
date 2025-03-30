@@ -1,5 +1,5 @@
 //components
-import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { SectionSeparator } from '@/ui/home/SectionSeparator';
 import { Metadata } from 'next';
 
 const HowToEnrollSection = () => {

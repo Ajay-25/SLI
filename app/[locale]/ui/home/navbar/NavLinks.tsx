@@ -1,14 +1,14 @@
-import Link from 'next/link';
+import { Link } from '@i18n/navigation';
 import clsx from 'clsx';
 
 //components
-import { HamburgerMenu } from '@/app/ui/menu';
+import { HamburgerMenu } from '@/ui/menu';
 
 //hooks
 import { usePathname } from 'next/navigation';
 
 const links = [
-  { name: 'My Profile', href: '/my-profile'},
+  { name: 'My Profile', href: '/my-profile' },
   { name: 'Courses', href: '/courses' },
   { name: "FAQ's", href: '/faqs' },
   { name: 'Course Schedule', href: '/course-schedule' },

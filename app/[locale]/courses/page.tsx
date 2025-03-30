@@ -1,5 +1,5 @@
 //components
-import { SectionSeparator } from '@/app/ui/home/SectionSeparator';
+import { SectionSeparator } from '@/ui/home/SectionSeparator';
 import Image from 'next/image';
 
 //types
@@ -37,7 +37,9 @@ const Item = ({
         alt={altText}
         className="self-start lg:hidden"
       />
-      <div className="text-16 text-sos-primary-blue lg:text-20 text-justify">{children}</div>
+      <div className="text-justify text-16 text-sos-primary-blue lg:text-20">
+        {children}
+      </div>
     </div>
   );
 };
@@ -50,7 +52,7 @@ const ItemList = () => {
         altText="Loving Communication"
       >
         <div>
-          The Loving Communication workshop encourages participants to explore
+          The Loving Communication workshop ecourages participants to explore
           the significance of genuine listening and practice heart to heart and
           soul to soul communication. It offers techniques to transform negative
           interactions into positive ones and fosters a receptive approach to

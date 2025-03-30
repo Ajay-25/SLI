@@ -105,7 +105,7 @@ export const adaptCourses = (courses: CourseSchedule[]): Config => {
         language: course.language ?? '',
         confirmedSeats: course.confirmed ?? 0,
         totalSeats: course.seats,
-        parts: course.childSchedules.length
+        parts: course.childSchedules.length,
       });
     }
 

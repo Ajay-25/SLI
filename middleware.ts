@@ -1,5 +1,9 @@
 // middleware.js
 import { NextResponse, NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+
+//routing
+import { routing } from '@i18n/routing';
 
 import { geolocation } from '@vercel/functions';
 
@@ -31,14 +35,14 @@ export function middleware(request: NextRequest) {
   console.log('country', country);
 
   // Exclude requests for static assets and favicons
-  // if (
-  //   url.pathname.startsWith('/_next/') || // Static assets (like JavaScript, CSS)
-  //   url.pathname.startsWith('/api/') || // API routes
-  //   url.pathname === '/favicon.ico' || // Favicon
-  //   url.pathname.startsWith('/static/') // Custom static folder
-  // ) {
-  //   return NextResponse.next(); // Don't redirect static file requests
-  // }
+  if (
+    url.pathname.startsWith('/_next/') || // Static assets (like JavaScript, CSS)
+    url.pathname.startsWith('/api/') || // API routes
+    url.pathname === '/favicon.ico' || // Favicon
+    url.pathname.startsWith('/static/') // Custom static folder
+  ) {
+    return NextResponse.next(); // Don't redirect static file requests
+  }
 
   // Redirect based on country
   // if (
@@ -48,9 +52,13 @@ export function middleware(request: NextRequest) {
   //   url.pathname = '/not-available';
   //   return NextResponse.redirect(url);
   // }
-  return NextResponse.next();
+
+  const intlMiddleware = createMiddleware(routing);
+  const intlResponse = intlMiddleware(request);
+
+  return intlResponse;
 }
 
 export const config = {
-  matcher: '/:path*', // Match all paths
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
 };
