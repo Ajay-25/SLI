@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Install react-icons if not already done: npm install react-icons
-import Link from 'next/link';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from '@i18n/navigation';
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
 
 //hooks
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 //types
 import type { Link as LinkType } from '@/ui/types/links';
@@ -16,6 +17,7 @@ import Image from 'next/image';
 const HamburgerMenu = ({ links }: { links: LinkType[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations('Nav');
 
   // Toggle Sidebar
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -64,7 +66,7 @@ const HamburgerMenu = ({ links }: { links: LinkType[] }) => {
         <ul className="flex flex-col space-y-4 p-4">
           {links.map((link) => {
             return (
-              <li key={link.name}>
+              <li key={link.key}>
                 <Link
                   href={link.href}
                   className={clsx(
@@ -75,7 +77,7 @@ const HamburgerMenu = ({ links }: { links: LinkType[] }) => {
                   )}
                   onClick={toggleSidebar}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </Link>
               </li>
             );

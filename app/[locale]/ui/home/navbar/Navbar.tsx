@@ -3,7 +3,7 @@ import { Link } from '@i18n/navigation';
 import clsx from 'clsx';
 
 //hooks
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@i18n/navigation';
 
 //components
 import { NavLinks } from './NavLinks';

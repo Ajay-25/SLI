@@ -2,6 +2,9 @@
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
 import Image from 'next/image';
 
+//hooks
+import { useTranslations } from 'next-intl';
+
 //types
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
@@ -45,147 +48,77 @@ const Item = ({
 };
 
 const ItemList = () => {
+  const t = useTranslations('CoursePage');
+  const globalT = useTranslations();
+  const locale = globalT('locale');
+
   return (
     <div className="mx-[2.2rem] flex flex-col lg:mx-[14.2rem]">
       <Item
-        source="/home/loving-communication.webp"
-        altText="Loving Communication"
+        source={`/images/courses/${locale}/loving-communication.webp`}
+        altText={t('LovingCommunication.title')}
       >
-        <div>
-          The Loving Communication workshop ecourages participants to explore
-          the significance of genuine listening and practice heart to heart and
-          soul to soul communication. It offers techniques to transform negative
-          interactions into positive ones and fosters a receptive approach to
-          feedback.
-        </div>
+        <div>{t('LovingCommunication.description')}</div>
       </Item>
       <SectionSeparator />
+
       <Item
-        source="/home/serving-others.webp"
-        altText="Serving Others As they grow"
+        source={`/images/courses/${locale}/serving-others.webp`}
+        altText={t('ServingOthers.title')}
       >
-        <div>
-          Serving Others As They Grow is a leadership workshop by The Service
-          Leadership Institute, designed to enhance the essential skills for
-          effective leadership. Focused on motivation, encouragement, and
-          feedback, this two session workshop applies the guidance of Sant
-          Rajinder Singh to create an environment for motivation, inspire the
-          best in others, and provide constructive feedback. Rooted in the
-          teachings of SOS, the workshop offers practical insights for
-          participants to become authentic service leaders, combining wisdom and
-          hands on techniques for effective leadership.
-        </div>
+        <div>{t('ServingOthers.description')}</div>
       </Item>
       <SectionSeparator />
-      <Item source="/home/delegation.webp" altText="Delegation">
+
+      <Item
+        source={`/images/courses/${locale}/delegation.webp`}
+        altText={t('Delegation.title')}
+      >
         <div className="flex flex-col gap-8">
-          <p>
-            As leaders in a variety of roles, we know that delegation is needed,
-            but it&apos;s difficult to put it into action. The delegation course
-            is designed to help you learn more about how to effectively delegate
-            and take the next steps in delegating tasks to others. Participants
-            will:
-          </p>
+          <p>{t('Delegation.description')}</p>
           <ul className="list-inside list-disc">
-            <li>clarify rationale and benefits of delegation</li>
-            <li>explore criteria for identifying tasks to delegate</li>
-            <li>
-              apply communication strategies to their own experience with
-              delegation
-            </li>
-            <li>
-              develop an action plan to delegate tasks in their department
-            </li>
+            <li>{t('Delegation.list.item1')}</li>
+            <li>{t('Delegation.list.item2')}</li>
+            <li>{t('Delegation.list.item3')}</li>
+            <li>{t('Delegation.list.item4')}</li>
           </ul>
         </div>
       </Item>
       <SectionSeparator />
+
       <Item
-        source="/home/conflict-resolution.webp"
-        altText="Conflict Resolution"
+        source={`/images/courses/${locale}/conflict-resolution.webp`}
+        altText={t('ConflictResolution.title')}
       >
-        <div>
-          In the conflict resolution workshop you will share a simple technique
-          you can immediately put into practice to lovingly navigate through
-          challenging and conflicting situations with grace and ease. Working in
-          small groups, you will learn how to manage and resolve conflict that
-          can arise in different forms, while broadening your skill set.
-        </div>
+        <div>{t('ConflictResolution.description')}</div>
       </Item>
       <SectionSeparator />
+
       <Item
-        source="/home/effective_meeting_management.webp"
-        altText="Meeting Managment"
+        source={`/images/courses/${locale}/effective_meeting_management.webp`}
+        altText={t('MeetingManagement.title')}
       >
         <div className="flex flex-col gap-6">
-          <p>
-            One of the ways leaders help others engage in meaningful seva is by
-            facilitating constructive meetings where participants feel engaged
-            and valued and where the outcomes of the meeting result in
-            empowering team members to contribute to the work of the mission. As
-            a result, leaders are often called on to conduct meetings, plan
-            events, disseminate information or to involve the team in matters
-            pertaining to operations and administration.
-          </p>
-          <p>
-            There are tried and true techniques for running efficient meetings,
-            such as setting agendas, establishing ground rules, and facilitating
-            inclusive discussions. This workshop not only teaches these skills
-            aimed at improving the productiveness of meetings, but it also
-            reveals how effectively facilitating meetings is an important avenue
-            for service leaders to reflect the qualities of the soul and to
-            express the kind of patience, humility and respect that are part of
-            a satsang community working together with love and grace.
-          </p>
+          <p>{t('MeetingManagement.description')}</p>
         </div>
       </Item>
       <SectionSeparator />
+
       <Item
-        source="/home/collaborative_decision_making.webp"
-        altText="Collaborative Decision Making"
+        source={`/images/courses/${locale}/collaborative_decision_making.webp`}
+        altText={t('CollaborativeDecisionMaking.title')}
       >
         <div className="flex flex-col gap-6">
-          <p>
-            Collaborative Decision Making Teaches an essential skill because
-            many issues that come up in the mission involve interfacing with
-            others and gaining agreement from all concerned parties, reaching
-            decisions collaboratively with other team members is a critical
-            capability to develop and implement. Whether it concerns a simple
-            decision such as agreeing what type of Outreach event to hold or as
-            complex as deciding on a budget for the upcoming year, when two or
-            more people are involved, differing opinions are best resolved
-            through collaboration.
-          </p>
-          <p>
-            In this workshop, different approaches to decision making are
-            identified and situations where each is likely to be most
-            appropriate are discussed. The primary focus is on techniques
-            related to collaborative approaches to decision making because it is
-            the responsibility of service leaders to ensure that good decisions
-            are made and acted upon effectively.
-          </p>
-          <p>
-            The spiritual principles underlying collaboration practices are also
-            highlighted and the importance of open communication, a loving
-            approach, and clarity of purpose for creating a good decision making
-            environment.
-          </p>
+          <p>{t('CollaborativeDecisionMaking.description')}</p>
         </div>
       </Item>
       <SectionSeparator />
+
       <Item
-        source="/home/building_lasting_change.webp"
-        altText="Building Lasting Change"
+        source={`/images/courses/${locale}/building_lasting_change.webp`}
+        altText={t('BuildingLastingChange.title')}
       >
-        <div>
-          Building lasting change creates a safe space in which SOS leaders can
-          reflect on their successes and challenges through the lens of the
-          Qualities of the Soul, resulting in greater joy, love and service. SLI
-          Coaching will allow us to take a journey together, as we support one
-          another in having the Qualities of the Soul become more and more
-          prominent in us, and in our seva, with a specific focus on Loving
-          Communication.
-        </div>
+        <div>{t('BuildingLastingChange.description')}</div>
       </Item>
     </div>
   );

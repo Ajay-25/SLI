@@ -1,1 +1,1 @@
-export type Link = { name: string; href: string };
+export type Link = { key: string; href: string };

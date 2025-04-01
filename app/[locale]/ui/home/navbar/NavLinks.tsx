@@ -5,18 +5,21 @@ import clsx from 'clsx';
 import { HamburgerMenu } from '@/ui/menu';
 
 //hooks
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@i18n/navigation';
+
+//hooks
+import { useTranslations } from 'next-intl';
 
 const links = [
-  { name: 'My Profile', href: '/my-profile' },
-  { name: 'Courses', href: '/courses' },
-  { name: "FAQ's", href: '/faqs' },
-  { name: 'Course Schedule', href: '/course-schedule' },
-  { name: 'Contact Us', href: '/contact-us' },
-  // { name: 'Sign Out', href: '/sign-out' },
+  { key: 'myProfile', href: '/my-profile' },
+  { key: 'courses', href: '/courses' },
+  { key: 'faqs', href: '/faqs' },
+  { key: 'courseSchedule', href: '/course-schedule' },
+  { key: 'contactUs', href: '/contact-us' },
 ];
 
 export function NavLinks({ className }: { className: string }) {
+  const t = useTranslations('Nav');
   const pathname = usePathname();
 
   return (
@@ -30,7 +33,7 @@ export function NavLinks({ className }: { className: string }) {
         {links.map((link) => {
           return (
             <Link
-              key={link.name}
+              key={link.key}
               href={link.href}
               className={clsx(
                 'flex flex-none cursor-pointer border-0 border-sos-primary-gold p-2.5 px-8 text-20 font-medium hover:text-sos-secondary-blue [&:not(:last-child)]:border-r-[1px]',
@@ -39,7 +42,7 @@ export function NavLinks({ className }: { className: string }) {
                   : 'text-sos-primary-blue',
               )}
             >
-              {link.name}
+              {t(link.key)}
             </Link>
           );
         })}

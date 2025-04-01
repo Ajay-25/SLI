@@ -15,6 +15,7 @@ import { GoogleCaptchaProvider } from '@/ui/googleCaptchaProvider';
 
 //hooks
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useTranslations } from 'next-intl';
 
 //components
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
@@ -83,17 +84,19 @@ const sendMail = async (
 };
 
 const SuccessMessage = ({ onSendMail }: { onSendMail: MouseEventHandler }) => {
+  const t = useTranslations('ContactUs');
+
   return (
     <div className="flex flex-col gap-6">
       <div className="text-center text-24 font-medium lg:text-32">
-        Your message has been sent!
+        {t('successMessage')}
       </div>
       <button
         type="button"
         onClick={onSendMail}
         className="flex-none self-start border border-sos-secondary-dark-gold px-4 py-2 text-16 font-medium text-sos-primary-gold lg:px-12 lg:py-4 lg:text-20"
       >
-        Send Another Message
+        {t('sendAnotherMessage')}
       </button>
     </div>
   );
@@ -145,9 +148,11 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
     );
   };
 
+  const t = useTranslations('ContactUs.form');
+
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="flex flex-col gap-4 text-sos-primary-blue lg:gap-6"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:gap-6 ">
@@ -155,33 +160,33 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
           name="firstName"
           value={formData.firstName}
           onChange={handleChange}
-          placeholder="First Name"
+          placeholder={t('firstName')}
           required
         />
         <Input
           name="lastName"
           value={formData.lastName}
           onChange={handleChange}
-          placeholder="Last Name"
+          placeholder={t('lastName')}
         />
       </div>
       <Input
         name="email"
         value={formData.email}
         onChange={handleChange}
-        placeholder="Email"
+        placeholder={t('email')}
       />
       <Input
         name="region"
         value={formData.region}
         onChange={handleChange}
-        placeholder="Region"
+        placeholder={t('region')}
       />
       <Input
         name="subject"
         value={formData.subject}
         onChange={handleChange}
-        placeholder="Subject"
+        placeholder={t('subject')}
         required
       />
       <textarea
@@ -190,7 +195,7 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
         value={formData.question}
         onChange={handleChange}
         rows={4}
-        placeholder="Question"
+        placeholder={t('question')}
         required
         className="mx-h-60 grow overflow-auto border-current p-2 text-16 font-medium leading-tight placeholder:text-sos-primary-blue placeholder:opacity-50 lg:max-h-80 lg:p-4 lg:text-20"
       />
@@ -198,7 +203,7 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
         type="submit"
         className="flex-none self-start border border-sos-secondary-dark-gold bg-sos-primary-gold px-4 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
       >
-        {sending ? 'Sending Mail' : 'Send'}
+        {sending ? t('sending') : t('submit')}
       </button>
     </form>
   );
@@ -206,6 +211,7 @@ const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
 
 export default function Page() {
   const [mailSent, setMailSent] = useState(false);
+  const t = useTranslations('ContactUs');
 
   const handleSubmit = useCallback(() => setMailSent(true), []);
   const sendMail = useCallback(() => setMailSent(false), []);
@@ -214,7 +220,7 @@ export default function Page() {
     <GoogleCaptchaProvider>
       <article className="flex flex-col gap-4 px-[2.2rem] pb-[4rem] pt-[2rem] lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
         <h1 className="text-32 font-medium text-sos-primary-blue lg:text-42">
-          Contact the SLI Admin for questions
+          {t('title')}
         </h1>
         <SectionSeparator />
         {mailSent ? (

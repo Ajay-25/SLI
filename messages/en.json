@@ -1,17 +1,16 @@
 {
+  "locale": "en",
   "HomePage": {
     "BannerSection": {
       "VideoContainer": "VideoContainer"
     },
     "WelcomeContentSection": {
       "title": "Welcome",
-      "separator": "SectionSeparator",
       "introMessage": "Welcome to the Service Leadership Institute, where we merge the profound teachings of the Spiritual Masters with practical leadership skills to cultivate a unique approach to service. As you embark on this transformative journey, explore our courses designed to empower you as a service leader, rooted in the qualities of your empowered soul.",
       "missionStatement": "Discover the art of effective meeting management, loving communication, and the essentials of service leadership. Join us in unlocking the secrets to impactful leadership, where spirituality and management converge to shape leaders who embody love, unity, and peace. Get ready to learn, grow, and lead with purpose."
     },
     "ServiceLeadershipContentSection": {
       "title": "What is the Service Leadership Institute",
-      "separator": "SectionSeparator",
       "description": "Service Leadership starts with the premise that serving through leadership is most effective when we draw from the Qualities of our empowered Soul. Building upon these qualities of Unlimited Wisdom, Immortality, Unconditional Love, Fearlessness, Connectedness, and Bliss, Service Leadership involves two things:"
     },
     "LeadershipSection": {
@@ -26,7 +25,6 @@
     },
     "ServiceAttendContentSection": {
       "title": "How Can I Attend?",
-      "separator": "SectionSeparator",
       "details": "The SLI currently offers courses in English and Spanish. The course schedule will be posted on this website on the “Courses” page where you are able to register yourself."
     },
     "AttendSection": {
@@ -41,7 +39,6 @@
     },
     "CertifiedSection": {
       "title": "How Can I Get Certified?",
-      "separator": "SectionSeparator",
       "details": "To achieve certification from the Service Leadership Institute, participants are required to complete five out of the seven courses we offer. Once you have successfully completed the necessary courses, you will receive an email from us to verify your postal address and confirm the spelling of your name. Upon confirmation, your certification will be processed and mailed to you. If you have any further questions, please feel free to reach out through our website.",
       "CertifiedSteps": {
         "Step1": "Complete 5/7 courses",
@@ -49,5 +46,133 @@
         "Step3": "Confirm postal address and Name"
       }
     }
+  },
+
+  "CoursePage": {
+    "LovingCommunication": {
+      "title": "Loving Communication",
+      "description": "The Loving Communication workshop encourages participants to explore the significance of genuine listening and practice heart-to-heart and soul-to-soul communication. It offers techniques to transform negative interactions into positive ones and fosters a receptive approach to feedback."
+    },
+    "ServingOthers": {
+      "title": "Serving Others As They Grow",
+      "description": "Serving Others As They Grow is a leadership workshop by The Service Leadership Institute, designed to enhance the essential skills for effective leadership. Focused on motivation, encouragement, and feedback, this two-session workshop applies the guidance of Sant Rajinder Singh to create an environment for motivation, inspire the best in others, and provide constructive feedback."
+    },
+    "Delegation": {
+      "title": "Delegation",
+      "description": "As leaders in a variety of roles, we know that delegation is needed, but it's difficult to put it into action. The delegation course is designed to help you learn how to effectively delegate and take the next steps in delegating tasks to others.",
+      "list": {
+        "item1": "Clarify rationale and benefits of delegation",
+        "item2": "Explore criteria for identifying tasks to delegate",
+        "item3": "Apply communication strategies to their own experience with delegation",
+        "item4": "Develop an action plan to delegate tasks in their department"
+      }
+    },
+    "ConflictResolution": {
+      "title": "Conflict Resolution",
+      "description": "In the conflict resolution workshop, you will share a simple technique you can immediately put into practice to lovingly navigate through challenging and conflicting situations with grace and ease."
+    },
+    "MeetingManagement": {
+      "title": "Meeting Management",
+      "description": "One of the ways leaders help others engage in meaningful seva is by facilitating constructive meetings where participants feel engaged and valued, resulting in empowering team members to contribute effectively."
+    },
+    "CollaborativeDecisionMaking": {
+      "title": "Collaborative Decision Making",
+      "description": "Collaborative Decision Making teaches an essential skill, as many issues in the mission involve interfacing with others. Reaching decisions collaboratively with other team members is a critical capability to develop and implement."
+    },
+    "BuildingLastingChange": {
+      "title": "Building Lasting Change",
+      "description": "Building Lasting Change creates a safe space for SOS leaders to reflect on their successes and challenges through the lens of the Qualities of the Soul, resulting in greater joy, love, and service."
+    }
+  },
+
+  "FAQPage": {
+    "title": "Frequently Asked Questions",
+    "HowToEnrollSection": {
+      "title": "How can I enroll in an SLI course?",
+      "description": "The SLI currently operates on an open enrollment basis.",
+      "steps": [
+        "You may visit sli.sos.org (this website) and navigate to the 'Courses' page.",
+        "Identify the course you wish to enroll in.",
+        "Click on 'register'.",
+        "Fill out the RSVP form.",
+        "Take note of the date and time of the event."
+      ],
+      "importantNote": "It is crucial that you RSVP to reserve your seat.",
+      "reservationPolicy": "The SLI operates on a first-come, first-serve basis. If the course is fully reserved, your acceptance will depend on the facilitator’s discretion."
+    },
+    "UnableToAttendSection": {
+      "title": "What if I am invited to a course that I am unable to attend?",
+      "description": "The SLI is constantly offering courses. As of 2024, courses are offered twice a year—one in-person and one virtual."
+    },
+    "CourseAsGroupSection": {
+      "title": "What if a group I do seva with regularly wants to take a course together?",
+      "description": "Taking SLI courses with your seva teams and departments is an excellent way to experience these courses!",
+      "steps": [
+        "Gain a commitment from your seva team/department to take an SLI course.",
+        "Find your regional coordinator and present them with a list of people in your seva team/department.",
+        "The regional coordinator will then nominate all people in your list."
+      ],
+      "unavailableDates": {
+        "question": "What if our seva team/department is not available for any of the posted dates?",
+        "steps": [
+          "Reach out to the SLI admin at sli-admin@sos.org for scheduling inquiries.",
+          "The SLI admin will coordinate with your team representative to arrange an event dedicated to your team at a mutually convenient date and location."
+        ]
+      }
+    },
+    "LanguagesSection": {
+      "title": "What languages are the SLI courses being offered in?",
+      "description": "As of Jan 2024, the SLI courses are available in English and Spanish.",
+      "contacts": {
+        "english": "For inquiries about English courses - sli-admin@sos.org",
+        "spanish": "For inquiries about Spanish courses - alvaro.castro@sos.org"
+      }
+    },
+    "RegionSection": {
+      "title": "Who can I contact for assistance or questions?",
+      "description": "As of Jan 2024, the SLI has different administrations for different languages or regions. Each administration can offer courses in the Western Hemisphere based on the languages supported by SLI.",
+      "contacts": {
+        "english": "For inquiries about English courses - sli-admin@sos.org",
+        "spanish": "For inquiries about Spanish courses - alvaro.castro@sos.org"
+      }
+    }
+  },
+
+  "ContactUs": {
+    "title": "Contact the SLI Admin for questions",
+    "successMessage": "Your message has been sent!",
+    "sendAnotherMessage": "Send Another Message",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "region": "Region",
+      "subject": "Subject",
+      "question": "Question",
+      "submit": "Send",
+      "sending": "Sending Mail"
+    }
+  },
+
+  "CourseSchedule": {
+    "title": "Course Schedule",
+    "register": "Register",
+    "noCourses": "There are currently no scheduled courses.",
+    "fullClass": "Full class",
+    "facilitator": "Facilitator {index}: {name}",
+    "singleFacilitator": "Facilitator: {name}",
+    "seatsAvailable": "Seats Available: {confirmedSeats}/{totalSeats}",
+    "location": "Location: {venue}",
+    "parts": "{parts} Parts",
+    "language": "Language: {language}",
+    "loadingCourses": "We are loading the courses for you, Please wait..."
+  },
+
+  "Nav": {
+    "myProfile": "My Profile",
+    "courses": "Courses",
+    "faqs": "FAQ's",
+    "courseSchedule": "Course Schedule",
+    "contactUs": "Contact Us"
   }
 }

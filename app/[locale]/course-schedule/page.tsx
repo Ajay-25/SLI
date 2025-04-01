@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
 
+//hooks
+import { useTranslations } from 'next-intl';
+
 //utils
 import { adaptCourses } from '@/ui/courseSchedule/utils';
 
@@ -11,11 +14,9 @@ import { Metadata } from 'next';
 import { Config, CourseSchedule } from '@/ui/courseSchedule/types';
 
 const EmptyPlaceholder = () => {
-  return (
-    <h3 className="text-20 lg:text-24">
-      There are currently no scheduled courses.
-    </h3>
-  );
+  const t = useTranslations('CourseSchedule');
+
+  return <h3 className="text-20 lg:text-24">{t('noCourses')}</h3>;
 };
 
 const CoursesList = ({
@@ -23,6 +24,8 @@ const CoursesList = ({
 }: {
   config: Config;
 }): ReactElement[] | ReactElement => {
+  const t = useTranslations('CourseSchedule');
+
   if (config.length === 0) {
     return <EmptyPlaceholder />;
   }
@@ -41,33 +44,43 @@ const CoursesList = ({
               className="flex flex-col justify-between gap-2 lg:gap-3"
             >
               <h3 className="text-20 lg:text-24">{course.name}</h3>
-              <h3 className="text-20 font-bold lg:text-24">{course.parts > 0 ? `${course.parts} Parts` : ''}</h3>
+              <h3 className="text-20 font-bold lg:text-24">
+                {course.parts > 0 ? t('parts', { parts: course.parts }) : ''}
+              </h3>
               <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
                 <span>
                   {course.timezone
                     ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
                     : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
                 </span>
-                <span>{`Location: ${course.venue}`}</span>
+                <span>{t('location', { venue: course.venue })}</span>
                 {course.totalSeats ? (
-                  <span>{`Seats Available: ${course.confirmedSeats}/${course.totalSeats}`}</span>
+                  <span>
+                    {t('seatsAvailable', {
+                      confirmedSeats: course.confirmedSeats,
+                      totalSeats: course.totalSeats,
+                    })}
+                  </span>
                 ) : null}
                 {course.facilitators.length === 1 ? (
-                  <span
-                    key={`${course.name}-${course.facilitators[0]}`}
-                  >{`Facilitator: ${course.facilitators[0]}`}</span>
+                  <span key={`${course.name}-${course.facilitators[0]}`}>
+                    {t('singleFacilitator', { name: course.facilitators[0] })}
+                  </span>
                 ) : (
                   course.facilitators.map((facilitator, index) => (
-                    <span
-                      key={`${course.name}-${facilitator}-${index}`}
-                    >{`Facilitator ${index + 1}: ${facilitator}`}</span>
+                    <span key={`${course.name}-${facilitator}-${index}`}>
+                      {t('facilitator', {
+                        index: index + 1,
+                        name: course.facilitators[index],
+                      })}
+                    </span>
                   ))
                 )}
-                <span>{`Language: ${course.language}`}</span>
+                <span>{t('language', { language: course.language })}</span>
               </div>
               {isCourseFull ? (
                 <div className="flex-none cursor-not-allowed self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white opacity-50 lg:px-12 lg:py-4 lg:text-20">
-                  Full class
+                  {t('fullClass')}
                 </div>
               ) : (
                 <Link
@@ -78,7 +91,7 @@ const CoursesList = ({
                   referrerPolicy="no-referrer"
                   className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
                 >
-                  Register
+                  {t('register')}
                 </Link>
               )}
               <SectionSeparator />
