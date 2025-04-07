@@ -1,0 +1,178 @@
+{
+  "locale": "es",
+  "HomePage": {
+    "BannerSection": {
+      "VideoContainer": "Contenedor de Video"
+    },
+    "WelcomeContentSection": {
+      "title": "Bienvenido",
+      "introMessage": "Bienvenido al Instituto de Liderazgo en el Servicio, donde fusionamos las profundas enseñanzas de los Maestros Espirituales con habilidades prácticas de liderazgo para cultivar un enfoque único hacia el servicio. A medida que emprendes este viaje transformador, explora nuestros cursos diseñados para empoderarte como líder de servicio, arraigados en las cualidades de tu alma empoderada.",
+      "missionStatement": "Descubre el arte de la gestión efectiva de reuniones, la comunicación amorosa y los principios esenciales del liderazgo en el servicio. Únete a nosotros para desbloquear los secretos del liderazgo impactante, donde la espiritualidad y la gestión convergen para formar líderes que encarnan el amor, la unidad y la paz. Prepárate para aprender, crecer y liderar con propósito."
+    },
+    "ServiceLeadershipContentSection": {
+      "title": "¿Qué es el Instituto de Liderazgo en el Servicio?",
+      "description": "El Liderazgo en el Servicio parte del principio de que servir a través del liderazgo es más efectivo cuando nos inspiramos en las cualidades de nuestra alma empoderada. Basándose en estas cualidades de Sabiduría Ilimitada, Inmortalidad, Amor Incondicional, Valentía, Conexión y Felicidad, el Liderazgo en el Servicio implica dos cosas:"
+    },
+    "LeadershipSection": {
+      "LeadershipInSettings": {
+        "title": "1",
+        "description": "Proporcionar liderazgo en entornos donde la misión principal es cuidar, apoyar y fomentar resultados positivos para uno mismo y para los demás."
+      },
+      "LeadershipAsVolunteer": {
+        "title": "2",
+        "description": "Proporcionar liderazgo como voluntario con el propósito principal de ayudar a otros y apoyar una misión. Estas dos condiciones juegan un papel importante en la forma en que los líderes de servicio dirigen. Dado que la misión de Ciencia de la Espiritualidad se enfoca en la autorrealización y la realización de Dios, y está fundada en los principios de amor, unidad y paz; las prácticas de liderazgo ejercidas por los gerentes y líderes en la organización deben ejemplificar estas cualidades."
+      }
+    },
+    "ServiceAttendContentSection": {
+      "title": "¿Cómo puedo asistir?",
+      "details": "El Instituto SLI actualmente ofrece cursos en inglés y español. El calendario de cursos se publicará en este sitio web en la página de 'Cursos', donde podrás registrarte."
+    },
+    "AttendSection": {
+      "CourseNomination": {
+        "title": "1",
+        "description": "Visita <link>sli.sos.org</link> (este sitio web)"
+      },
+      "RSVPEmail": {
+        "title": "2",
+        "description": "Dirígete a la página 'Cursos' y regístrate en el curso al que deseas asistir"
+      }
+    },
+    "CertifiedSection": {
+      "title": "¿Cómo puedo obtener la certificación?",
+      "details": "Para obtener la certificación del Instituto de Liderazgo en el Servicio, los participantes deben completar cinco de los siete cursos que ofrecemos. Una vez que hayas completado con éxito los cursos necesarios, recibirás un correo electrónico nuestro para verificar tu dirección postal y confirmar la ortografía de tu nombre. Tras la confirmación, tu certificación será procesada y enviada por correo. Si tienes alguna otra pregunta, no dudes en comunicarte a través de nuestro sitio web.",
+      "CertifiedSteps": {
+        "Step1": "Completa 5/7 cursos",
+        "Step2": "Recibe un correo de notificación",
+        "Step3": "Confirma dirección postal y nombre"
+      }
+    }
+  },
+
+  "CoursePage": {
+    "LovingCommunication": {
+      "title": "Comunicación Amorosa",
+      "description": "El taller de Comunicación Amorosa anima a los participantes a explorar la importancia de la escucha genuina y practicar la comunicación de corazón a corazón y de alma a alma. Ofrece técnicas para transformar interacciones negativas en positivas y fomenta un enfoque receptivo hacia la retroalimentación."
+    },
+    "ServingOthers": {
+      "title": "Servir a los Demás Mientras Crecen",
+      "description": "Servir a los Demás Mientras Crecen es un taller de liderazgo del Instituto de Liderazgo en el Servicio, diseñado para mejorar las habilidades esenciales para el liderazgo efectivo. Centrado en la motivación, el estímulo y la retroalimentación, este taller de dos sesiones aplica la guía de Sant Rajinder Singh para crear un entorno motivador, inspirar lo mejor en los demás y proporcionar retroalimentación constructiva."
+    },
+    "Delegation": {
+      "title": "Delegación",
+      "description": "Como líderes en diversos roles, sabemos que la delegación es necesaria, pero es difícil ponerla en práctica. El curso de delegación está diseñado para ayudarte a aprender a delegar de manera efectiva y dar los próximos pasos en la delegación de tareas a otros.",
+      "list": {
+        "item1": "Aclarar la justificación y los beneficios de la delegación",
+        "item2": "Explorar criterios para identificar tareas a delegar",
+        "item3": "Aplicar estrategias de comunicación a su propia experiencia con la delegación",
+        "item4": "Desarrollar un plan de acción para delegar tareas en su departamento"
+      }
+    },
+    "ConflictResolution": {
+      "title": "Resolución de Conflictos",
+      "description": "En el taller de resolución de conflictos, compartirás una técnica simple que puedes poner en práctica de inmediato para navegar con amor a través de situaciones desafiantes y conflictivas con gracia y facilidad."
+    },
+    "MeetingManagement": {
+      "title": "Gestión de Reuniones",
+      "description": "Una de las formas en que los líderes ayudan a los demás a participar en un seva significativo es facilitando reuniones constructivas donde los participantes se sientan comprometidos y valorados, lo que empodera a los miembros del equipo para contribuir de manera efectiva."
+    },
+    "CollaborativeDecisionMaking": {
+      "title": "Toma de Decisiones Colaborativa",
+      "description": "La Toma de Decisiones Colaborativa enseña una habilidad esencial, ya que muchos problemas en la misión implican interactuar con otros. Tomar decisiones colaborativamente con otros miembros del equipo es una capacidad crítica para desarrollar e implementar."
+    },
+    "BuildingLastingChange": {
+      "title": "Creando un Cambio Duradero",
+      "description": "Creando un Cambio Duradero crea un espacio seguro para que los líderes de SOS reflexionen sobre sus éxitos y desafíos a través de la lente de las Cualidades del Alma, lo que resulta en mayor alegría, amor y servicio."
+    }
+  },
+
+  "FAQPage": {
+    "title": "Preguntas Frecuentes",
+    "HowToEnrollSection": {
+      "title": "¿Cómo puedo inscribirme en un curso de SLI?",
+      "description": "El SLI actualmente opera con un sistema de inscripción abierta.",
+      "steps": [
+        "Visita sli.sos.org (este sitio web) y navega a la página de 'Cursos'.",
+        "Identifica el curso en el que deseas inscribirte.",
+        "Haz clic en 'registrarse'.",
+        "Completa el formulario de RSVP.",
+        "Toma nota de la fecha y hora del evento."
+      ],
+      "importantNote": "Es crucial que confirmes tu asistencia (RSVP) para reservar tu lugar.",
+      "reservationPolicy": "El SLI opera con base en el orden de llegada. Si el curso está completamente reservado, tu aceptación dependerá del criterio del facilitador."
+    },
+    "UnableToAttendSection": {
+      "title": "¿Qué pasa si me invitan a un curso y no puedo asistir?",
+      "description": "El SLI ofrece cursos de manera continua. A partir de 2024, los cursos se ofrecen dos veces al año: uno presencial y otro virtual."
+    },
+    "CourseAsGroupSection": {
+      "title": "¿Qué pasa si un grupo con el que hago seva regularmente quiere tomar un curso juntos?",
+      "description": "Tomar cursos de SLI con tus equipos y departamentos de seva es una excelente manera de experimentar estos cursos.",
+      "steps": [
+        "Asegura el compromiso de tu equipo/departamento de seva para tomar un curso de SLI.",
+        "Encuentra a tu coordinador regional y preséntale la lista de personas en tu equipo/departamento de seva.",
+        "El coordinador regional nominará a todas las personas en tu lista."
+      ],
+      "unavailableDates": {
+        "question": "¿Qué pasa si nuestro equipo de seva/departamento no está disponible en ninguna de las fechas publicadas?",
+        "steps": [
+          "Comunícate con el administrador de SLI en sli-admin@sos.org para consultas sobre horarios.",
+          "El administrador de SLI se pondrá en contacto con el representante de tu equipo para organizar un evento exclusivo para tu equipo en una fecha y ubicación adecuadas para todos."
+        ]
+      }
+    },
+    "LanguagesSection": {
+      "title": "¿En qué idiomas se ofrecen los cursos de SLI?",
+      "description": "A partir de enero de 2024, los cursos de SLI están disponibles en inglés y español.",
+      "contacts": {
+        "english": "Para consultas sobre cursos en inglés - sli-admin@sos.org",
+        "spanish": "Para consultas sobre cursos en español - alvaro.castro@sos.org"
+      }
+    },
+    "RegionSection": {
+      "title": "¿Con quién puedo contactar para asistencia o preguntas?",
+      "description": "A partir de enero de 2024, el SLI tiene diferentes administraciones según el idioma o la región. Cada administración puede ofrecer cursos en el hemisferio occidental según los idiomas que admite el SLI.",
+      "contacts": {
+        "english": "Para consultas sobre cursos en inglés - sli-admin@sos.org",
+        "spanish": "Para consultas sobre cursos en español - alvaro.castro@sos.org"
+      }
+    }
+  },
+
+  "ContactUs": {
+    "title": "Contacta al administrador de SLI para preguntas",
+    "successMessage": "¡Tu mensaje ha sido enviado!",
+    "sendAnotherMessage": "Enviar otro mensaje",
+    "form": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "region": "Región",
+      "subject": "Asunto",
+      "question": "Pregunta",
+      "sending": "Enviando correo",
+      "submit": "Enviar"
+    }
+  },
+
+  "CourseSchedule": {
+    "title": "Horario del curso",
+    "register": "Registrarse",
+    "noCourses": "Actualmente no hay cursos programados.",
+    "fullClass": "Clase completa",
+    "facilitator": "Facilitador {index}: {name}",
+    "singleFacilitator": "Facilitador: {name}",
+    "seatsAvailable": "Asientos disponibles: {confirmedSeats}/{totalSeats}",
+    "location": "Ubicación: {venue}",
+    "parts": "{parts} Partes",
+    "language": "Idioma: {language}",
+    "loadingCourses": "Estamos cargando los cursos para ti, por favor espera..."
+  },
+
+  "Nav": {
+    "myProfile": "Mi Perfil",
+    "courses": "Cursos",
+    "faqs": "Preguntas Frecuentes",
+    "courseSchedule": "Horario de Cursos",
+    "contactUs": "Contáctenos"
+  }
+}

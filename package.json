@@ -17,6 +17,7 @@
     "clsx": "^2.0.0",
     "cookies-next": "^5.0.2",
     "next": "15.1.4",
+    "next-intl": "^4.0.2",
     "nodemailer": "6.9.13",
     "postcss": "8.4.31",
     "react": "19.0.0",
