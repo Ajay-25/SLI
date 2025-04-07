@@ -17,21 +17,23 @@ const Info = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="flex gap-4 p-4 lg:gap-8 lg:p-12">
-      <Image
-        src={'https://scd.sos.org' + profileInfo.imagePath}
-        width={180}
-        height={180}
-        alt=""
-        className="hidden self-start lg:block"
-      />
-      <Image
-        src={'https://scd.sos.org' + profileInfo.imagePath}
-        width={60}
-        height={60}
-        alt=""
-        className="self-start lg:hidden"
-      />
+    <div className="flex gap-4 p-8 lg:gap-8 lg:p-12">
+      <div className="hidden lg:block" style={{width: '180px', height: '180px', position: 'relative'}}> 
+        <Image
+          src={'https://scd.sos.org' + profileInfo.imagePath}
+          alt=""
+          className="hidden self-start lg:block"
+          layout='fill'
+        />
+      </div>
+      <div className="lg:hidden" style={{width: '60px', height: '60px', position: 'relative'}}> 
+        <Image
+          src={'https://scd.sos.org' + profileInfo.imagePath}
+          alt=""
+          className="self-start lg:hidden"
+          layout='fill'
+        />
+      </div>
       <div className="px-10 text-justify text-16 text-sos-primary-blue lg:px-20 lg:text-20">
         {children}
       </div>
@@ -39,29 +41,9 @@ const Info = ({
   );
 };
 
-const ToDos = () => {
-  return (
-    <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
-      <h1 className="lg:text-38 self-start text-center text-32 font-medium">
-        To Do&#39;s
-      </h1>
-    </article>
-  );
-};
-
-const CertificationProgress = () => {
-  return (
-    <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
-      <h1 className="lg:text-38 self-start text-center text-32 font-medium">
-        Certification Progress
-      </h1>
-    </article>
-  );
-}
-
 const CourseHistory = ({sevadarHistory}: {sevadarHistory: SevadarHistory[]}) => {
   return (
-    <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
         Course History
       </h1>
@@ -148,8 +130,6 @@ export default async function Page() {
           </div>
         </Info>
       </div>
-      <ToDos></ToDos>
-      <CertificationProgress></CertificationProgress>
       <CourseHistory sevadarHistory={sevadarHistory}></CourseHistory>
     </article>
   );
