@@ -8,6 +8,9 @@ import { parseISO, format } from 'date-fns';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { ProfileInfo, SevadarHistory } from '@/ui/myProfile/types';
+//hooks
+import {getTranslations} from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 
 const Info = ({
   profileInfo,
@@ -46,28 +49,29 @@ const CourseHistory = ({
 }: {
   sevadarHistory: SevadarHistory[];
 }) => {
+  const t = useTranslations('MyProfilePage');
   return (
     <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
-        Course History
+        {t('CourseHistory.title')}
       </h1>
       <table className="text-16">
         <tbody>
           <tr className="bg-sos-primary-blue text-white">
             <td className="border-sos-secondary-blue-50 w-40 border-2 ps-2">
-              Course
+              {t('CourseHistory.Course')}
             </td>
             <td className="border-sos-secondary-blue-50 w-20 border-2 ps-2">
-              Location
+              {t('CourseHistory.Location')}
             </td>
             <td className="border-sos-secondary-blue-50 w-20 border-2 ps-2">
-              Date
+              {t('CourseHistory.Date')}
             </td>
             <td className="border-sos-secondary-blue-50 w-20 border-2 ps-2">
-              Attendance
+              {t('CourseHistory.Attendance')}
             </td>
             <td className="border-sos-secondary-blue-50 w-20 border-2 ps-2">
-              Credit
+              {t('CourseHistory.Credit')}
             </td>
           </tr>
           {sevadarHistory.map((item, index) => (
@@ -146,11 +150,12 @@ export default async function Page() {
   const sevadarHistory = await getServerSidePropsForHistory(
     profileInfo.sevadarID,
   );
+  const t = await getTranslations('MyProfilePage');
 
   return (
     <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-primary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="self-start text-center text-32 font-medium lg:text-42">
-        My Profile
+        {t('title')}
       </h1>
       <SectionSeparator />
       <div className="flex flex-col lg:mx-[14.2rem]">

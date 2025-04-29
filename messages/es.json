@@ -85,6 +85,18 @@
     }
   },
 
+  "MyProfilePage": {
+    "title": "Mi perfil",
+    "CourseHistory": {
+      "title": "Historia del curso",
+      "Course": "Curso",
+      "Location": "Ubicación",
+      "Date": "Fecha",
+      "Attendance": "Asistencia",
+      "Credit": "Crédito"
+    }
+  },
+
   "FAQPage": {
     "title": "Preguntas Frecuentes",
     "HowToEnrollSection": {

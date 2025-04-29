@@ -12,6 +12,7 @@ import { adaptCourses } from '@/ui/courseSchedule/utils';
 import { ReactElement } from 'react';
 import { Metadata } from 'next';
 import { Config, CourseSchedule } from '@/ui/courseSchedule/types';
+import { getTranslations } from 'next-intl/server';
 
 const EmptyPlaceholder = () => {
   const t = useTranslations('CourseSchedule');
@@ -120,11 +121,12 @@ async function getServerSideProps(): Promise<CourseSchedule[]> {
 export default async function Page() {
   const courses = await getServerSideProps();
   const coursesConfig = adaptCourses(courses);
+  const t = await getTranslations("CourseSchedule")
 
   return (
     <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-primary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="self-start text-center text-32 font-medium lg:text-42">
-        Course Schedule
+        {t('title')}
       </h1>
       <SectionSeparator />
       <CoursesList config={coursesConfig} />
