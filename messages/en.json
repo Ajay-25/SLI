@@ -173,7 +173,7 @@
     "fullClass": "Full class",
     "facilitator": "Facilitator {index}: {name}",
     "singleFacilitator": "Facilitator: {name}",
-    "seatsAvailable": "Seats Available: {confirmedSeats}/{totalSeats}",
+    "seatsAvailable": "Seats Available: {remainingSeats} out of {totalSeats}",
     "location": "Location: {venue}",
     "parts": "{parts} Parts",
     "language": "Language: {language}",

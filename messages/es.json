@@ -120,12 +120,12 @@
       "title": "¿Qué pasa si un grupo con el que hago seva regularmente quiere tomar un curso juntos?",
       "description": "Tomar cursos de SLI con tus equipos y departamentos de seva es una excelente manera de experimentar estos cursos.",
       "steps": [
-        "Asegura el compromiso de tu equipo/departamento de seva para tomar un curso de SLI.",
-        "Encuentra a tu coordinador regional y preséntale la lista de personas en tu equipo/departamento de seva.",
+        "Asegura el compromiso de tu equipo de seva para tomar un curso de SLI.",
+        "Encuentra a tu coordinador regional y preséntale la lista de personas en tu equipo de seva.",
         "El coordinador regional nominará a todas las personas en tu lista."
       ],
       "unavailableDates": {
-        "question": "¿Qué pasa si nuestro equipo de seva/departamento no está disponible en ninguna de las fechas publicadas?",
+        "question": "¿Qué pasa si nuestro equipo de seva no está disponible en ninguna de las fechas publicadas?",
         "steps": [
           "Comunícate con el administrador de SLI en sli-admin@sos.org para consultas sobre horarios.",
           "El administrador de SLI se pondrá en contacto con el representante de tu equipo para organizar un evento exclusivo para tu equipo en una fecha y ubicación adecuadas para todos."
@@ -173,7 +173,7 @@
     "fullClass": "Clase completa",
     "facilitator": "Facilitador {index}: {name}",
     "singleFacilitator": "Facilitador: {name}",
-    "seatsAvailable": "Asientos disponibles: {confirmedSeats}/{totalSeats}",
+    "seatsAvailable": "Asientos disponibles: {remainingSeats} de {totalSeats}",
     "location": "Ubicación: {venue}",
     "parts": "{parts} Partes",
     "language": "Idioma: {language}",

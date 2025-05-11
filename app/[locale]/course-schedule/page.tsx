@@ -58,7 +58,7 @@ const CoursesList = ({
                 {course.totalSeats ? (
                   <span>
                     {t('seatsAvailable', {
-                      confirmedSeats: course.confirmedSeats,
+                      remainingSeats: course.totalSeats - course.confirmedSeats,
                       totalSeats: course.totalSeats,
                     })}
                   </span>
