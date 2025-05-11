@@ -94,6 +94,15 @@
       "Date": "Date",
       "Attendance": "Attendance",
       "Credit": "Credit"
+    },
+    "ToDo": {
+      "title": "To Do's",
+      "ToDos": "To do's",
+      "Status": "Status",
+      "Incomplete": "Incomplete"
+    },
+    "CourseCompletion": {
+      "title": "Course Completion"
     }
   },
 

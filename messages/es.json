@@ -94,6 +94,15 @@
       "Date": "Fecha",
       "Attendance": "Asistencia",
       "Credit": "Crédito"
+    },
+    "ToDo":{
+      "title": "Qué hacer",
+      "ToDos": "Qué hacer",
+      "Status": "Estado",
+      "Incomplete": "Incompleto"
+    },
+    "CourseCompletion": {
+      "title": "Finalización del curso"
     }
   },
 

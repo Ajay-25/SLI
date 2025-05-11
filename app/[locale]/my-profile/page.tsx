@@ -44,6 +44,152 @@ const Info = ({
   );
 };
 
+const ToDos = ({
+    sevadarHistory,
+}: {
+  sevadarHistory: SevadarHistory[];
+}) => {
+  const t = useTranslations('MyProfilePage');
+  return (
+    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+      <h1 className="lg:text-38 self-start text-center text-32 font-medium">
+        {t('ToDo.title')}
+      </h1>
+      <table className="text-16">
+        <tbody>
+          <tr className="bg-sos-primary-blue text-white">
+            <td className="border-sos-secondary-blue-50 w-40 border-2 ps-2">
+              {t('ToDo.ToDos')}
+            </td>
+            <td className="border-sos-secondary-blue-50 w-20 border-2 ps-2">
+              {t('ToDo.Status')}
+            </td>
+          </tr>
+          {sevadarHistory.filter(item => item.status == 'Attended' && item.reflectionStatus != 'Complete').map((item, index) => (
+            <tr key={item.id}>
+              <td className="border-sos-secondary-blue-50 border-2 ps-2">
+                {item.Schedule.Module.name + ' - Self Reflection Form'}
+              </td>
+              <td className="border-sos-secondary-blue-50 border-2 ps-2 text-red-400">
+                {t('ToDo.Incomplete')}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </article>
+  );
+};
+
+const Item = ({
+  source,
+  altText,
+  children,
+}: {
+  source: string;
+  altText: string;
+  children: ReactNode;
+}) => {
+  return (
+    <div className="flex gap-4 p-4 lg:gap-8 lg:p-12">
+      <Image
+        src={source}
+        width={180}
+        height={180}
+        alt={altText}
+        className="hidden self-start lg:block"
+      />
+      <Image
+        src={source}
+        width={60}
+        height={60}
+        alt={altText}
+        className="self-start lg:hidden"
+      />
+      <div className="text-justify text-16 text-sos-primary-blue lg:text-20">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const CourseCompletion = ({
+  sevadarHistory,
+}: {
+  sevadarHistory: SevadarHistory[];
+}) => {
+  const t = useTranslations('MyProfilePage');
+  const tCourse = useTranslations('CoursePage');
+  const globalT = useTranslations();
+  const locale = globalT('locale');
+  const completedCourse = sevadarHistory.filter(obj => obj.status == "Attended" && obj.reflectionStatus == "Complete");
+  const isLovingCommunicationCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 18) || (completedCourse.some(obj => obj.Schedule.Module.id == 43) && completedCourse.some(obj => obj.Schedule.Module.id == 44));
+  return (
+    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+      <h1 className="lg:text-38 self-start text-center text-32 font-medium">
+        {t('CourseCompletion.title')}
+      </h1>
+      <div className="mx-[2.2rem] flex flex-row lg:mx-[14.2rem]">
+            <Item
+              source={`/images/courses/${locale}/loving-communication.webp`}
+              altText={tCourse('LovingCommunication.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/serving-others.webp`}
+              altText={tCourse('ServingOthers.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/delegation.webp`}
+              altText={tCourse('Delegation.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/conflict-resolution.webp`}
+              altText={tCourse('ConflictResolution.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/effective_meeting_management.webp`}
+              altText={tCourse('MeetingManagement.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/collaborative_decision_making.webp`}
+              altText={tCourse('CollaborativeDecisionMaking.title')}
+            >
+              <div></div>
+            </Item>
+            <SectionSeparator />
+      
+            <Item
+              source={`/images/courses/${locale}/building_lasting_change.webp`}
+              altText={tCourse('BuildingLastingChange.title')}
+            >
+              <div></div>
+            </Item>
+          </div>
+
+    </article>
+  );
+};
+
 const CourseHistory = ({
   sevadarHistory,
 }: {
@@ -171,6 +317,8 @@ export default async function Page() {
           </div>
         </Info>
       </div>
+      <ToDos sevadarHistory={sevadarHistory}></ToDos>
+      <CourseCompletion sevadarHistory={sevadarHistory}></CourseCompletion>
       <CourseHistory sevadarHistory={sevadarHistory}></CourseHistory>
     </article>
   );
