@@ -68,7 +68,7 @@ const ToDos = ({
           {sevadarHistory.filter(item => item.status == 'Attended' && item.reflectionStatus != 'Complete').map((item, index) => (
             <tr key={item.id}>
               <td className="border-sos-secondary-blue-50 border-2 ps-2 ">
-                <a href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`} className="text-blue-600 underline underline-offset-2">{item.Schedule.Module.name + ' - Self Reflection Form'}</a>
+                <a href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`}  target="_blank" className="text-blue-600 underline underline-offset-2">{item.Schedule.Module.name + ' - Self Reflection Form'}</a>
               </td>
               <td className="border-sos-secondary-blue-50 border-2 ps-2 text-red-400">
                 {t('ToDo.Incomplete')}
