@@ -18,6 +18,7 @@ export type ProfileInfo = {
 
 export type SevadarHistory = {
   Schedule: {
+    id: number
     Module: {
       id: number;
       name: string;

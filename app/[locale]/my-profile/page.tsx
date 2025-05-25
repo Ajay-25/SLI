@@ -67,8 +67,8 @@ const ToDos = ({
           </tr>
           {sevadarHistory.filter(item => item.status == 'Attended' && item.reflectionStatus != 'Complete').map((item, index) => (
             <tr key={item.id}>
-              <td className="border-sos-secondary-blue-50 border-2 ps-2">
-                {item.Schedule.Module.name + ' - Self Reflection Form'}
+              <td className="border-sos-secondary-blue-50 border-2 ps-2 ">
+                <a href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`} className="text-blue-600 underline underline-offset-2">{item.Schedule.Module.name + ' - Self Reflection Form'}</a>
               </td>
               <td className="border-sos-secondary-blue-50 border-2 ps-2 text-red-400">
                 {t('ToDo.Incomplete')}
@@ -84,31 +84,29 @@ const ToDos = ({
 const Item = ({
   source,
   altText,
-  children,
+  showComplete,
 }: {
   source: string;
   altText: string;
-  children: ReactNode;
+  showComplete: boolean;
 }) => {
   return (
-    <div className="flex gap-4 p-4 lg:gap-8 lg:p-12">
+    <div className="flex flex-col gap-6 p-12">
       <Image
         src={source}
         width={180}
         height={180}
         alt={altText}
-        className="hidden self-start lg:block"
+        className="self-start"
       />
       <Image
-        src={source}
-        width={60}
-        height={60}
-        alt={altText}
-        className="self-start lg:hidden"
+        src={'/images/badge_check_1.svg'}
+        width={30}
+        height={30}
+        alt={'altText'}
+        className="self-center"
+        hidden={!showComplete}
       />
-      <div className="text-justify text-16 text-sos-primary-blue lg:text-20">
-        {children}
-      </div>
     </div>
   );
 };
@@ -124,66 +122,65 @@ const CourseCompletion = ({
   const locale = globalT('locale');
   const completedCourse = sevadarHistory.filter(obj => obj.status == "Attended" && obj.reflectionStatus == "Complete");
   const isLovingCommunicationCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 18) || (completedCourse.some(obj => obj.Schedule.Module.id == 43) && completedCourse.some(obj => obj.Schedule.Module.id == 44));
+  const isDelegationCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 32) || (completedCourse.some(obj => obj.Schedule.Module.id == 47) && completedCourse.some(obj => obj.Schedule.Module.id == 48));
+  const isServingOthersCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 24) || (completedCourse.some(obj => obj.Schedule.Module.id == 49) && completedCourse.some(obj => obj.Schedule.Module.id == 50));
+  const isConflictCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 27) || (completedCourse.some(obj => obj.Schedule.Module.id == 51) && completedCourse.some(obj => obj.Schedule.Module.id == 52));
+  const isMeetingCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 19) || (completedCourse.some(obj => obj.Schedule.Module.id == 45) && completedCourse.some(obj => obj.Schedule.Module.id == 46));
+  const isColabCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 31) || (completedCourse.some(obj => obj.Schedule.Module.id == 53) && completedCourse.some(obj => obj.Schedule.Module.id == 54));
+  const isBLCCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 83) || (completedCourse.some(obj => obj.Schedule.Module.id == 42) && completedCourse.some(obj => obj.Schedule.Module.id == 84) && completedCourse.some(obj => obj.Schedule.Module.id == 85) && completedCourse.some(obj => obj.Schedule.Module.id == 86) && completedCourse.some(obj => obj.Schedule.Module.id == 87) && completedCourse.some(obj => obj.Schedule.Module.id == 88));
   return (
     <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
         {t('CourseCompletion.title')}
       </h1>
-      <div className="mx-[2.2rem] flex flex-row lg:mx-[14.2rem]">
+      <div className="flex flex-row">
             <Item
               source={`/images/courses/${locale}/loving-communication.webp`}
               altText={tCourse('LovingCommunication.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isLovingCommunicationCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/serving-others.webp`}
               altText={tCourse('ServingOthers.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isServingOthersCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/delegation.webp`}
               altText={tCourse('Delegation.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isDelegationCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/conflict-resolution.webp`}
               altText={tCourse('ConflictResolution.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isConflictCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/effective_meeting_management.webp`}
               altText={tCourse('MeetingManagement.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isMeetingCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/collaborative_decision_making.webp`}
               altText={tCourse('CollaborativeDecisionMaking.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isColabCompleted}
+            />
             <SectionSeparator />
       
             <Item
               source={`/images/courses/${locale}/building_lasting_change.webp`}
               altText={tCourse('BuildingLastingChange.title')}
-            >
-              <div></div>
-            </Item>
+              showComplete={isBLCCompleted}
+            />
           </div>
 
     </article>
