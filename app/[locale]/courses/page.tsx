@@ -10,8 +10,16 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 
 const BannerImageSection = () => {
+  const globalT = useTranslations();
+  const locale = globalT('locale');
+
   return (
-    <div className="h-[20rem] w-full bg-[url('/home/courses-content-2.webp')] bg-cover bg-center sm:h-[35rem] md:h-[40rem] lg:h-[45rem] xl:h-[60rem]"></div>
+    <div
+      className="h-[20rem] w-full bg-cover bg-center sm:h-[35rem] md:h-[40rem] lg:h-[45rem] xl:h-[60rem]"
+      style={{
+        backgroundImage: `url(/images/courses/${locale}/courses-banner.webp)`,
+      }}
+    ></div>
   );
 };
 
