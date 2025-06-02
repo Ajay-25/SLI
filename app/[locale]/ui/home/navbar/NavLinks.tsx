@@ -1,13 +1,12 @@
 import { Link } from '@i18n/navigation';
 import clsx from 'clsx';
 
-//components
+// components
 import { HamburgerMenu } from '@/ui/menu';
+import LanguageSelector from './LanguageSelector';
 
-//hooks
+// hooks
 import { usePathname } from '@i18n/navigation';
-
-//hooks
 import { useTranslations } from 'next-intl';
 
 const links = [
@@ -26,27 +25,31 @@ export function NavLinks({ className }: { className: string }) {
     <>
       <div
         className={clsx(
-          'hidden grow items-center justify-end md:flex',
+          'hidden grow items-center justify-end md:flex space-x-4', // added space between links and language selector
           className,
         )}
       >
-        {links.map((link) => {
-          return (
-            <Link
-              key={link.key}
-              href={link.href}
-              className={clsx(
-                'flex flex-none cursor-pointer border-0 border-sos-primary-gold p-2.5 px-8 text-20 font-medium hover:text-sos-secondary-blue [&:not(:last-child)]:border-r-[1px]',
-                pathname === link.href
-                  ? 'text-sos-secondary-blue'
-                  : 'text-sos-primary-blue',
-              )}
-            >
-              {t(link.key)}
-            </Link>
-          );
-        })}
+                {/* Language Selector */}
+                <LanguageSelector />
+        {links.map((link) => (
+          <Link
+            key={link.key}
+            href={link.href}
+            className={clsx(
+              'flex flex-none cursor-pointer border-0 border-sos-primary-gold p-2.5 px-8 text-20 font-medium hover:text-sos-secondary-blue [&:not(:last-child)]:border-r-[1px]',
+              pathname === link.href
+                ? 'text-sos-secondary-blue'
+                : 'text-sos-primary-blue',
+            )}
+          >
+            {t(link.key)}
+          </Link>
+        ))}
+
+
       </div>
+
+      {/* Mobile Menu */}
       <HamburgerMenu links={links} />
     </>
   );
