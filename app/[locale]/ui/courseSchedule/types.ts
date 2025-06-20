@@ -1,20 +1,4 @@
 export type CourseSchedule = {
-  Module: {
-    id: number;
-    name: string;
-    createdOn: string;
-    createdBy: number;
-    updatedOn: string;
-    updatedBy: number;
-    status: string;
-    summary: string;
-    details: string;
-    certificationID_FK: number;
-    facilitator: string;
-    imgPath: string;
-    Certification: string;
-    Facilitators: string;
-  };
   id: number;
   trainingDate: string;
   trainingTimeZone: string | null;
@@ -23,31 +7,16 @@ export type CourseSchedule = {
   language: string | null;
   status: 'Public' | 'Hidden';
   seats: number;
-  applied: number;
   confirmed: number;
   venue: string | null;
-  openToStates: string;
-  facilitatorID_FK: number;
-  facilitatorID2_FK: number;
-  moduleID_FK: 24;
-  sevadarModSch: {
-    id: number;
-    moduleID_FK: number;
-    sevadarID_FK: number;
-    certificateID_FK: number;
-    scheduleID_FK: number;
-    departmentID_FK: number;
-    createdOn: string;
-    createdBy: number;
-    updatedOn: string;
-    updatedBy: number;
-    status: string;
-    emailSent: boolean;
-    rsvp: string;
-    addedBy: string;
-  };
-  facilitators: { FirstName: string; MiddleName?: string; LastName: string }[];
-  childSchedules: [];
+  name: string
+  Facilitator1FirstName: string | null;
+  Facilitator1MiddleName: string | null;
+  Facilitator1LastName: string | null;
+  Facilitator2FirstName: string | null;
+  Facilitator2MiddleName: string | null;
+  Facilitator2LastName: string | null;
+  nominationStatus: string | null;
 };
 
 export type AdaptedCourse = {
@@ -58,11 +27,13 @@ export type AdaptedCourse = {
   endTime: string;
   timezone: string | null;
   venue: string;
-  facilitators: string[];
   language: string;
   confirmedSeats: number;
   totalSeats?: number;
   parts: number;
+  facilitator1: string;
+  facilitator2: string;
+  nominationStatus: string | null
 };
 
 export type Config = Array<{ month: string; courses: Array<AdaptedCourse> }>;

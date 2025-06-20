@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 //components
 import Link from 'next/link';
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
@@ -63,19 +64,21 @@ const CoursesList = ({
                     })}
                   </span>
                 ) : null}
-                {course.facilitators.length === 1 ? (
-                  <span key={`${course.name}-${course.facilitators[0]}`}>
-                    {t('singleFacilitator', { name: course.facilitators[0] })}
-                  </span>
-                ) : (
-                  course.facilitators.map((facilitator, index) => (
-                    <span key={`${course.name}-${facilitator}-${index}`}>
+                {course.facilitator1 !== '' && (
+                  <span key={`${course.name}-${course.facilitator1}-1`}>
                       {t('facilitator', {
-                        index: index + 1,
-                        name: course.facilitators[index],
+                        index: 1,
+                        name: course.facilitator1,
                       })}
                     </span>
-                  ))
+                )}
+                {course.facilitator2 !== '' && (
+                    <span key={`${course.name}-${course.facilitator2}-2`}>
+                      {t('facilitator', {
+                        index: 2,
+                        name: course.facilitator2,
+                      })}
+                    </span>
                 )}
                 <span>{t('language', { language: course.language })}</span>
               </div>
@@ -90,9 +93,9 @@ const CoursesList = ({
                   )}`}
                   target="_blank"
                   referrerPolicy="no-referrer"
-                  className="flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
+                  className={`flex-none self-start border border-sos-secondary-light-blue ${course.nominationStatus === 'RSVP Confirmed' ? 'bg-sos-primary-gold' : 'bg-sos-primary-blue'} px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
                 >
-                  {t('register')}
+                  {course.nominationStatus === 'RSVP Confirmed' ?  t('registered') : t('register')}
                 </Link>
               )}
               <SectionSeparator />
@@ -104,9 +107,12 @@ const CoursesList = ({
   ));
 };
 
-async function getServerSideProps(): Promise<CourseSchedule[]> {
+async function getServerSideProps(
+  userId: string | undefined,
+): Promise<CourseSchedule[]> {
   const res = await fetch(
-    'https://scd.sos.org/api/SLIInfo/getSLIModuleSchedule?getDetails=true',
+    'https://scd.sos.org/api/SLI/getCourseSchedules?userId=' +
+      userId,
     {
       cache: 'no-store',
       method: 'GET',
@@ -119,7 +125,9 @@ async function getServerSideProps(): Promise<CourseSchedule[]> {
 }
 
 export default async function Page() {
-  const courses = await getServerSideProps();
+  const cookiesList = await cookies();
+  const userId = cookiesList.get('authToken');
+  const courses = await getServerSideProps(userId?.value);
   const coursesConfig = adaptCourses(courses);
   const t = await getTranslations("CourseSchedule")
 

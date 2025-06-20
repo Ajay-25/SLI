@@ -178,6 +178,7 @@
   "CourseSchedule": {
     "title": "Course Schedule",
     "register": "Register",
+    "registered": "You're Registered",
     "noCourses": "There are currently no scheduled courses.",
     "fullClass": "Full class",
     "facilitator": "Facilitator {index}: {name}",

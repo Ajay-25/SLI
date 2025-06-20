@@ -178,6 +178,7 @@
   "CourseSchedule": {
     "title": "Horario del curso",
     "register": "Registrarse",
+    "registered": "Estás registrado",
     "noCourses": "Actualmente no hay cursos programados.",
     "fullClass": "Clase completa",
     "facilitator": "Facilitador {index}: {name}",

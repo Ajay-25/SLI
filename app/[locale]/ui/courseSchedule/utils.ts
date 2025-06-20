@@ -75,37 +75,40 @@ function getDateConfig(dateString: string): {
   return { month, day, year };
 }
 
+function getName(firstName: string | null, middleName: string | null, lastName: string | null): string {
+  let name = firstName ? firstName : '';
+
+  if (middleName) {
+    return lastName
+      ? `${name} ${middleName} ${lastName}`
+      : `${name} ${middleName}`;
+  }
+  return lastName ? `${name} ${lastName}` : name;
+}
+
 export const adaptCourses = (courses: CourseSchedule[]): Config => {
   const transformedCourses = courses.reduce<
     Array<AdaptedCourse & { month: string }>
   >((acc, course) => {
-    if (course.Module && course.status === 'Public') {
+    if (course.status === 'Public') {
       acc.push({
         month: new Date(course.trainingDate).toLocaleString('en-US', {
           month: 'long',
         }),
         id: course.id,
-        name: course.Module.name,
+        name: course.name,
         trainingDate: formatDate(new Date(course.trainingDate)), // todo: use formatEvent
         startTime: formatTime(new Date(course.startTime)),
         endTime: formatTime(new Date(course.endTime)),
         timezone: course.trainingTimeZone,
         venue: course.venue ?? '',
-        facilitators: course.facilitators.map((facilitator) => {
-          const { FirstName, MiddleName, LastName } = facilitator;
-          let name = FirstName ? FirstName : '';
-
-          if (MiddleName) {
-            return LastName
-              ? `${name} ${MiddleName} ${LastName}`
-              : `${name} ${MiddleName}`;
-          }
-          return LastName ? `${name} ${LastName}` : name;
-        }),
+        facilitator1: getName(course.Facilitator1FirstName, course.Facilitator1MiddleName, course.Facilitator1LastName),
+        facilitator2:  getName(course.Facilitator2FirstName, course.Facilitator2MiddleName, course.Facilitator2LastName),
         language: course.language ?? '',
         confirmedSeats: course.confirmed ?? 0,
         totalSeats: course.seats,
-        parts: course.childSchedules.length,
+        parts: 0,
+        nominationStatus: course.nominationStatus
       });
     }
 
