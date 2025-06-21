@@ -7,7 +7,9 @@ import { useTranslations } from 'next-intl';
 
 export default function CourseScheduleClient({ config }: { config: Config }) {
   const t = useTranslations('CourseSchedule');
-  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(
+    null,
+  );
   const [showModal, setShowModal] = useState(false);
   const [useEmail, setUseEmail] = useState(true);
   const [useWhatsApp, setUseWhatsApp] = useState(true);
@@ -55,7 +57,9 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
                 >
                   <h3 className="text-20 lg:text-24">{course.name}</h3>
                   <h3 className="text-20 font-bold lg:text-24">
-                    {course.parts > 0 ? t('parts', { parts: course.parts }) : ''}
+                    {course.parts > 0
+                      ? t('parts', { parts: course.parts })
+                      : ''}
                   </h3>
                   <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
                     <span>
@@ -67,19 +71,26 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
                     {course.totalSeats ? (
                       <span>
                         {t('seatsAvailable', {
-                          remainingSeats: course.totalSeats - course.confirmedSeats,
+                          remainingSeats:
+                            course.totalSeats - course.confirmedSeats,
                           totalSeats: course.totalSeats,
                         })}
                       </span>
                     ) : null}
                     {course.facilitator1 && (
                       <span>
-                        {t('facilitator', { index: 1, name: course.facilitator1 })}
+                        {t('facilitator', {
+                          index: 1,
+                          name: course.facilitator1,
+                        })}
                       </span>
                     )}
                     {course.facilitator2 && (
                       <span>
-                        {t('facilitator', { index: 2, name: course.facilitator2 })}
+                        {t('facilitator', {
+                          index: 2,
+                          name: course.facilitator2,
+                        })}
                       </span>
                     )}
                     <span>{t('language', { language: course.language })}</span>
@@ -91,7 +102,11 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
                   ) : (
                     <button
                       onClick={() => handleRegisterClick(course)}
-                      className={`flex-none self-start border border-sos-secondary-light-blue ${course.nominationStatus === 'RSVP Confirmed' ? 'bg-sos-primary-gold' : 'bg-sos-primary-blue'} px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
+                      className={`flex-none self-start border border-sos-secondary-light-blue ${
+                        course.nominationStatus === 'RSVP Confirmed'
+                          ? 'bg-sos-primary-gold'
+                          : 'bg-sos-primary-blue'
+                      } px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
                     >
                       {course.nominationStatus === 'RSVP Confirmed'
                         ? t('registered')
@@ -107,15 +122,23 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
       ))}
 
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white border-[2px] border-yellow-500 max-w-xl w-full p-8 rounded-md shadow-md">
-            <h2 className="text-24 font-bold mb-2">Contact Method</h2>
-            <p className="mb-6">Please confirm your email and phone number below and select a contact method.</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 text-20">
+          <div className="w-full max-w-xl rounded-md border-[2px] border-yellow-500 bg-white p-8 shadow-md">
+            <h2 className="mb-2 text-24 font-bold">Contact Method</h2>
+            <p className="mb-6">
+              Please confirm your email and phone number below and select a
+              contact method.
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked={useEmail} onChange={() => setUseEmail(!useEmail)} className="accent-sos-primary-blue" />
+                  <input
+                    type="checkbox"
+                    checked={useEmail}
+                    onChange={() => setUseEmail(!useEmail)}
+                    className="accent-sos-primary-blue"
+                  />
                   <span>Email</span>
                 </label>
                 <input
@@ -130,7 +153,12 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
 
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked={useWhatsApp} onChange={() => setUseWhatsApp(!useWhatsApp)} className="accent-sos-primary-blue" />
+                  <input
+                    type="checkbox"
+                    checked={useWhatsApp}
+                    onChange={() => setUseWhatsApp(!useWhatsApp)}
+                    className="accent-sos-primary-blue"
+                  />
                   <span>WhatsApp Phone Number</span>
                 </label>
                 <input
@@ -144,23 +172,31 @@ export default function CourseScheduleClient({ config }: { config: Config }) {
               </div>
             </div>
 
-            <div className="mt-2 mb-6">
+            <div className="mb-6 mt-2">
               <label className="flex items-center space-x-2">
-                <input type="checkbox" checked={smsConsent} onChange={() => setSmsConsent(!smsConsent)} className="accent-sos-primary-blue" />
-                <span>I do not have WhatsApp and consent to receiving SMS Text messages</span>
+                <input
+                  type="checkbox"
+                  checked={smsConsent}
+                  onChange={() => setSmsConsent(!smsConsent)}
+                  className="accent-sos-primary-blue"
+                />
+                <span>
+                  I do not have WhatsApp and consent to receiving SMS Text
+                  messages
+                </span>
               </label>
             </div>
 
             <div className="flex justify-end gap-4">
               <button
                 onClick={closeModal}
-                className="border border-sos-primary-blue text-sos-primary-blue px-6 py-2"
+                className="border border-sos-primary-blue px-6 py-2 text-sos-primary-blue"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSubmit}
-                className="bg-sos-primary-blue text-white px-6 py-2"
+                className="bg-sos-primary-blue px-6 py-2 text-white"
               >
                 Confirm Registration
               </button>
