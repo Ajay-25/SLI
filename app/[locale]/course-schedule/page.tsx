@@ -88,10 +88,7 @@ const CoursesList = ({
                 </div>
               ) : (
                 <Link
-                  href={`https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
-                    `https://scd.sos.org/#/LandingPage?rsvpScheduleId=${course.id}`,
-                  )}`}
-                  target="_blank"
+                  href={`/rsvp/${course.id}`}
                   referrerPolicy="no-referrer"
                   className={`flex-none self-start border border-sos-secondary-light-blue ${course.nominationStatus === 'RSVP Confirmed' ? 'bg-sos-primary-gold' : 'bg-sos-primary-blue'} px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
                 >

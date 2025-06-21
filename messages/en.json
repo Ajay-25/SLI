@@ -196,5 +196,10 @@
     "faqs": "FAQ's",
     "courseSchedule": "Course Schedule",
     "contactUs": "Contact Us"
+  },
+
+  "RSVP": {
+    "title": "Course Attendance",
+    "seatsAvailable": "{remainingSeats} available seats out of {totalSeats}"
   }
 }
