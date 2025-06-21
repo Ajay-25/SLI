@@ -187,7 +187,16 @@
     "location": "Location: {venue}",
     "parts": "{parts} Parts",
     "language": "Language: {language}",
-    "loadingCourses": "We are loading the courses for you, Please wait..."
+    "loadingCourses": "We are loading the courses for you, Please wait...",
+    "modalTitle": "Contact Method",
+    "modalSubtitle": "Please confirm your email and phone number below and select a contact method.",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "whatsapp": "WhatsApp Phone Number",
+    "whatsappPlaceholder": "e.g. +1234567890",
+    "smsConsent": "I do not have WhatsApp and consent to receiving SMS Text messages",
+    "cancel": "Cancel",
+    "confirm": "Confirm Registration"
   },
 
   "Nav": {
@@ -202,4 +211,5 @@
     "title": "Course Attendance",
     "seatsAvailable": "{remainingSeats} available seats out of {totalSeats}"
   }
+
 }
