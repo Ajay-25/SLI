@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 // components
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
-import CourseScheduleClient from './CourseScheduleClient';
+import CourseScheduleClient from './coursescheduleclient';
 
 // utils
 import { adaptCourses } from '@/ui/courseSchedule/utils';

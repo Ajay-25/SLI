@@ -1,9 +1,10 @@
 'use client';
-
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { AdaptedCourse, Config } from '@/ui/courseSchedule/types';
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
 import { useTranslations } from 'next-intl';
+
 import axios from 'axios';
 
 export default function CourseScheduleClient({ config, contactDetails, userId }: { config: Config,
@@ -19,6 +20,7 @@ export default function CourseScheduleClient({ config, contactDetails, userId }:
   const [showModal, setShowModal] = useState(false);
   const [useEmail, setUseEmail] = useState(true);
   const [smsConsent, setSmsConsent] = useState(true);
+  const router = useRouter();
 const [email, setEmail] = useState(contactDetails?.email || '');
 const [phone, setPhone] = useState(contactDetails?.number || '');
 const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? true);
@@ -33,6 +35,7 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
     setSelectedCourse(null);
     setEmail('');
     setPhone('');
+    router.push(`/rsvp/${selectedCourse?.id}`);
   };
 
  const handleSubmit = async () => {
@@ -44,15 +47,15 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
   };
 
   try {
-    const response = await axios({
+    /*const response = await axios({
       method: 'POST',
       url: '/api/contact',
       data: payload,
       headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    });
+        Accept: 'application/json, text/plain, *///*',
+    //    'Content-Type': 'application/json',
+    //  },
+    //});*/
     closeModal();
   } catch (error) {
     console.error('Failed to update contact info:', error);
