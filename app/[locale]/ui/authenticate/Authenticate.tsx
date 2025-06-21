@@ -25,7 +25,7 @@ const Authenticate = () => {
               currentUrl.indexOf('vercel') > 0 ||
               currentUrl.indexOf('local') > 0
             ) {
-              document.cookie = `authToken=18251; Path=/;`;
+              document.cookie = `authToken=34089; Path=/;`;
             } else {
               window.location.href = `https://sangat.sos.org/Forwarder?RedirectTo=${encodeURIComponent(
                 currentUrl,
