@@ -9,8 +9,29 @@ type Data = {
 };
 
 export async function POST(request: NextRequest) {
-    const data: Data = await request.json();
-    console.log(data.rsvp);
+  try {
+    const requestInfo: Data = await request.json();
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    const { data } = await axios.get(
+      'https://scd.sos.org/api/SLI/updateRSVP?userId=' +
+        requestInfo.userId +
+        '&scheduleId=' +
+        requestInfo.scheduleId +
+        '&rsvp=' +
+        requestInfo.rsvp,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Error in /api/rsvp:', error);
+    return NextResponse.json(
+      { error: 'Failed to update rsvp info' },
+      { status: 500 },
+    );
+  }
 }

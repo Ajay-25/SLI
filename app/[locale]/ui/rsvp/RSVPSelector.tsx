@@ -1,6 +1,8 @@
 'use client';
 
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 import React, { useState, useCallback } from 'react';
 
@@ -8,6 +10,7 @@ const recordRSVP = async (
   userId: string | undefined,
   scheduleId: number | null,
   rsvp: string | null,
+  { onComplete, onError }: { onComplete: () => void; onError: () => void },
 ) => {
   try {
     const response = await axios({
@@ -26,12 +29,10 @@ const recordRSVP = async (
 
     console.log('Response received');
     if (response.status === 200) {
-      console.log('Response succeeded!');
-      //onComplete();
+      onComplete();
     }
   } catch (e) {
-    console.error(e);
-    //onError();
+    onError();
   }
 };
 
@@ -44,19 +45,30 @@ export default function RSVPSelector({
   scheduleId: number | null;
   rsvp: string | null;
 }) {
+  const router = useRouter();
+  const t = useTranslations('RSVP');
+  const rsvpYesRadio = t('rsvpYesRadio');
+  const rsvpNoRadio = t('rsvpNoRadio');
+  const [submitting, setSubmitting] = useState(false);
   const [selectedValue, setSelectedValue] = useState(rsvp);
   const radioOptions = [
-    { label: 'Yes I do commit and will attend', value: 'Yes' },
-    { label: 'I am not able to commit and will not attend', value: 'No' },
+    { label: rsvpYesRadio, value: 'Yes' },
+    { label: rsvpNoRadio, value: 'No' },
   ];
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log('Selected:', e.target.value);
     setSelectedValue(e.target.value);
   };
-  const handleSubmit = useCallback(
-    () => recordRSVP(userId, scheduleId, selectedValue),
-    [scheduleId, selectedValue, userId],
-  );
+  const handleSubmit = useCallback(() => {
+    setSubmitting(true);
+    recordRSVP(userId, scheduleId, selectedValue, {
+      onComplete: () => {
+        setSubmitting(false);
+        router.push('/course-schedule');
+      },
+      onError: () => setSubmitting(false),
+    });
+  }, [scheduleId, selectedValue, userId]);
 
   return (
     <>
@@ -80,10 +92,11 @@ export default function RSVPSelector({
       </div>
       <button
         type="button"
-        className="my-4 flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20"
+        className="my-4 flex-none self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white disabled:bg-gray-300 lg:px-12 lg:py-4 lg:text-20"
         onClick={handleSubmit}
+        disabled={submitting}
       >
-        Submit RSVP
+        {submitting ? 'Submitting' : 'Submit RSVP'}
       </button>
     </>
   );

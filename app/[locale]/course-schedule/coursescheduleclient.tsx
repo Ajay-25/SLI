@@ -7,23 +7,33 @@ import { useTranslations } from 'next-intl';
 
 import axios from 'axios';
 
-export default function CourseScheduleClient({ config, contactDetails, userId }: { config: Config,
+export default function CourseScheduleClient({
+  config,
+  contactDetails,
+  userId,
+}: {
+  config: Config;
   contactDetails: {
     userId: number;
     email: string;
     number: string;
     isWhatsApp: boolean;
-  }, userId?: string | undefined
- }) {
+  };
+  userId?: string | undefined;
+}) {
   const t = useTranslations('CourseSchedule');
-  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(
+    null,
+  );
   const [showModal, setShowModal] = useState(false);
   const [useEmail, setUseEmail] = useState(true);
   const [smsConsent, setSmsConsent] = useState(true);
   const router = useRouter();
-const [email, setEmail] = useState(contactDetails?.email || '');
-const [phone, setPhone] = useState(contactDetails?.number || '');
-const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? true);
+  const [email, setEmail] = useState(contactDetails?.email || '');
+  const [phone, setPhone] = useState(contactDetails?.number || '');
+  const [useWhatsApp, setUseWhatsApp] = useState(
+    contactDetails?.isWhatsApp ?? true,
+  );
 
   const handleRegisterClick = (course: AdaptedCourse) => {
     setSelectedCourse(course);
@@ -38,30 +48,29 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
     router.push(`/rsvp/${selectedCourse?.id}`);
   };
 
- const handleSubmit = async () => {
-  const payload = {
-    userId: userId, // or however you pass it in
-    email: useEmail ? email : null,
-    number: useWhatsApp ? phone : null,
-    isWhatsapp: useWhatsApp ? 1 : 0, // convert boolean to number
+  const handleSubmit = async () => {
+    const payload = {
+      userId: userId, // or however you pass it in
+      email: useEmail ? email : null,
+      number: useWhatsApp ? phone : null,
+      isWhatsapp: useWhatsApp ? 1 : 0, // convert boolean to number
+    };
+
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: '/api/updatecontactdetails',
+        data: payload,
+        headers: {
+          Accept: 'application/json, text/plain',
+          'Content-Type': 'application/json',
+        },
+      });
+      closeModal();
+    } catch (error) {
+      console.error('Failed to update contact info:', error);
+    }
   };
-
-  try {
-    /*const response = await axios({
-      method: 'POST',
-      url: '/api/contact',
-      data: payload,
-      headers: {
-        Accept: 'application/json, text/plain, *///*',
-    //    'Content-Type': 'application/json',
-    //  },
-    //});*/
-    closeModal();
-  } catch (error) {
-    console.error('Failed to update contact info:', error);
-  }
-};
-
 
   return (
     <>
@@ -80,7 +89,9 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
                 >
                   <h3 className="text-20 lg:text-24">{course.name}</h3>
                   <h3 className="text-20 font-bold lg:text-24">
-                    {course.parts > 0 ? t('parts', { parts: course.parts }) : ''}
+                    {course.parts > 0
+                      ? t('parts', { parts: course.parts })
+                      : ''}
                   </h3>
                   <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
                     <span>
@@ -92,19 +103,26 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
                     {course.totalSeats ? (
                       <span>
                         {t('seatsAvailable', {
-                          remainingSeats: course.totalSeats - course.confirmedSeats,
+                          remainingSeats:
+                            course.totalSeats - course.confirmedSeats,
                           totalSeats: course.totalSeats,
                         })}
                       </span>
                     ) : null}
                     {course.facilitator1 && (
                       <span>
-                        {t('facilitator', { index: 1, name: course.facilitator1 })}
+                        {t('facilitator', {
+                          index: 1,
+                          name: course.facilitator1,
+                        })}
                       </span>
                     )}
                     {course.facilitator2 && (
                       <span>
-                        {t('facilitator', { index: 2, name: course.facilitator2 })}
+                        {t('facilitator', {
+                          index: 2,
+                          name: course.facilitator2,
+                        })}
                       </span>
                     )}
                     <span>{t('language', { language: course.language })}</span>
@@ -116,7 +134,11 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
                   ) : (
                     <button
                       onClick={() => handleRegisterClick(course)}
-                      className={`flex-none self-start border border-sos-secondary-light-blue ${course.nominationStatus === 'RSVP Confirmed' ? 'bg-sos-primary-gold' : 'bg-sos-primary-blue'} px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
+                      className={`flex-none self-start border border-sos-secondary-light-blue ${
+                        course.nominationStatus === 'RSVP Confirmed'
+                          ? 'bg-sos-primary-gold'
+                          : 'bg-sos-primary-blue'
+                      } px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
                     >
                       {course.nominationStatus === 'RSVP Confirmed'
                         ? t('registered')
@@ -133,14 +155,19 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
 
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white border-[2px] border-yellow-500 max-w-xl w-full p-8 rounded-md shadow-md">
-            <h2 className="text-24 font-bold mb-2">{t('modalTitle')}</h2>
+          <div className="w-full max-w-xl rounded-md border-[2px] border-yellow-500 bg-white p-8 shadow-md">
+            <h2 className="mb-2 text-24 font-bold">{t('modalTitle')}</h2>
             <p className="mb-6">{t('modalSubtitle')}</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked={useEmail} onChange={() => setUseEmail(!useEmail)} className="accent-sos-primary-blue" />
+                  <input
+                    type="checkbox"
+                    checked={useEmail}
+                    onChange={() => setUseEmail(!useEmail)}
+                    className="accent-sos-primary-blue"
+                  />
                   <span>{t('email')}</span>
                 </label>
                 <input
@@ -155,7 +182,12 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
 
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked={useWhatsApp} onChange={() => setUseWhatsApp(!useWhatsApp)} className="accent-sos-primary-blue" />
+                  <input
+                    type="checkbox"
+                    checked={useWhatsApp}
+                    onChange={() => setUseWhatsApp(!useWhatsApp)}
+                    className="accent-sos-primary-blue"
+                  />
                   <span>{t('whatsapp')}</span>
                 </label>
                 <input
@@ -169,9 +201,14 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
               </div>
             </div>
 
-            <div className="mt-2 mb-6">
+            <div className="mb-6 mt-2">
               <label className="flex items-center space-x-2">
-                <input type="checkbox" checked={smsConsent} onChange={() => setSmsConsent(!smsConsent)} className="accent-sos-primary-blue" />
+                <input
+                  type="checkbox"
+                  checked={smsConsent}
+                  onChange={() => setSmsConsent(!smsConsent)}
+                  className="accent-sos-primary-blue"
+                />
                 <span>{t('smsConsent')}</span>
               </label>
             </div>
@@ -179,13 +216,13 @@ const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? tru
             <div className="flex justify-end gap-4">
               <button
                 onClick={closeModal}
-                className="border border-sos-primary-blue text-sos-primary-blue px-6 py-2"
+                className="border border-sos-primary-blue px-6 py-2 text-sos-primary-blue"
               >
                 {t('cancel')}
               </button>
               <button
                 onClick={handleSubmit}
-                className="bg-sos-primary-blue text-white px-6 py-2"
+                className="bg-sos-primary-blue px-6 py-2 text-white"
               >
                 {t('confirm')}
               </button>

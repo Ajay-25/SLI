@@ -4,9 +4,6 @@ import { cookies } from 'next/headers';
 import { SectionSeparator } from '@/ui/home/SectionSeparator';
 import RSVPSelector from '@/ui/rsvp/RSVPSelector';
 
-//hooks
-import { useTranslations } from 'next-intl';
-
 //utils
 import { adaptCourses } from '@/ui/courseSchedule/utils';
 
@@ -47,20 +44,20 @@ export default async function Page({ params }: Props) {
   const courseList = await getServerSideProps(scheduleId, userId?.value);
   const course = adaptCourses(courseList)[0].courses[0];
   const nominationStatus = course.nominationStatus;
+  const tRSVP = await getTranslations('RSVP');
+  const t = await getTranslations('CourseSchedule');
   const titleSubText =
     nominationStatus == 'RSVP Confirmed'
-      ? 'RSVP: You Are Registered'
+      ? tRSVP('rsvpRegistered')
       : nominationStatus == 'RSVP Denied'
-      ? 'RSVP: You Have Declined'
-      : 'You Have Not Registered';
+      ? tRSVP('rsvpNotRegistered')
+      : tRSVP('rsvpUnknown');
   const rsvp =
     nominationStatus == 'RSVP Confirmed'
       ? 'Yes'
       : nominationStatus == 'RSVP Denied'
       ? 'No'
       : null;
-  const tRSVP = await getTranslations('RSVP');
-  const t = await getTranslations('CourseSchedule');
 
   return (
     <article className="flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-primary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
@@ -111,7 +108,6 @@ export default async function Page({ params }: Props) {
       <div className="mb-4 w-96">
         <SectionSeparator />
       </div>
-
       <RSVPSelector
         userId={userId?.value}
         scheduleId={scheduleId}
@@ -119,61 +115,39 @@ export default async function Page({ params }: Props) {
       />
       <div className="text-justify text-12 text-sos-primary-blue lg:text-16">
         <h3 className="mb-4 text-[#B42222]">
-          1. Course Attendance Requirement
+          {`1. ${tRSVP('attendanceRequirements')}`}
         </h3>
-        <p>
-          To ensure successful completion, all courses at the Service Leadership
-          Institue require full attendance:
-        </p>
+        <p>{tRSVP('header1')}</p>
         <ul className="m-4 list-inside list-disc indent-4">
           <li>
-            Single or Two-Part Courses:
+            {tRSVP('item1')}
             <ul className="list-inside list-disc indent-8">
-              <li>Attend all sessions for a completion grade.</li>
+              <li>{tRSVP('itemList11')}</li>
             </ul>
           </li>
           <br />
           <li>
-            Three or More Parts:
+            {tRSVP('item2')}
             <ul className="list-inside list-disc indent-8">
-              <li>One absense allowed.</li>
-              <li>
-                {'More than one absence results in an "incomplete" mark.'}
-              </li>
-              <li>You will need to retake the course in future.</li>
+              <li>{tRSVP('itemList21')}</li>
+              <li>{tRSVP('itemList22')}</li>
+              <li>{tRSVP('itemList23')}</li>
             </ul>
           </li>
         </ul>
       </div>
       <div className="text-justify text-12 text-sos-primary-blue lg:text-16">
         <h3 className="mb-4 text-[#B42222]">
-          2. Course Completion Requirement
+          {`2. ${tRSVP('completionRequirements')}`}
         </h3>
         <ul className="m-4 list-inside list-disc indent-4">
-          <li>
-            Course Reflection: After completing the course, you must fill out an
-            dsubmit the assigned course reflection form available on the course
-            website.
-          </li>
+          <li>{tRSVP('itemList31')}</li>
           <br />
-          <li>
-            Evaluation Process: Your submitted reflection will be reviewed by
-            the course facilitator. Approval of your reflection is required to
-            receive credit for the course.
-          </li>
+          <li>{tRSVP('itemList32')}</li>
           <br />
-          <li>
-            Granting of credit: Course credit will only be awarded upon
-            successful completion of both attendance and the approved course
-            reflection.
-          </li>
+          <li>{tRSVP('itemList33')}</li>
         </ul>
-        <p>
-          Failure to meet these requirements may result in no credit being
-          granted for the course. If you have any question about these terms,
-          please contact the course facilitatr before proceeding with your
-          registration.
-        </p>
+        <p>{tRSVP('footer')}</p>
       </div>
     </article>
   );

@@ -209,7 +209,24 @@
 
   "RSVP": {
     "title": "Course Attendance",
-    "seatsAvailable": "{remainingSeats} available seats out of {totalSeats}"
+    "seatsAvailable": "{remainingSeats} available seats out of {totalSeats}",
+    "rsvpRegistered": "RSVP: You Are Registered",
+    "rsvpNotRegistered": "RSVP: You Have Declined",
+    "rsvpUnknown": "You Have Not Registered",
+    "attendanceRequirements": "Course Attendance Requirements",
+    "header1": "To ensure successful completion, all courses at the Service Leadership Institue require full attendance:",
+    "item1": "Single or Two-Part Courses:",
+    "itemList11": "Attend all sessions for a completion grade.",
+    "item2": "Three or More Parts:",
+    "itemList21": "One absense allowed.",
+    "itemList22": "More than one absence results in an \"incomplete\" mark.",
+    "itemList23": "You will need to retake the course in future.",
+    "completionRequirements": "Course Completion Requirements",
+    "itemList31": "Course Reflection: After completing the course, you must fill out and submit the assigned course reflection form available on the course website.",
+    "itemList32": "Evaluation Process: Your submitted reflection will be reviewed by the course facilitator. Approval of your reflection is required to receive credit for the course.",
+    "itemList33": "Granting of credit: Course credit will only be awarded upon successful completion of both attendance and the approved course reflection.",
+    "footer": "Failure to meet these requirements may result in no credit being granted for the course. If you have any question about these terms, please contact the course facilitatr before proceeding with your registration.",
+    "rsvpYesRadio": "Yes I do commit and will attend",
+    "rsvpNoRadio": "I am not able to commit and will not attend"
   }
-
 }

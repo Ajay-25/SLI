@@ -95,7 +95,7 @@
       "Attendance": "Asistencia",
       "Credit": "Crédito"
     },
-    "ToDo":{
+    "ToDo": {
       "title": "Qué hacer",
       "ToDos": "Qué hacer",
       "Status": "Estado",
@@ -196,5 +196,28 @@
     "faqs": "Preguntas Frecuentes",
     "courseSchedule": "Horario de Cursos",
     "contactUs": "Contáctenos"
+  },
+
+  "RSVP": {
+    "title": "Asistencia al curso",
+    "seatsAvailable": "{remainingSeats} asientos disponibles fuera de {totalSeats}",
+    "rsvpRegistered": "RSVP: Estas registrado",
+    "rsvpNotRegistered": "RSVP: Usted ha declinado",
+    "rsvpUnknown": "No te has registrado",
+    "attendanceRequirements": "Requisitos de asistencia al curso",
+    "header1": "Para garantizar la finalización exitosa, todos los cursos del Instituto de Liderazgo de Servicio requieren asistencia completa:",
+    "item1": "Cursos de una o dos partes:",
+    "itemList11": "Asistir a todas las sesiones para obtener una calificación de finalización.",
+    "item2": "Tres o más partes:",
+    "itemList21": "Una ausencia permitida.",
+    "itemList22": "Más de una ausencia resulta en una calificación de \"incompleto\".",
+    "itemList23": "Necesitarás volver a tomar el curso en el futuro.",
+    "completionRequirements": "Requisitos para completar el curso",
+    "itemList31": "Reflexión del curso: Después de completar el curso, debe completar y enviar el formulario de reflexión del curso asignado disponible en el sitio web del curso.",
+    "itemList32": "Proceso de evaluación: El facilitador del curso revisará su reflexión. Su aprobación es necesaria para recibir el crédito del curso.",
+    "itemList33": "Otorgamiento de créditos: El crédito del curso solo se otorgará tras completar con éxito tanto la asistencia como la reflexión del curso aprobado.",
+    "footer": "El incumplimiento de estos requisitos podría resultar en la no concesión del crédito del curso. Si tiene alguna pregunta sobre estos términos, póngase en contacto con el facilitador del curso antes de proceder con su inscripción.",
+    "rsvpYesRadio": "Sí, me comprometo y asistiré.",
+    "rsvpNoRadio": "No puedo comprometerme y no asistiré."
   }
 }
