@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AdaptedCourse } from '@/ui/courseSchedule/types';
+import { AdaptedCourse } from '@components/courseSchedule/types';
 
 export default function RegisterModal({
   course,

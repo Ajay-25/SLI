@@ -1,9 +1,12 @@
 //components
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 import { Metadata } from 'next';
 
 //hooks
 import { useTranslations } from 'next-intl';
+
+//constants
+import { SUPPORTED_LOCALES } from '@lib/constants/locales';
 
 const HowToEnrollSection = () => {
   const t = useTranslations('FAQPage.HowToEnrollSection');
@@ -133,3 +136,7 @@ export default function Page() {
 export const metadata: Metadata = {
   title: 'FAQs',
 };
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+}

@@ -1,14 +1,14 @@
 import { cookies } from 'next/headers';
 // components
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 import CourseScheduleClient from './coursescheduleclient';
 
 // utils
-import { adaptCourses } from '@/ui/courseSchedule/utils';
+import { adaptCourses } from '@components/courseSchedule/utils';
 
 // types
 import { Metadata } from 'next';
-import { CourseSchedule } from '@/ui/courseSchedule/types';
+import { CourseSchedule } from '@components/courseSchedule/types';
 import { getTranslations } from 'next-intl/server';
 
 async function getServerSideCourses(userId: string | undefined): Promise<CourseSchedule[]> {

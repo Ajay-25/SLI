@@ -1,16 +1,17 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 
 import { parseISO, format } from 'date-fns';
 
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
-import { ProfileInfo, SevadarHistory } from '@/ui/myProfile/types';
+import { ProfileInfo, SevadarHistory } from '@components/myProfile/types';
+
 //hooks
-import {getTranslations} from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { useTranslations, useLocale } from 'next-intl';
 
 const Info = ({
   profileInfo,
@@ -21,20 +22,26 @@ const Info = ({
 }) => {
   return (
     <div className="flex gap-4 p-8 lg:gap-8 lg:p-12">
-      <div className="hidden lg:block" style={{width: '180px', height: '180px', position: 'relative'}}> 
+      <div
+        className="hidden lg:block"
+        style={{ width: '180px', height: '180px', position: 'relative' }}
+      >
         <Image
           src={'https://scd.sos.org' + profileInfo.imagePath}
           alt=""
           className="hidden self-start lg:block"
-          layout='fill'
+          layout="fill"
         />
       </div>
-      <div className="lg:hidden" style={{width: '60px', height: '60px', position: 'relative'}}> 
+      <div
+        className="lg:hidden"
+        style={{ width: '60px', height: '60px', position: 'relative' }}
+      >
         <Image
           src={'https://scd.sos.org' + profileInfo.imagePath}
           alt=""
           className="self-start lg:hidden"
-          layout='fill'
+          layout="fill"
         />
       </div>
       <div className="px-10 text-justify text-16 text-sos-primary-blue lg:px-20 lg:text-20">
@@ -44,14 +51,10 @@ const Info = ({
   );
 };
 
-const ToDos = ({
-    sevadarHistory,
-}: {
-  sevadarHistory: SevadarHistory[];
-}) => {
+const ToDos = ({ sevadarHistory }: { sevadarHistory: SevadarHistory[] }) => {
   const t = useTranslations('MyProfilePage');
   return (
-    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+    <article className="hidden flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:flex lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
         {t('ToDo.title')}
       </h1>
@@ -65,16 +68,28 @@ const ToDos = ({
               {t('ToDo.Status')}
             </td>
           </tr>
-          {sevadarHistory.filter(item => item.status == 'Attended' && item.reflectionStatus != 'Complete').map((item, index) => (
-            <tr key={item.id}>
-              <td className="border-sos-secondary-blue-50 border-2 ps-2 ">
-                <a href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`}  target="_blank" className="text-blue-600 underline underline-offset-2">{item.Schedule.Module.name + ' - Self Reflection Form'}</a>
-              </td>
-              <td className="border-sos-secondary-blue-50 border-2 ps-2 text-red-400">
-                {t('ToDo.Incomplete')}
-              </td>
-            </tr>
-          ))}
+          {sevadarHistory
+            .filter(
+              (item) =>
+                item.status == 'Attended' &&
+                item.reflectionStatus != 'Complete',
+            )
+            .map((item, index) => (
+              <tr key={item.id}>
+                <td className="border-sos-secondary-blue-50 border-2 ps-2 ">
+                  <a
+                    href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`}
+                    target="_blank"
+                    className="text-blue-600 underline underline-offset-2"
+                  >
+                    {item.Schedule.Module.name + ' - Self Reflection Form'}
+                  </a>
+                </td>
+                <td className="border-sos-secondary-blue-50 border-2 ps-2 text-red-400">
+                  {t('ToDo.Incomplete')}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </article>
@@ -118,71 +133,96 @@ const CourseCompletion = ({
 }) => {
   const t = useTranslations('MyProfilePage');
   const tCourse = useTranslations('CoursePage');
-  const globalT = useTranslations();
-  const locale = globalT('locale');
-  const completedCourse = sevadarHistory.filter(obj => obj.status == "Attended" && obj.reflectionStatus == "Complete");
-  const isLovingCommunicationCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 18) || (completedCourse.some(obj => obj.Schedule.Module.id == 43) && completedCourse.some(obj => obj.Schedule.Module.id == 44));
-  const isDelegationCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 32) || (completedCourse.some(obj => obj.Schedule.Module.id == 47) && completedCourse.some(obj => obj.Schedule.Module.id == 48));
-  const isServingOthersCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 24) || (completedCourse.some(obj => obj.Schedule.Module.id == 49) && completedCourse.some(obj => obj.Schedule.Module.id == 50));
-  const isConflictCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 27) || (completedCourse.some(obj => obj.Schedule.Module.id == 51) && completedCourse.some(obj => obj.Schedule.Module.id == 52));
-  const isMeetingCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 19) || (completedCourse.some(obj => obj.Schedule.Module.id == 45) && completedCourse.some(obj => obj.Schedule.Module.id == 46));
-  const isColabCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 31) || (completedCourse.some(obj => obj.Schedule.Module.id == 53) && completedCourse.some(obj => obj.Schedule.Module.id == 54));
-  const isBLCCompleted = completedCourse.some(obj => obj.Schedule.Module.id == 83) || (completedCourse.some(obj => obj.Schedule.Module.id == 42) && completedCourse.some(obj => obj.Schedule.Module.id == 84) && completedCourse.some(obj => obj.Schedule.Module.id == 85) && completedCourse.some(obj => obj.Schedule.Module.id == 86) && completedCourse.some(obj => obj.Schedule.Module.id == 87) && completedCourse.some(obj => obj.Schedule.Module.id == 88));
+  const locale = useLocale();
+  const completedCourse = sevadarHistory.filter(
+    (obj) => obj.status == 'Attended' && obj.reflectionStatus == 'Complete',
+  );
+  const isLovingCommunicationCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 18) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 43) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 44));
+  const isDelegationCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 32) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 47) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 48));
+  const isServingOthersCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 24) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 49) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 50));
+  const isConflictCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 27) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 51) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 52));
+  const isMeetingCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 19) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 45) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 46));
+  const isColabCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 31) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 53) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 54));
+  const isBLCCompleted =
+    completedCourse.some((obj) => obj.Schedule.Module.id == 83) ||
+    (completedCourse.some((obj) => obj.Schedule.Module.id == 42) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 84) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 85) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 86) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 87) &&
+      completedCourse.some((obj) => obj.Schedule.Module.id == 88));
   return (
-    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+    <article className="hidden flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:flex lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
         {t('CourseCompletion.title')}
       </h1>
       <div className="flex flex-row">
-            <Item
-              source={`/images/courses/${locale}/loving-communication.webp`}
-              altText={tCourse('LovingCommunication.title')}
-              showComplete={isLovingCommunicationCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/serving-others.webp`}
-              altText={tCourse('ServingOthers.title')}
-              showComplete={isServingOthersCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/delegation.webp`}
-              altText={tCourse('Delegation.title')}
-              showComplete={isDelegationCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/conflict-resolution.webp`}
-              altText={tCourse('ConflictResolution.title')}
-              showComplete={isConflictCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/effective_meeting_management.webp`}
-              altText={tCourse('MeetingManagement.title')}
-              showComplete={isMeetingCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/collaborative_decision_making.webp`}
-              altText={tCourse('CollaborativeDecisionMaking.title')}
-              showComplete={isColabCompleted}
-            />
-            <SectionSeparator />
-      
-            <Item
-              source={`/images/courses/${locale}/building_lasting_change.webp`}
-              altText={tCourse('BuildingLastingChange.title')}
-              showComplete={isBLCCompleted}
-            />
-          </div>
+        <Item
+          source={`/images/courses/${locale}/loving-communication.webp`}
+          altText={tCourse('LovingCommunication.title')}
+          showComplete={isLovingCommunicationCompleted}
+        />
+        <SectionSeparator />
 
+        <Item
+          source={`/images/courses/${locale}/serving-others.webp`}
+          altText={tCourse('ServingOthers.title')}
+          showComplete={isServingOthersCompleted}
+        />
+        <SectionSeparator />
+
+        <Item
+          source={`/images/courses/${locale}/delegation.webp`}
+          altText={tCourse('Delegation.title')}
+          showComplete={isDelegationCompleted}
+        />
+        <SectionSeparator />
+
+        <Item
+          source={`/images/courses/${locale}/conflict-resolution.webp`}
+          altText={tCourse('ConflictResolution.title')}
+          showComplete={isConflictCompleted}
+        />
+        <SectionSeparator />
+
+        <Item
+          source={`/images/courses/${locale}/effective_meeting_management.webp`}
+          altText={tCourse('MeetingManagement.title')}
+          showComplete={isMeetingCompleted}
+        />
+        <SectionSeparator />
+
+        <Item
+          source={`/images/courses/${locale}/collaborative_decision_making.webp`}
+          altText={tCourse('CollaborativeDecisionMaking.title')}
+          showComplete={isColabCompleted}
+        />
+        <SectionSeparator />
+
+        <Item
+          source={`/images/courses/${locale}/building_lasting_change.webp`}
+          altText={tCourse('BuildingLastingChange.title')}
+          showComplete={isBLCCompleted}
+        />
+      </div>
     </article>
   );
 };
@@ -194,7 +234,7 @@ const CourseHistory = ({
 }) => {
   const t = useTranslations('MyProfilePage');
   return (
-    <article className="hidden lg:flex flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
+    <article className="hidden flex-col gap-2 px-[2.2rem] pb-[4rem] pt-[2rem] text-sos-secondary-blue lg:flex lg:gap-6 lg:px-[14rem] lg:pb-[8rem] lg:pt-[6rem]">
       <h1 className="lg:text-38 self-start text-center text-32 font-medium">
         {t('CourseHistory.title')}
       </h1>

@@ -1,15 +1,18 @@
 import clsx from 'clsx';
-import { Link } from '@i18n/navigation';
+import { Link } from '@lib/i18n/navigation';
 
 //hooks
 import { useTranslations } from 'next-intl';
 
+//locales
+import { SUPPORTED_LOCALES } from '@lib/constants/locales';
+
 //components
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
-import { VideoContainer } from '@/ui/home/videoContainer';
+import { SectionSeparator } from '@components/home/SectionSeparator';
+import { VideoContainer } from '@components/home/videoContainer';
 
 //styles
-import styles from '@/ui/home/home.module.css';
+import styles from '@components/home/home.module.css';
 
 const BannerSection = () => {
   return (
@@ -242,4 +245,8 @@ export default function Page() {
       <CertifiedSection />
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }

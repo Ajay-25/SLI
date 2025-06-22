@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { Link } from '@i18n/navigation';
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { Link } from '@lib/i18n/navigation';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 
 //hooks
-import { usePathname } from '@i18n/navigation';
+import { usePathname } from '@lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 //types
-import type { Link as LinkType } from '@/ui/types/links';
+import type { Link as LinkType } from '@components/types/links';
 import clsx from 'clsx';
 import Image from 'next/image';
 

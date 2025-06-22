@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./app/*", "./app/[locale]/*"],
-      "@i18n/*": ["./i18n/*"],
+      "@lib/*": ["./lib/*"],
+      "@components/*": ["./components/*"]
     }
   },
   "include": [

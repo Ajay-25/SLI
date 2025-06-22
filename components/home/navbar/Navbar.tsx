@@ -1,9 +1,9 @@
 'use client';
-import { Link } from '@i18n/navigation';
+import { Link } from '@lib/i18n/navigation';
 import clsx from 'clsx';
 
 //hooks
-import { usePathname } from '@i18n/navigation';
+import { usePathname } from '@lib/i18n/navigation';
 
 //components
 import { NavLinks } from './NavLinks';
