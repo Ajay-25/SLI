@@ -26,31 +26,37 @@ const BannerImageSection = () => {
 };
 
 const Item = ({
-  source,
+  title,
+  videoUrl,
   altText,
   children,
+  reverse = false,
 }: {
-  source: string;
+  title: string;
+  videoUrl: string;
   altText: string;
   children: ReactNode;
+  reverse?: boolean;
 }) => {
   return (
-    <div className="flex gap-4 p-4 lg:gap-8 lg:p-12">
-      <Image
-        src={source}
-        width={180}
-        height={180}
-        alt={altText}
-        className="hidden self-start lg:block"
-      />
-      <Image
-        src={source}
-        width={60}
-        height={60}
-        alt={altText}
-        className="self-start lg:hidden"
-      />
-      <div className="text-justify text-16 text-sos-primary-blue lg:text-20">
+    <div className={`flex flex-col gap-4 p-4 lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''} lg:gap-8 lg:p-12`}>
+      
+      {/* Video container */}
+      <div className="w-full lg:w-1/2 flex justify-center items-start">
+        <div className="w-full aspect-video max-w-[560px]">
+          <iframe
+            src={videoUrl}
+            title={altText}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-md"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* Text container */}
+      <div className="w-full lg:w-1/2 text-justify text-16 text-sos-primary-blue lg:text-20">
+      <h3 className="text-20 lg:text-24 font-bold mb-2">{title}</h3>
         {children}
       </div>
     </div>
@@ -64,7 +70,8 @@ const ItemList = () => {
   return (
     <div className="mx-[2.2rem] flex flex-col lg:mx-[14.2rem]">
       <Item
-        source={`/images/courses/${locale}/loving-communication.webp`}
+        title={t('LovingCommunication.title')}
+        videoUrl="https://www.youtube.com/embed/yJxGo82Ti3M"
         altText={t('LovingCommunication.title')}
       >
         <div>{t('LovingCommunication.description')}</div>
@@ -72,15 +79,18 @@ const ItemList = () => {
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/serving-others.webp`}
+        title={t('ServingOthers.title')}
+        videoUrl="https://www.youtube.com/embed/3wdvX68pSFA"
         altText={t('ServingOthers.title')}
+        reverse
       >
         <div>{t('ServingOthers.description')}</div>
       </Item>
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/delegation.webp`}
+        title={t('Delegation.title')}
+        videoUrl="https://www.youtube.com/embed/yQcy3UHjkg4"
         altText={t('Delegation.title')}
       >
         <div className="flex flex-col gap-8">
@@ -96,15 +106,18 @@ const ItemList = () => {
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/conflict-resolution.webp`}
+        title={t('ConflictResolution.title')}
+        videoUrl="https://www.youtube.com/embed/ysmWhZoP4Cc"
         altText={t('ConflictResolution.title')}
+        reverse
       >
         <div>{t('ConflictResolution.description')}</div>
       </Item>
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/effective_meeting_management.webp`}
+        title={t('MeetingManagement.title')}
+        videoUrl="https://www.youtube.com/embed/HUe0W1Lp_C8"
         altText={t('MeetingManagement.title')}
       >
         <div className="flex flex-col gap-6">
@@ -114,8 +127,10 @@ const ItemList = () => {
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/collaborative_decision_making.webp`}
+        title={t('CollaborativeDecisionMaking.title')}
+        videoUrl="https://www.youtube.com/embed/OzDxCu3ABqE"
         altText={t('CollaborativeDecisionMaking.title')}
+        reverse
       >
         <div className="flex flex-col gap-6">
           <p>{t('CollaborativeDecisionMaking.description')}</p>
@@ -124,7 +139,8 @@ const ItemList = () => {
       <SectionSeparator />
 
       <Item
-        source={`/images/courses/${locale}/building_lasting_change.webp`}
+        title={t('BuildingLastingChange.title')}
+        videoUrl="https://www.youtube.com/embed/nPf1ev5pWEU"
         altText={t('BuildingLastingChange.title')}
       >
         <div>{t('BuildingLastingChange.description')}</div>
