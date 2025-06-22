@@ -11,14 +11,14 @@ import {
   useCallback,
 } from 'react';
 
-import { GoogleCaptchaProvider } from '@/ui/googleCaptchaProvider';
+import { GoogleCaptchaProvider } from '@components/googleCaptchaProvider';
 
 //hooks
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useTranslations } from 'next-intl';
 
 //components
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 
 const Input = ({
   name,

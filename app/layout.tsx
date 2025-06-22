@@ -1,13 +1,13 @@
-import '@/ui/global.css';
-import { futuraFont } from '@/ui/fonts';
+import '@styles/global.css';
+import { futuraFont } from '@lib/fonts';
 
 import { NextIntlClientProvider } from 'next-intl';
 
 //components
-import { Authenticate } from '@/ui/authenticate';
+import { Authenticate } from '@components/authenticate';
 
 //components
-import { Navbar } from '@/ui/home/navbar';
+import { Navbar } from '@components/home/navbar';
 
 //types
 import type { ReactNode } from 'react';

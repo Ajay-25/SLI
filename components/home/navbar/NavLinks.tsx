@@ -1,12 +1,12 @@
-import { Link } from '@i18n/navigation';
+import { Link } from '@lib/i18n/navigation';
 import clsx from 'clsx';
 
 // components
-import { HamburgerMenu } from '@/ui/menu';
+import { HamburgerMenu } from '@components/menu';
 import LanguageSelector from './LanguageSelector';
 
 // hooks
-import { usePathname } from '@i18n/navigation';
+import { usePathname } from '@lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 const links = [

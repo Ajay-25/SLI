@@ -1,8 +1,8 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { AdaptedCourse, Config } from '@/ui/courseSchedule/types';
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { AdaptedCourse, Config } from '@components/courseSchedule/types';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 import { useTranslations } from 'next-intl';
 
 import axios from 'axios';

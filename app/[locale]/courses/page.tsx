@@ -1,17 +1,19 @@
 //components
-import { SectionSeparator } from '@/ui/home/SectionSeparator';
+import { SectionSeparator } from '@components/home/SectionSeparator';
 import Image from 'next/image';
 
 //hooks
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+
+//constants
+import { SUPPORTED_LOCALES } from '@lib/constants/locales';
 
 //types
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 
 const BannerImageSection = () => {
-  const globalT = useTranslations();
-  const locale = globalT('locale');
+  const locale = useLocale();
 
   return (
     <div
@@ -56,9 +58,8 @@ const Item = ({
 };
 
 const ItemList = () => {
+  const locale = useLocale();
   const t = useTranslations('CoursePage');
-  const globalT = useTranslations();
-  const locale = globalT('locale');
 
   return (
     <div className="mx-[2.2rem] flex flex-col lg:mx-[14.2rem]">
@@ -144,3 +145,7 @@ export default function Page() {
 export const metadata: Metadata = {
   title: 'Courses',
 };
+
+export async function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+}
