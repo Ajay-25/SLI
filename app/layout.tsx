@@ -1,4 +1,4 @@
-import '@/global.css';
+import '@/styles/global.css';
 import { futuraFont } from '@lib/fonts';
 
 import { NextIntlClientProvider } from 'next-intl';

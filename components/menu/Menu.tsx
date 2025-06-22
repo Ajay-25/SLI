@@ -10,11 +10,14 @@ import { usePathname } from '@lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 //types
-import type { Link as LinkType } from '@components/types/links';
 import clsx from 'clsx';
 import Image from 'next/image';
 
-const HamburgerMenu = ({ links }: { links: LinkType[] }) => {
+const HamburgerMenu = ({
+  links,
+}: {
+  links: { key: string; href: string }[];
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const t = useTranslations('Nav');

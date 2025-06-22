@@ -6,7 +6,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "start": "next start",
-    "tsc": "node  ./node_modules/.bin/tsc --watch"
+    "tsc": "node  ./node_modules/.bin/tsc --noEmit --watch"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
