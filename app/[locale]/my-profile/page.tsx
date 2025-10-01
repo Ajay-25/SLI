@@ -78,8 +78,8 @@ const ToDos = ({ sevadarHistory }: { sevadarHistory: SevadarHistory[] }) => {
               <tr key={item.id}>
                 <td className="border-sos-secondary-blue-50 border-2 ps-2 ">
                   <a
-                    href={`https://scd.sos.org/#/LandingPage?reflectionScheduleId=${item.Schedule.id}`}
-                    target="_blank"
+                    href={`/self-reflection/${item.Schedule.id}`}
+                    target="_self"
                     className="text-blue-600 underline underline-offset-2"
                   >
                     {item.Schedule.Module.name + ' - Self Reflection Form'}

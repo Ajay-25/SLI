@@ -219,5 +219,10 @@
     "footer": "El incumplimiento de estos requisitos podría resultar en la no concesión del crédito del curso. Si tiene alguna pregunta sobre estos términos, póngase en contacto con el facilitador del curso antes de proceder con su inscripción.",
     "rsvpYesRadio": "Sí, me comprometo y asistiré.",
     "rsvpNoRadio": "No puedo comprometerme y no asistiré."
+  },
+
+  "Reflection": {
+    "title": "Reflexiones sobre mi experiencia en el Instituto de Liderazgo de Servicio SOS",
+    "description": "Congratulation on successfully "
   }
 }

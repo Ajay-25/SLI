@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "NEXT_DEBUG=true next dev --turbopack",
+    "dev": "next dev --turbopack",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "start": "next start",
@@ -23,7 +23,7 @@
     "postcss": "8.4.31",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-google-recaptcha-v3": "^1.10.1",
+    "react-google-recaptcha-v3": "^1.11.0",
     "react-icons": "^5.4.0",
     "rsuite": "^5.76.3",
     "tailwindcss": "3.3.3",

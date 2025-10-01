@@ -228,5 +228,15 @@
     "footer": "Failure to meet these requirements may result in no credit being granted for the course. If you have any question about these terms, please contact the course facilitatr before proceeding with your registration.",
     "rsvpYesRadio": "Yes I do commit and will attend",
     "rsvpNoRadio": "I am not able to commit and will not attend"
+  },
+
+  "Reflection": {
+    "title": "Reflecting On My SOS Service Leadership Institute Experience",
+    "submitting": "Submitting",
+    "submit": "Submit",
+    "description": "Congratulation on successfully ",
+    "question1": "Describe one thing you learned in this course that resonated with you. (3 sentence minimum)",
+    "question2": "Describe how you've applied what you learned since taking the course. (Consider your current service activities, your work, or your interactions with friends and family. (3 sentence minimum)",
+    "submission": "Submission Received!"
   }
 }
