@@ -189,14 +189,15 @@
     "language": "Language: {language}",
     "loadingCourses": "We are loading the courses for you, Please wait...",
     "modalTitle": "Contact Method",
-    "modalSubtitle": "Please confirm your email and phone number below and select a contact method.",
+    "modalSubtitle": "Please confirm your email and phone number below.",
     "email": "Email",
     "emailPlaceholder": "your@email.com",
     "whatsapp": "WhatsApp Phone Number",
     "whatsappPlaceholder": "e.g. +1234567890",
-    "smsConsent": "I do not have WhatsApp and consent to receiving SMS Text messages",
+    "smsConsent": "I do not have WhatsApp and consent to receiving SMS Text messages.If you reside outside the USA, you must have WhatsApp to receive phone reminders.",
     "cancel": "Cancel",
-    "confirm": "Confirm Registration"
+    "confirm": "Confirm Registration",
+    "formError": "Please enter all required fields."
   },
 
   "Nav": {

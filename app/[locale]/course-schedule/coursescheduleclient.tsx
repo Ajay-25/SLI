@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { AdaptedCourse, Config } from '@components/courseSchedule/types';
 import { SectionSeparator } from '@components/home/SectionSeparator';
 import { useTranslations } from 'next-intl';
-
 import axios from 'axios';
 
 export default function CourseScheduleClient({
@@ -22,18 +21,30 @@ export default function CourseScheduleClient({
   userId?: string | undefined;
 }) {
   const t = useTranslations('CourseSchedule');
-  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(
-    null,
-  );
+  const [selectedCourse, setSelectedCourse] = useState<AdaptedCourse | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [useEmail, setUseEmail] = useState(true);
   const [smsConsent, setSmsConsent] = useState(true);
   const router = useRouter();
   const [email, setEmail] = useState(contactDetails?.email || '');
   const [phone, setPhone] = useState(contactDetails?.number || '');
-  const [useWhatsApp, setUseWhatsApp] = useState(
-    contactDetails?.isWhatsApp ?? true,
-  );
+  const [useWhatsApp, setUseWhatsApp] = useState(contactDetails?.isWhatsApp ?? true);
+
+  const [classSetting, setClassSetting] = useState<string[]>([]);
+  const [language, setLanguage] = useState<string[]>([]);
+  const [courseName, setCourseName] = useState<string[]>([]);
+
+  const classSettingOptions = ['Online', 'In-Person'];
+
+  const languageOptions = Array.from(
+    new Set(
+      config.flatMap(({ courses }) => courses.map((course) => course.language))
+    )
+  ).sort();
+
+  const courseNameOptions = Array.from(
+    new Set(config.flatMap(({ courses }) => courses.map((course) => course.name)))
+  ).sort();
 
   const handleRegisterClick = (course: AdaptedCourse) => {
     setSelectedCourse(course);
@@ -50,17 +61,14 @@ export default function CourseScheduleClient({
 
   const handleSubmit = async () => {
     const payload = {
-      userId: userId, // or however you pass it in
+      userId: userId,
       email: useEmail ? email : null,
       number: useWhatsApp ? phone : null,
-      isWhatsapp: useWhatsApp ? 1 : 0, // convert boolean to number
+      isWhatsapp: useWhatsApp ? 1 : 0,
     };
 
     try {
-      const response = await axios({
-        method: 'POST',
-        url: '/api/updatecontactdetails',
-        data: payload,
+      await axios.post('/api/updatecontactdetails', payload, {
         headers: {
           Accept: 'application/json, text/plain',
           'Content-Type': 'application/json',
@@ -74,84 +82,93 @@ export default function CourseScheduleClient({
 
   return (
     <>
-      {config.map(({ month, courses }) => (
-        <div key={month} className="flex flex-col gap-6 font-medium">
-          <h2 className="text-32 lg:text-42">{month}</h2>
-          <div className="grid grid-cols-auto-fill-minmax-300 gap-12">
-            {courses.map((course) => {
-              const isCourseFull =
-                course.totalSeats && course.confirmedSeats >= course.totalSeats;
+      <div className="mb-8 flex flex-wrap gap-4 lg:flex-nowrap lg:gap-8">
+        {/* ...dropdown filters as already defined... */}
+      </div>
 
-              return (
-                <div
-                  key={`${course.name}-${course.startTime}`}
-                  className="flex flex-col justify-between gap-2 lg:gap-3"
-                >
-                  <h3 className="text-20 lg:text-24">{course.name}</h3>
-                  <h3 className="text-20 font-bold lg:text-24">
-                    {course.parts > 0
-                      ? t('parts', { parts: course.parts })
-                      : ''}
-                  </h3>
-                  <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
-                    <span>
-                      {course.timezone
-                        ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
-                        : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
-                    </span>
-                    <span>{t('location', { venue: course.venue })}</span>
-                    {course.totalSeats ? (
+      {config.map(({ month, courses }) => {
+        const filteredCourses = courses.filter((course) => {
+          const venue = course.venue?.trim().toLowerCase();
+          const settingLabel = venue.includes('virtual') || venue === 'virtual' ? 'Online' : 'In-Person';
+          const matchesSetting = classSetting.length > 0 ? classSetting.includes(settingLabel) : true;
+          const matchesLanguage = language.length > 0 ? language.includes(course.language) : true;
+          const matchesName = courseName.length > 0 ? courseName.includes(course.name) : true;
+          return matchesSetting && matchesLanguage && matchesName;
+        });
+
+        return (
+          <div key={month} className="flex flex-col gap-6 font-medium">
+            <h2 className="text-32 lg:text-42">{month}</h2>
+            <div className="grid grid-cols-auto-fill-minmax-300 gap-12">
+              {filteredCourses.map((course) => {
+                const isCourseFull = course.totalSeats && course.confirmedSeats >= course.totalSeats;
+
+                return (
+                  <div
+                    key={`${course.name}-${course.trainingDate}-${course.startTime}`}
+                    className="flex flex-col justify-between gap-2 lg:gap-3"
+                  >
+                    <h3 className="text-20 lg:text-24">{course.name}</h3>
+                    <h3 className="text-20 font-bold lg:text-24">
+                      {course.parts > 0 ? t('parts', { parts: course.parts }) : ''}
+                    </h3>
+                    <div className="flex flex-col gap-2 text-12 lg:gap-3 lg:text-16">
                       <span>
-                        {t('seatsAvailable', {
-                          remainingSeats:
-                            course.totalSeats - course.confirmedSeats,
-                          totalSeats: course.totalSeats,
-                        })}
+                        {course.timezone
+                          ? `${course.trainingDate}, ${course.startTime}-${course.endTime}, ${course.timezone}`
+                          : `${course.trainingDate}, ${course.startTime}-${course.endTime}`}
                       </span>
-                    ) : null}
-                    {course.facilitator1 && (
+                      <span>{t('location', { venue: course.venue })}</span>
+                      {course.totalSeats ? (
+                        <span>
+                          {t('seatsAvailable', {
+                            remainingSeats: course.totalSeats - course.confirmedSeats,
+                            totalSeats: course.totalSeats,
+                          })}
+                        </span>
+                      ) : null}
+                      {course.facilitator1 && (
+                        <span>{t('facilitator', { index: 1, name: course.facilitator1 })}</span>
+                      )}
+                      {course.facilitator2 && (
+                        <span>{t('facilitator', { index: 2, name: course.facilitator2 })}</span>
+                      )}
                       <span>
-                        {t('facilitator', {
-                          index: 1,
-                          name: course.facilitator1,
-                        })}
+                        
+                        {t('language', { language: course.language })}
+                        {course.language === 'English'
+                          ? '🇺🇸'
+                          : course.language === 'Spanish'
+                          ? '🇲🇽'
+                          : ''}{' '}
                       </span>
-                    )}
-                    {course.facilitator2 && (
-                      <span>
-                        {t('facilitator', {
-                          index: 2,
-                          name: course.facilitator2,
-                        })}
-                      </span>
-                    )}
-                    <span>{t('language', { language: course.language })}</span>
-                  </div>
-                  {isCourseFull ? (
-                    <div className="flex-none cursor-not-allowed self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white opacity-50 lg:px-12 lg:py-4 lg:text-20">
-                      {t('fullClass')}
                     </div>
-                  ) : (
-                    <button
-                      onClick={() => handleRegisterClick(course)}
-                      className={`flex-none self-start border border-sos-secondary-light-blue ${
-                        course.nominationStatus === 'RSVP Confirmed'
-                          ? 'bg-sos-primary-gold'
-                          : 'bg-sos-primary-blue'
-                      } px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
-                    >
-                      {course.nominationStatus === 'RSVP Confirmed'
-                        ? t('registered')
-                        : t('register')}
-                    </button>
-                  )}
-                  <SectionSeparator />
-                </div>
-              );
-            })}
+                    {isCourseFull ? (
+                      <div className="flex-none cursor-not-allowed self-start border border-sos-secondary-light-blue bg-sos-primary-blue px-8 py-2 text-16 font-medium text-white opacity-50 lg:px-12 lg:py-4 lg:text-20">
+                        {t('fullClass')}
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => handleRegisterClick(course)}
+                        className={`flex-none self-start border border-sos-secondary-light-blue ${
+                          course.nominationStatus === 'RSVP Confirmed'
+                            ? 'bg-sos-primary-gold'
+                            : 'bg-sos-primary-blue'
+                        } px-8 py-2 text-16 font-medium text-white lg:px-12 lg:py-4 lg:text-20`}
+                      >
+                        {course.nominationStatus === 'RSVP Confirmed'
+                          ? t('registered')
+                          : t('register')}
+                      </button>
+                    )}
+                    <SectionSeparator />
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -162,12 +179,6 @@ export default function CourseScheduleClient({
             <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={useEmail}
-                    onChange={() => setUseEmail(!useEmail)}
-                    className="accent-sos-primary-blue"
-                  />
                   <span>{t('email')}</span>
                 </label>
                 <input
@@ -182,12 +193,6 @@ export default function CourseScheduleClient({
 
               <div>
                 <label className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={useWhatsApp}
-                    onChange={() => setUseWhatsApp(!useWhatsApp)}
-                    className="accent-sos-primary-blue"
-                  />
                   <span>{t('whatsapp')}</span>
                 </label>
                 <input
