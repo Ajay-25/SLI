@@ -60,12 +60,15 @@ const ReflectionSubmitForm = ({ onSubmit }: { onSubmit: () => void }) => {
   );
 };
 
-export default function ReflectionPage(SuccessPage: typeof React.Component) {
+export default function ReflectionPage({
+  SuccessPage,
+}: {
+  SuccessPage: () => React.ReactElement;
+}) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const tReflection = useTranslations('Reflection');
 
   const handleSubmit = useCallback(() => setFormSubmitted(true), []);
-  const sendMail = useCallback(() => setFormSubmitted(false), []);
 
   return formSubmitted ? (
     <SuccessPage />

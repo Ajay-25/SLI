@@ -111,7 +111,7 @@ export default async function Page({ params }: Props) {
       <div className="text-justify text-16 text-sos-primary-blue lg:text-16">
         {tReflection('description')}
       </div>
-      <ReflectionPage successPage={successPage} />
+      <ReflectionPage SuccessPage={successPage} />
     </article>
   );
 }
