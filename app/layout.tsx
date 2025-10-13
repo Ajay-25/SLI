@@ -11,7 +11,8 @@ import { Navbar } from '@components/home/navbar';
 
 //types
 import type { ReactNode } from 'react';
-import type { Metadata } from 'next';
+
+type Params = Promise<{ locale: string }>;
 
 function HomeLayout({ children }: { children: ReactNode }) {
   return (
@@ -24,15 +25,28 @@ function HomeLayout({ children }: { children: ReactNode }) {
   );
 }
 
+export async function generateMetadata({ params }: { params: Params }) {
+  const { locale } = await params;
+  console.log(locale);
+  return {
+    title: {
+      template: 'SLI | %s',
+      default: 'SLI',
+    },
+    description:
+      'Discover the art of effective meeting management, loving communication, and the essentials of service leadership',
+  };
+}
+
 export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Params;
 }) {
-  const { locale } = await params;
-
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
   return (
     <html lang={locale}>
       <body className={`${futuraFont.className} antialiased`}>
@@ -44,12 +58,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
-export const metadata: Metadata = {
-  title: {
-    template: 'SLI | %s',
-    default: 'SLI',
-  },
-  description:
-    'Discover the art of effective meeting management, loving communication, and the essentials of service leadership',
-};
