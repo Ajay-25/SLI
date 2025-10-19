@@ -93,7 +93,9 @@
       "Location": "Location",
       "Date": "Date",
       "Attendance": "Attendance",
-      "Credit": "Credit"
+      "Credit": "Credit",
+      "AttendanceDisclaimer": "* Attendance means you were present and fully participated in the course from start to finish. Your facilitator will mark you as attended once the session is complete.",
+      "CreditDisclaimer": "** Credit, on the other hand, is all about reflection and growth. You'll receive credit once you've completed the course and submitted your self-reflection form. This form helps you process what you learned and share your key takeaways. "
     },
     "ToDo": {
       "title": "To Do's",
@@ -102,7 +104,7 @@
       "Incomplete": "Incomplete"
     },
     "CourseCompletion": {
-      "title": "Course Completion"
+      "title": "Certification Progress"
     }
   },
 

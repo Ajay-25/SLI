@@ -93,7 +93,9 @@
       "Location": "Ubicación",
       "Date": "Fecha",
       "Attendance": "Asistencia",
-      "Credit": "Crédito"
+      "Credit": "Crédito",
+      "AttendanceDisclaimer": "* La asistencia significa que estuvo presente y participó plenamente en el curso de principio a fin. Su facilitador lo marcará como asistente una vez finalizada la sesión.",
+      "CreditDisclaimer": "** El crédito, por otro lado, se centra en la reflexión y el crecimiento. Recibirás el crédito una vez que hayas completado el curso y enviado tu formulario de autorreflexión. Este formulario te ayuda a procesar lo aprendido y a compartir tus conclusiones clave. "
     },
     "ToDo": {
       "title": "Qué hacer",
@@ -102,7 +104,7 @@
       "Incomplete": "Incompleto"
     },
     "CourseCompletion": {
-      "title": "Finalización del curso"
+      "title": "Progreso de la certificación"
     }
   },
 
